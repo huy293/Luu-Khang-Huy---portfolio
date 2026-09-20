@@ -358,35 +358,35 @@
             pointer-events: none;
             transition: transform 0.4s ease;
         }
-        /* Form 1: Pure Optical Crystal Bubble */
+        /* Sphere 1: Pure Optical Prismatic Crystal Bubble Sphere */
         .glass-form-bubble {
             border-radius: 9999px;
             background-image: url('assets/huy/bright_crystal_bubble_3d.webp');
             filter: drop-shadow(0 12px 24px rgba(8, 3, 25, 0.4)) drop-shadow(0 0 20px rgba(192, 132, 252, 0.3));
         }
-        /* Form 2: Luminous Celestial Nebula Sphere */
+        /* Sphere 2: Luminous Celestial Nebula Galaxy Sphere */
         .glass-form-nebula {
             border-radius: 9999px;
             background-image: url('assets/huy/luminous_celestial_orb_3d.webp');
             filter: drop-shadow(0 16px 32px rgba(8, 3, 25, 0.55)) drop-shadow(0 0 30px rgba(168, 85, 247, 0.45));
         }
-        /* Form 3: Zero-Gravity Liquid Mercury-Glass Droplet */
-        .glass-form-droplet {
-            border-radius: 0;
-            background-image: url('assets/huy/artifact_liquid_droplet_3d.webp');
-            filter: drop-shadow(0 14px 28px rgba(8, 3, 25, 0.45)) drop-shadow(0 0 24px rgba(221, 214, 254, 0.35));
+        /* Sphere 3: Quantum Cyan-Emerald Energy Plasma Sphere */
+        .glass-form-plasma {
+            border-radius: 9999px;
+            background-image: url('assets/huy/orb_quantum_plasma_3d.webp');
+            filter: drop-shadow(0 14px 28px rgba(8, 3, 25, 0.5)) drop-shadow(0 0 26px rgba(34, 211, 238, 0.45));
         }
-        /* Form 4: Multifaceted Diamond Crystal Gemstone Prism */
-        .glass-form-prism {
-            border-radius: 0;
-            background-image: url('assets/huy/artifact_faceted_prism_3d.webp');
-            filter: drop-shadow(0 16px 34px rgba(8, 3, 25, 0.55)) drop-shadow(0 0 28px rgba(56, 189, 248, 0.4));
+        /* Sphere 4: Liquid Chrome Mercury Molten Metal Sphere */
+        .glass-form-chrome {
+            border-radius: 9999px;
+            background-image: url('assets/huy/orb_liquid_chrome_3d.webp');
+            filter: drop-shadow(0 16px 34px rgba(8, 3, 25, 0.55)) drop-shadow(0 0 24px rgba(192, 132, 252, 0.4));
         }
-        /* Form 5: Tilted 3D Optical Glass Torus Ring */
-        .glass-form-torus {
-            border-radius: 0;
-            background-image: url('assets/huy/artifact_torus_ring_3d.webp');
-            filter: drop-shadow(0 14px 30px rgba(8, 3, 25, 0.45)) drop-shadow(0 0 22px rgba(192, 132, 252, 0.35));
+        /* Sphere 5: Cosmic Supernova Amethyst Stardust Sphere */
+        .glass-form-amethyst {
+            border-radius: 9999px;
+            background-image: url('assets/huy/cosmic_amethyst_bubble_3d.webp');
+            filter: drop-shadow(0 14px 30px rgba(8, 3, 25, 0.5)) drop-shadow(0 0 26px rgba(168, 85, 247, 0.4));
         }
 
         @keyframes floatOrb {
@@ -818,16 +818,16 @@
 
     <!-- ===== FLOATING GLASS ORBS ===== -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <!-- Diverse 3D Ray-Traced Spatial Artifacts (5 Unique Physical Forms) -->
-        <div class="glass-orb glass-form-prism w-16 h-16 top-16 left-[7%] opacity-90 animate-orb-1" title="Diamond Crystal Prism"></div>
+        <!-- Diverse 3D Ray-Traced Spherical Glass Orbs (5 Unique Sphere Arts) -->
+        <div class="glass-orb glass-form-plasma w-16 h-16 top-16 left-[7%] opacity-90 animate-orb-1" title="Quantum Plasma Sphere"></div>
         <div class="glass-orb glass-form-nebula w-28 h-28 top-[20%] right-[5%] opacity-95 animate-orb-2" title="Celestial Galaxy Sphere"></div>
-        <div class="glass-orb glass-form-torus w-16 h-16 top-[45%] left-[4%] opacity-85 animate-orb-3" title="Glass Torus Ring"></div>
-        <div class="glass-orb glass-form-droplet w-20 h-20 top-[66%] right-[8%] opacity-90 animate-orb-1" title="Liquid Mercury Droplet"></div>
+        <div class="glass-orb glass-form-amethyst w-16 h-16 top-[45%] left-[4%] opacity-85 animate-orb-3" title="Supernova Amethyst Sphere"></div>
+        <div class="glass-orb glass-form-chrome w-20 h-20 top-[66%] right-[8%] opacity-90 animate-orb-1" title="Liquid Chrome Mercury Sphere"></div>
         <div class="glass-orb glass-form-nebula w-32 h-32 top-[85%] left-[10%] opacity-85 animate-orb-2" title="Stardust Nebula Sphere"></div>
-        <!-- 3D Ray-Traced Floating Micro-Artifacts -->
-        <div class="glass-orb glass-form-bubble w-10 h-10 top-[30%] right-[14%] opacity-85 animate-orb-4" title="Optical Soap Bubble"></div>
-        <div class="glass-orb glass-form-prism w-9 h-9 top-[58%] left-[18%] opacity-80 animate-orb-5" title="Mini Crystal Gemstone"></div>
-        <div class="glass-orb glass-form-droplet w-8 h-8 top-[72%] right-[20%] opacity-75 animate-orb-3" title="Liquid Glass Pearl"></div>
+        <!-- 3D Ray-Traced Floating Micro-Spheres -->
+        <div class="glass-orb glass-form-bubble w-10 h-10 top-[30%] right-[14%] opacity-85 animate-orb-4" title="Optical Crystal Bubble"></div>
+        <div class="glass-orb glass-form-plasma w-9 h-9 top-[58%] left-[18%] opacity-80 animate-orb-5" title="Mini Quantum Plasma Sphere"></div>
+        <div class="glass-orb glass-form-chrome w-8 h-8 top-[72%] right-[20%] opacity-75 animate-orb-3" title="Liquid Chrome Metal Pearl"></div>
     </div>
 
 
@@ -1083,11 +1083,11 @@
                     <!-- Ambient Halo Backlight -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/40 via-indigo-600/30 to-cyan-400/20 rounded-full blur-3xl pointer-events-none scale-125"></div>
 
-                    <!-- Diverse Floating 3D Spatial Glass Artifacts around the Portrait -->
-                    <div class="glass-orb glass-form-droplet w-14 h-14 -top-5 -left-5 opacity-90 animate-orb-1 z-20" title="Zero-Gravity Liquid Droplet"></div>
-                    <div class="glass-orb glass-form-prism w-11 h-11 top-[48%] -right-7 opacity-85 animate-orb-2 z-20" title="Diamond Crystal Prism"></div>
-                    <div class="glass-orb glass-form-nebula w-16 h-16 -bottom-7 left-6 opacity-90 animate-orb-3 z-20" title="Galactic Nebula Sphere"></div>
-                    <div class="glass-orb glass-form-torus w-10 h-10 top-2 -right-3 opacity-80 animate-orb-4 z-20 hidden sm:block" title="Glass Torus Ring"></div>
+                    <!-- Diverse 3D Floating Ray-Traced Spherical Glass Orbs around the Portrait -->
+                    <div class="glass-orb glass-form-chrome w-14 h-14 -top-5 -left-5 opacity-90 animate-orb-1 z-20" title="Liquid Chrome Mercury Sphere"></div>
+                    <div class="glass-orb glass-form-plasma w-11 h-11 top-[48%] -right-7 opacity-85 animate-orb-2 z-20" title="Quantum Cyan Plasma Sphere"></div>
+                    <div class="glass-orb glass-form-nebula w-16 h-16 -bottom-7 left-6 opacity-90 animate-orb-3 z-20" title="Galactic Nebula Galaxy Sphere"></div>
+                    <div class="glass-orb glass-form-bubble w-10 h-10 top-2 -right-3 opacity-80 animate-orb-4 z-20 hidden sm:block" title="Prismatic Crystal Bubble Sphere"></div>
 
                     <!-- 3D Luminous Portrait Glass Sphere Container -->
                     <div class="portrait-glass-sphere w-72 h-72 sm:w-84 sm:h-84 lg:w-[380px] lg:h-[380px] flex items-center justify-center relative overflow-hidden group">
@@ -1986,9 +1986,9 @@
         <!-- ================= SECTION 4: ACHIEVEMENTS & IMPACT ================= -->
         <section id="achievements" class="relative">
             
-            <!-- Ambient Floating 3D Spatial Artifacts for Depth -->
-            <div class="glass-orb glass-form-torus w-14 h-14 -top-6 -left-4 opacity-90 animate-orb-1 hidden sm:block z-20" title="Glass Torus Ring"></div>
-            <div class="glass-orb glass-form-prism w-14 h-14 -bottom-6 -right-4 opacity-85 animate-orb-2 hidden sm:block z-20" title="Diamond Crystal Prism"></div>
+            <!-- Ambient Floating 3D Spherical Glass Orbs for Depth -->
+            <div class="glass-orb glass-form-plasma w-14 h-14 -top-6 -left-4 opacity-90 animate-orb-1 hidden sm:block z-20" title="Quantum Plasma Sphere"></div>
+            <div class="glass-orb glass-form-chrome w-14 h-14 -bottom-6 -right-4 opacity-85 animate-orb-2 hidden sm:block z-20" title="Liquid Chrome Mercury Sphere"></div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 

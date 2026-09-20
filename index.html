@@ -286,10 +286,12 @@
         .hero-giant-portfolio-text {
             font-family: 'Syne', sans-serif;
             font-weight: 900;
-            font-size: clamp(3.5rem, 13vw, 11rem);
-            letter-spacing: 0.16em;
+            font-size: clamp(1.4rem, 7.4vw, 7.5rem);
+            letter-spacing: 0.02em;
             text-transform: uppercase;
             line-height: 0.9;
+            white-space: nowrap;
+            display: inline-block;
             color: transparent;
             -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.45);
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(221, 214, 254, 0.2) 50%, rgba(255, 255, 255, 0.03) 100%);
@@ -644,8 +646,8 @@
                 gap: 0.25rem !important;
             }
             .hero-giant-portfolio-text {
-                font-size: clamp(2.2rem, 11vw, 3.8rem) !important;
-                letter-spacing: 0.08em !important;
+                font-size: clamp(1.25rem, 7.1vw, 1.85rem) !important;
+                letter-spacing: 0.01em !important;
             }
             .portrait-glass-sphere {
                 width: 240px !important;
@@ -677,7 +679,8 @@
                 gap: 0.3rem !important;
             }
             .hero-giant-portfolio-text {
-                font-size: clamp(3rem, 11vw, 4.5rem) !important;
+                font-size: clamp(1.8rem, 7.4vw, 2.5rem) !important;
+                letter-spacing: 0.015em !important;
             }
             .portrait-glass-sphere {
                 width: 270px !important;
@@ -748,8 +751,8 @@
                 font-size: 0.65vw !important;
             }
             .hero-giant-portfolio-text {
-                font-size: 11.5vw !important;
-                letter-spacing: 0.18em !important;
+                font-size: 7vw !important;
+                letter-spacing: 0.02em !important;
             }
             .portrait-glass-sphere {
                 width: 19vw !important;
@@ -1003,10 +1006,8 @@
             </div>
 
             <!-- Giant 3D Embossed Frosted Text Watermark -->
-            <div class="relative z-0 w-full text-center select-none pointer-events-none overflow-hidden pt-2 pb-0">
-                <h2 class="hero-giant-portfolio-text">
-                    PORTFOLIO
-                </h2>
+            <div class="relative z-0 w-full flex justify-center text-center select-none pointer-events-none overflow-hidden pt-2 pb-0">
+                <h2 class="hero-giant-portfolio-text">PORTFOLIO</h2>
             </div>
 
             <!-- 3-Column Spatial Grid (Bio | Glowing Sphere Centerpiece | Engineering Philosophy) -->

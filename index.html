@@ -599,7 +599,7 @@
         }
 
         /* ===== SCROLL ANCHOR MARGINS (PREVENT FIXED HEADER COLLISION) ===== */
-        #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+        #hero, #about, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
             scroll-margin-top: 100px;
         }
 
@@ -659,7 +659,7 @@
 
         /* 1. < 480px: Mobile Extra-Small */
         @media (max-width: 479px) {
-            #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+            #hero, #about, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
                 scroll-margin-top: 75px;
             }
             header {
@@ -722,7 +722,7 @@
 
         /* 2. 480px - 575px: Mobile Landscape / Large Mobile */
         @media (min-width: 480px) and (max-width: 575px) {
-            #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+            #hero, #about, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
                 scroll-margin-top: 80px;
             }
             .hero-top-indicator {
@@ -783,7 +783,7 @@
                 padding-top: 5vw !important;
                 gap: 4vw !important;
             }
-            #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+            #hero, #about, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
                 scroll-margin-top: 6vw !important;
             }
             header {
@@ -1018,7 +1018,8 @@
             </a>
 
             <!-- Center: Waypoint Links -->
-            <nav class="header-nav-links hidden md:flex items-center gap-4 lg:gap-6 text-xs font-mono text-white/90 shrink-0">
+            <nav class="header-nav-links hidden md:flex items-center gap-3.5 lg:gap-5 text-xs font-mono text-white/90 shrink-0">
+                <a href="#about" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">About</a>
                 <a href="#skills-process" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Skills</a>
                 <a href="#experience-edu" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Experience</a>
                 <a href="#featured-projects" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Projects</a>
@@ -1073,39 +1074,68 @@
             <!-- 3-Column Spatial Grid (Bio | Glowing Sphere Centerpiece | Engineering Philosophy) -->
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center -mt-6 sm:-mt-10 lg:-mt-14 pb-4">
 
-                <!-- Left Column (4 cols): Bio & Narrative -->
-                <div class="lg:col-span-4 space-y-5 text-left">
+                <!-- Left Column (4 cols): Punchy Core Keywords & Value Proposition -->
+                <div class="lg:col-span-4 space-y-4 text-left">
                     <div class="space-y-1">
-                        <span class="text-xs font-mono text-purple-300 tracking-[0.2em] uppercase font-semibold">Hello, I am</span>
+                        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/5 border border-purple-300/30 text-[9.5px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8] animate-pulse"></span>
+                            <span>ENGINEERING EXCELLENCE</span>
+                        </div>
                         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-black tracking-tight text-white uppercase leading-[1.05]">
                             LUU KHANG HUY
                         </h1>
-                        <p class="text-xs sm:text-sm font-mono text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-cyan-300 font-bold uppercase tracking-wider pt-1">
-                            FRONTEND, FULLSTACK &amp; DEVOPS ENGINEER
+                        <p class="text-xs sm:text-sm font-mono text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-cyan-300 font-bold uppercase tracking-wider pt-0.5">
+                            FRONTEND ARCHITECT · FULLSTACK DEV · DEVOPS
                         </p>
                     </div>
 
-                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                        Frontend, Fullstack &amp; DevOps Engineer with 1+ years of production product engineering (QUESTX). Specializing in Jamstack architecture with Next.js 15 App Router, interactive spatial 3D embedding (Spline 3D), author of 3 custom WordPress plugins (huy-product-wizard, vietqr-dynamic, user-address-book), multi-environment infrastructure (Production &amp; Staging) on Linux VPS, automated CI/CD pipelines, and Cloudflare Zero Trust security (Zero Open Ports). Delivered 19 production systems for clients in France, the United States, Japan, and Vietnam.
+                    <!-- Punchy Core Value Statement (No dense wall of text) -->
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
+                        Engineering high-performance Jamstack applications, interactive 3D spatial experiences, and resilient automated CI/CD cloud infrastructure with zero open management ports.
                     </p>
 
-                    <!-- Action Buttons -->
-                    <div class="pt-2 flex flex-col gap-3">
-                        <a href="#contact"
-                           class="spatial-glass-pill px-5 py-3 rounded-2xl text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center justify-between hover:border-white/60 transition-all text-white group shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+                    <!-- Core Keyword Pills Grid (Instant Technical Scanning) -->
+                    <div class="grid grid-cols-2 gap-2 pt-0.5">
+                        <div class="px-2.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-300/40 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-purple-400 shrink-0"></span>
+                            <span class="text-[10.5px] font-mono font-bold text-white tracking-wide whitespace-nowrap">Next.js 15 &amp; React</span>
+                        </div>
+                        <div class="px-2.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-cyan-300/40 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
+                            <span class="text-[10.5px] font-mono font-bold text-white tracking-wide whitespace-nowrap">3D Spline &amp; WebGL</span>
+                        </div>
+                        <div class="px-2.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-emerald-300/40 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+                            <span class="text-[10.5px] font-mono font-bold text-white tracking-wide whitespace-nowrap">Docker &amp; Linux VPS</span>
+                        </div>
+                        <div class="px-2.5 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-indigo-300/40 transition-colors flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400 shrink-0"></span>
+                            <span class="text-[10.5px] font-mono font-bold text-white tracking-wide whitespace-nowrap">Cloudflare Zero Trust</span>
+                        </div>
+                    </div>
+
+                    <!-- Action CTAs -->
+                    <div class="pt-1 flex flex-col gap-2.5">
+                        <a href="#about"
+                           class="spatial-glass-pill px-4 py-2.5 rounded-xl text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center justify-between hover:border-purple-300/60 transition-all text-white group shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
                             <span class="inline-flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                                <span>AVAILABLE FOR NEW OPPORTUNITIES</span>
+                                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                <span>MEET THE ENGINEER</span>
                             </span>
-                            <span class="w-7 h-7 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
-                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                            </span>
+                            <span class="text-[11px] text-purple-300 group-hover:translate-x-1 transition-transform">Read Story →</span>
                         </a>
-                        <a href="#featured-projects"
-                           class="spatial-btn-primary px-6 py-3 rounded-full text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(255,255,255,0.4)] group">
-                            <span>EXPLORE 19 PRODUCTION BUILDS</span>
-                            <svg class="w-3.5 h-3.5 text-black group-hover:translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-                        </a>
+                        <div class="flex items-center gap-2">
+                            <a href="#featured-projects"
+                               class="spatial-btn-primary flex-1 px-4 py-2.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(255,255,255,0.4)] group">
+                                <span>19 BUILDS</span>
+                                <svg class="w-3.5 h-3.5 text-black group-hover:translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                            </a>
+                            <a href="#contact"
+                               class="spatial-glass-pill px-4 py-2.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center justify-center gap-1.5 hover:border-white/60 transition-all text-white">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>HIRE ↗</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -1194,6 +1224,137 @@
                             <span class="text-[10px] text-slate-400">ENGINEERING</span>
                         </div>
 
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SECTION 1.5: ABOUT LUU KHANG HUY — THE ENGINEER BEHIND THE BUILDS ================= -->
+        <section id="about" class="spatial-glass rounded-[2.5rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden spatial-card-hover border border-white/20 shadow-[0_25px_70px_rgba(0,0,0,0.7)] space-y-8">
+            
+            <!-- Subtle ambient backlights -->
+            <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-purple-600/20 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-cyan-600/20 blur-3xl pointer-events-none"></div>
+
+            <!-- Section Header -->
+            <div class="space-y-2.5 max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                    <span>THE ENGINEER BEHIND THE BUILDS ✦</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white tracking-tight uppercase">
+                    PRODUCT ENGINEERING WITH ARCHITECTURAL DISCIPLINE
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    Bridging modern Jamstack frontend interactivity, custom OOP PHP backend modules, and resilient cloud automation to deliver enterprise-grade digital solutions.
+                </p>
+            </div>
+
+            <!-- 3-Card Bento Architecture -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1: Production Journey & Product Engineering (QUESTX) -->
+                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-purple-300/40 transition-all flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <span class="text-[10px] font-mono text-purple-300 font-bold tracking-widest uppercase">01 // PRODUCTION JOURNEY</span>
+                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-display font-bold text-white">
+                            Product Engineering at QUESTX
+                        </h3>
+                        <p class="text-xs text-slate-200 leading-relaxed">
+                            Over 1+ years of production experience engineering end-to-end web products. Specializing in translating complex design systems into responsive Next.js 15 App Router applications, integrating interactive 3D spatial scenes (Spline), and maintaining strict Core Web Vitals (&lt;0.9s FCP).
+                        </p>
+                        <div class="pt-2 border-t border-white/10 space-y-2">
+                            <span class="text-[9px] font-mono text-purple-200/80 uppercase tracking-wider block font-semibold">Custom Plugins Authored:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono text-slate-200 font-medium">huy-product-wizard</span>
+                                <span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono text-slate-200 font-medium">vietqr-dynamic</span>
+                                <span class="px-2 py-1 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono text-slate-200 font-medium">user-address-book</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 text-[11px] font-mono text-purple-300 border-t border-white/10">
+                        <span>Next.js 15 · Spline 3D · Custom OOP PHP</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: DevOps Infrastructure & Security (Cloud Resilience) -->
+                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-cyan-300/40 transition-all flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <span class="text-[10px] font-mono text-cyan-300 font-bold tracking-widest uppercase">02 // CLOUD &amp; DEVOPS RIGOR</span>
+                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-display font-bold text-white">
+                            Automated CI/CD &amp; Zero Trust Architecture
+                        </h3>
+                        <p class="text-xs text-slate-200 leading-relaxed">
+                            Treating infrastructure as an integral product discipline. Managing isolated Staging and Production topologies on Linux VPS (aaPanel, Docker Compose, Nginx reverse proxy) with automated GitHub Actions pipelines for zero-downtime deployments.
+                        </p>
+                        <div class="space-y-2 pt-2 border-t border-white/10">
+                            <div class="flex items-center gap-2 text-xs text-slate-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                                <span>Zero Open Ports (Cloudflare Tunnels)</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
+                                <span>Automated GitHub Actions CI/CD to VPS</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
+                                <span>Isolated Staging &amp; Production Environments</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 text-[11px] font-mono text-cyan-300 border-t border-white/10">
+                        <span>Docker · Linux VPS · Cloudflare Zero Trust</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Global Delivery & Academic Foundation -->
+                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-emerald-300/40 transition-all flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <span class="text-[10px] font-mono text-emerald-300 font-bold tracking-widest uppercase">03 // GLOBAL STANDARDS</span>
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        </div>
+                        <h3 class="text-base sm:text-lg font-display font-bold text-white">
+                            Cross-Border Delivery &amp; Credentials
+                        </h3>
+                        <p class="text-xs text-slate-200 leading-relaxed">
+                            Proven international execution across France, the United States, Japan, and Vietnam. Solid computer science foundation with a Bachelor of Information Technology from Ton Duc Thang University (TDTU).
+                        </p>
+                        <div class="space-y-2.5 pt-2 border-t border-white/10">
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10">
+                                <div>
+                                    <p class="text-[11px] font-mono font-bold text-white">Aptis ESOL B2 (British Council)</p>
+                                    <p class="text-[9px] font-mono text-slate-300">Professional Working Proficiency</p>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-200 text-[9px] font-mono font-bold">CERTIFIED</span>
+                            </div>
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10">
+                                <div>
+                                    <p class="text-[11px] font-mono font-bold text-white">19 Production Builds</p>
+                                    <p class="text-[9px] font-mono text-slate-300">France · USA · Japan · Vietnam</p>
+                                </div>
+                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-[9px] font-mono font-bold">100% SHIPPED</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                        <a href="#featured-projects" class="text-emerald-300 hover:text-white transition-colors text-xs font-mono font-bold inline-flex items-center gap-1">
+                            <span>View Case Studies</span>
+                            <span>↓</span>
+                        </a>
+                        <a href="#experience-edu" class="text-slate-300 hover:text-white transition-colors text-xs font-mono">
+                            <span>Full History →</span>
+                        </a>
                     </div>
                 </div>
 

@@ -854,6 +854,14 @@
                 grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
                 gap: 1.6vw !important;
             }
+            #back-to-top {
+                bottom: 2vw !important;
+                right: 2vw !important;
+                width: 2.8vw !important;
+                height: 2.8vw !important;
+                min-width: 48px !important;
+                min-height: 48px !important;
+            }
         }
     </style>
 </head>
@@ -2271,6 +2279,27 @@
 
     </main>
 
+    <!-- ===== BACK TO TOP FLOATING BUTTON WITH SCROLL PROGRESS RING ===== -->
+    <button id="back-to-top" 
+            type="button"
+            aria-label="Back to top"
+            onclick="scrollToTop()"
+            class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full spatial-glass border border-white/25 text-white shadow-[0_10px_35px_rgba(0,0,0,0.6)] flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:border-purple-300 hover:bg-white/15 hover:scale-110 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-purple-400">
+        <!-- SVG Circular Scroll Progress Ring -->
+        <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="21" class="stroke-white/15" stroke-width="2.2" fill="none" />
+            <circle id="btt-progress-circle" cx="24" cy="24" r="21" class="stroke-purple-400" stroke-width="2.2" fill="none" 
+                    stroke-dasharray="131.95" stroke-dashoffset="131.95" stroke-linecap="round" 
+                    style="transition: stroke-dashoffset 0.1s ease-out;" />
+        </svg>
+        <!-- Up Chevron Icon -->
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-purple-200 group-hover:text-white transition-transform duration-300 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+        <!-- Ambient Hover Aura Glow -->
+        <span class="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-600/35 to-cyan-400/30 blur-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></span>
+    </button>
+
     <!-- ================= MODALS (19 PROJECTS, DRIVER TELEMETRY, SINGLE CAR INSPECT) ================= -->
     
     <!-- Modal 1: 19 Projects Blueprint -->
@@ -2625,6 +2654,45 @@
             }, { threshold: 0.3 });
             const achSection = document.getElementById('achievements');
             if (achSection) achObserver.observe(achSection);
+        })();
+
+        // ===== BACK TO TOP ENGINE WITH SCROLL PROGRESS =====
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        (function() {
+            const btt = document.getElementById('back-to-top');
+            const progressCircle = document.getElementById('btt-progress-circle');
+            if (!btt) return;
+
+            const circumference = 131.95; // 2 * Math.PI * 21
+
+            function updateScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                // Show button once user scrolls past 320px
+                if (scrollTop > 320) {
+                    btt.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    btt.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    btt.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    btt.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                }
+
+                // Update circular progress ring
+                if (progressCircle && scrollHeight > 0) {
+                    const progress = Math.min(Math.max(scrollTop / scrollHeight, 0), 1);
+                    progressCircle.style.strokeDashoffset = circumference - (progress * circumference);
+                }
+            }
+
+            window.addEventListener('scroll', updateScroll, { passive: true });
+            updateScroll();
         })();
     </script>
 

@@ -35,6 +35,17 @@
     </script>
 
     <style>
+        :root {
+            /* ===== UNIFIED HARMONIC MOTION CHOREOGRAPHY (Master Clock T0 = 4.0s) ===== */
+            --ease-ambient: cubic-bezier(0.45, 0.05, 0.55, 0.95); /* Natural Harmonic Sinusoid (Zero Jitter) */
+            --ease-tactile: cubic-bezier(0.16, 1, 0.3, 1);        /* Apple Physics Dynamic Spring */
+            
+            --time-micro: 4s;     /* 1x T0 : Synchronized LED Status Breathing, Sparkle Stars, Twinkles */
+            --time-meso: 8s;      /* 2x T0 : Synchronized Titanium Text Shimmer, Caustic Ribbon Glow */
+            --time-macro: 16s;    /* 4x T0 : Gravitational Orb Oscillations (Phase-Locked Alpha/Beta) */
+            --time-cosmic: 64s;   /* 16x T0: Unified Astronomical Orbital Rotation */
+        }
+
         * { box-sizing: border-box; }
 
         body {
@@ -65,7 +76,7 @@
                 radial-gradient(ellipse 100% 75% at 50% 104%, rgba(192, 132, 252, 0.5) 0%, rgba(99, 102, 241, 0.42) 40%, #0c0624 85%);
         }
 
-        /* Layer 2: Slow-drifting nebula blobs */
+        /* Layer 2: Slow-drifting nebula blobs (Synchronized to 32s = 8x T0) */
         #bg-nebula {
             position: fixed;
             inset: 0;
@@ -77,20 +88,18 @@
             position: absolute;
             border-radius: 9999px;
             filter: blur(80px);
-            animation: nebulaDrift 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: nebulaDrift 32s var(--ease-ambient) infinite;
             will-change: transform;
         }
-        .nb-1 { width: 650px; height: 550px; top: -15%; left: -10%;  background: radial-gradient(circle, rgba(168,85,247,0.35) 0%, transparent 70%); animation-delay: 0s;   animation-duration: 32s; opacity: 0.65; }
-        .nb-2 { width: 550px; height: 550px; top: 20%;  right: -12%; background: radial-gradient(circle, rgba(129,140,248,0.3) 0%, transparent 70%);  animation-delay: -7s;  animation-duration: 38s; opacity: 0.55; }
-        .nb-3 { width: 750px; height: 450px; top: 52%;  left: -8%;   background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, transparent 70%);  animation-delay: -14s; animation-duration: 45s; opacity: 0.45; }
-        .nb-4 { width: 600px; height: 600px; bottom:-5%; right:-5%;  background: radial-gradient(circle, rgba(192,132,252,0.25) 0%, transparent 70%); animation-delay: -4s;  animation-duration: 40s; opacity: 0.5; }
-        .nb-5 { width: 450px; height: 400px; top: 38%;  left: 35%;   background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%); animation-delay: -10s; animation-duration: 50s; opacity: 0.35; }
+        .nb-1 { width: 650px; height: 550px; top: -15%; left: -10%;  background: radial-gradient(circle, rgba(168,85,247,0.32) 0%, transparent 70%); animation-delay: 0s;   opacity: 0.65; }
+        .nb-2 { width: 550px; height: 550px; top: 20%;  right: -12%; background: radial-gradient(circle, rgba(129,140,248,0.28) 0%, transparent 70%);  animation-delay: -8s;  opacity: 0.55; }
+        .nb-3 { width: 750px; height: 450px; top: 52%;  left: -8%;   background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%);  animation-delay: -16s; opacity: 0.45; }
+        .nb-4 { width: 600px; height: 600px; bottom:-5%; right:-5%;  background: radial-gradient(circle, rgba(192,132,252,0.22) 0%, transparent 70%); animation-delay: -8s;   opacity: 0.5; }
+        .nb-5 { width: 450px; height: 400px; top: 38%;  left: 35%;   background: radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%); animation-delay: -24s;  opacity: 0.35; }
 
         @keyframes nebulaDrift {
-            0%   { transform: translate(0, 0) scale(1); }
-            33%  { transform: translate(12px, -8px) scale(1.02); }
-            66%  { transform: translate(-10px, 10px) scale(0.98); }
-            100% { transform: translate(0, 0) scale(1); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50%      { transform: translate(10px, -8px) scale(1.02); }
         }
 
         /* Layer 3: Star field */
@@ -120,12 +129,11 @@
                 radial-gradient(1px 1px at 42% 95%,  rgba(255,255,255,0.3) 0%, transparent 100%),
                 radial-gradient(1px 1px at 95% 50%,  rgba(255,255,255,0.6) 0%, transparent 100%),
                 radial-gradient(1px 1px at 3%  50%,  rgba(255,255,255,0.4) 0%, transparent 100%);
-            animation: starTwinkle 12s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+            animation: starTwinkle var(--time-micro) var(--ease-ambient) infinite alternate;
         }
         @keyframes starTwinkle {
-            0%   { opacity: 0.5; }
-            50%  { opacity: 0.8; }
-            100% { opacity: 0.6; }
+            0%   { opacity: 0.45; }
+            100% { opacity: 0.85; }
         }
 
         /* Layer 4: Spatial coordinate architectural blueprint grid */
@@ -158,13 +166,12 @@
                 transparent 100%
             );
             filter: blur(45px);
-            animation: auroraShift 20s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+            animation: auroraShift var(--time-macro) var(--ease-ambient) infinite alternate;
             will-change: transform, opacity;
         }
         @keyframes auroraShift {
             0%   { opacity: 0.55; transform: scaleX(1);   }
-            50%  { opacity: 0.75; transform: scaleX(1.02); }
-            100% { opacity: 0.6; transform: scaleX(0.98); }
+            100% { opacity: 0.75; transform: scaleX(1.02); }
         }
 
         /* Layer 6: Soft purple spatial vignette */
@@ -176,18 +183,17 @@
             background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 55%, rgba(10, 6, 28, 0.4) 100%);
         }
 
-        /* 4-Point Diamond Sparkle Star */
+        /* 4-Point Diamond Sparkle Star (Synchronized with pulse-soft 4s) */
         .bg-sparkle-star {
             position: absolute;
             pointer-events: none;
             filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 18px rgba(216, 180, 254, 0.8));
-            animation: starPulse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+            animation: starPulse var(--time-micro) var(--ease-ambient) infinite alternate;
             will-change: transform, opacity;
         }
         @keyframes starPulse {
             0%   { transform: scale(0.85) rotate(0deg); opacity: 0.4; }
-            50%  { transform: scale(1.05) rotate(6deg); opacity: 0.85; }
-            100% { transform: scale(0.88) rotate(-4deg); opacity: 0.5; }
+            100% { transform: scale(1.05) rotate(6deg); opacity: 0.85; }
         }
 
         ::selection {
@@ -242,7 +248,7 @@
                         inset 0 -1.5px 2px rgba(0, 0, 0, 0.15);
             position: relative;
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.28s var(--ease-tactile), border-color 0.28s var(--ease-tactile), box-shadow 0.28s var(--ease-tactile), background 0.28s ease;
         }
         .glass-icon-squircle::before {
             content: '';
@@ -258,11 +264,11 @@
         }
         .group:hover .glass-icon-squircle,
         .glass-icon-squircle:hover {
-            transform: translateY(-5px) scale(1.06);
+            transform: translateY(-3px) scale(1.03);
             border-color: rgba(255, 255, 255, 0.85);
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(221, 214, 254, 0.2) 100%);
-            box-shadow: 0 20px 45px rgba(6, 2, 24, 0.4),
-                        0 0 32px rgba(192, 132, 252, 0.5),
+            box-shadow: 0 16px 36px rgba(6, 2, 24, 0.35),
+                        0 0 24px rgba(192, 132, 252, 0.4),
                         inset 0 1.5px 3px #ffffff;
         }
 
@@ -274,10 +280,11 @@
             position: relative;
             cursor: pointer;
             margin: 0 auto;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.28s var(--ease-tactile), filter 0.28s var(--ease-tactile);
         }
         .process-art-lens:hover {
-            transform: translateY(-4px) scale(1.08);
+            transform: translateY(-3px) scale(1.03);
+            filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.6));
         }
         .float-delay-1 { animation-delay: 0s; }
         .float-delay-2 { animation-delay: -1.5s; }
@@ -320,7 +327,7 @@
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE & FLOATING PURPLE ORB ===== */
         @keyframes float-gentle {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
+            50%      { transform: translateY(-4px); }
         }
 
         .monogram-glass-lens {
@@ -331,20 +338,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.3s var(--ease-tactile), filter 0.3s var(--ease-tactile);
             cursor: pointer;
-            animation: float-gentle 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: float-gentle var(--time-meso) var(--ease-ambient) infinite;
             will-change: transform;
         }
         .monogram-glass-lens:hover {
-            transform: translateY(-4px) scale(1.03);
+            transform: translateY(-3px) scale(1.03);
         }
         .monogram-glass-lens img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             filter: drop-shadow(0 14px 28px rgba(7, 3, 25, 0.7));
-            transition: filter 0.4s ease, transform 0.4s ease;
+            transition: filter 0.3s var(--ease-tactile), transform 0.3s var(--ease-tactile);
         }
         .monogram-glass-lens:hover img {
             filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.75)) drop-shadow(0 18px 36px rgba(7, 3, 25, 0.85));
@@ -392,54 +399,69 @@
             filter: drop-shadow(0 14px 30px rgba(8, 3, 25, 0.5)) drop-shadow(0 0 26px rgba(168, 85, 247, 0.4));
         }
 
-        @keyframes floatOrb {
-            0%   { transform: translateY(0) rotate(0deg); }
-            50%  { transform: translateY(-7px) rotate(1.5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
+        /* ===== 3D FLOATING RAY-TRACED OPTICAL GLASS ARTIFACTS ===== */
+        /* Gravitational Counter-Phase System (Macro = 16.0s):
+           Alpha (Up) and Beta (Down) form counter-balancing pairs with 180-deg phase offset */
+        @keyframes floatPhaseAlpha {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-6px); }
         }
-        @keyframes floatOrbReverse {
-            0%   { transform: translateY(0) rotate(0deg); }
-            50%  { transform: translateY(7px) rotate(-1.5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
-        @keyframes floatOrbSlow {
-            0%   { transform: translateY(0) translateX(0); }
-            50%  { transform: translateY(-5px) translateX(3px); }
-            100% { transform: translateY(0) translateX(0); }
+        @keyframes floatPhaseBeta {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(6px); }
         }
 
-        .animate-orb-1 { animation: floatOrb        16s cubic-bezier(0.4, 0, 0.2, 1) infinite; will-change: transform; }
-        .animate-orb-2 { animation: floatOrbReverse 19s cubic-bezier(0.4, 0, 0.2, 1) infinite; will-change: transform; }
-        .animate-orb-3 { animation: floatOrb        22s cubic-bezier(0.4, 0, 0.2, 1) infinite 2s; will-change: transform; }
-        .animate-orb-4 { animation: floatOrbSlow    26s cubic-bezier(0.4, 0, 0.2, 1) infinite 1s; will-change: transform; }
-        .animate-orb-5 { animation: floatOrbReverse 30s cubic-bezier(0.4, 0, 0.2, 1) infinite 3s; will-change: transform; }
+        /* Gravitational Pair Alpha (Float Up: 16s, 0s delay) */
+        .animate-orb-1 { 
+            animation: floatPhaseAlpha var(--time-macro) var(--ease-ambient) infinite; 
+            will-change: transform; 
+        }
+        /* Gravitational Pair Beta (Float Down: 16s, 0s delay - Direct Counter-Balance) */
+        .animate-orb-2 { 
+            animation: floatPhaseBeta var(--time-macro) var(--ease-ambient) infinite; 
+            will-change: transform; 
+        }
+        /* Complementary Alpha Quarter-Wave (16s, -8s offset) */
+        .animate-orb-3 { 
+            animation: floatPhaseAlpha var(--time-macro) var(--ease-ambient) infinite -8s; 
+            will-change: transform; 
+        }
+        /* Complementary Beta Quarter-Wave (16s, -4s offset) */
+        .animate-orb-4 { 
+            animation: floatPhaseBeta var(--time-macro) var(--ease-ambient) infinite -4s; 
+            will-change: transform; 
+        }
+        /* Complementary Alpha Intermediate (16s, -12s offset) */
+        .animate-orb-5 { 
+            animation: floatPhaseAlpha var(--time-macro) var(--ease-ambient) infinite -12s; 
+            will-change: transform; 
+        }
 
-        /* Slow Spin for 3D Halo Rings - Stately astronomical rotation */
+        /* Unified Astronomical Orbital Rotation (Cosmic = 64.0s Synchronous Period) */
         @keyframes spinSlow {
             from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            to   { transform: rotate(360deg); }
         }
-        .animate-spin-slow {
-            animation: spinSlow 65s linear infinite;
-            will-change: transform;
-        }
-
         @keyframes spinReverseSlow {
             from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
+            to   { transform: rotate(0deg); }
+        }
+        .animate-spin-slow {
+            animation: spinSlow var(--time-cosmic) linear infinite;
+            will-change: transform;
         }
         .animate-spin-reverse-slow {
-            animation: spinReverseSlow 85s linear infinite;
+            animation: spinReverseSlow var(--time-cosmic) linear infinite;
             will-change: transform;
         }
 
-        /* Continuous Ambient Light Ribbon Flow */
+        /* Continuous Ambient Light Ribbon Flow (Meso = 8.0s, Synchronized with textShimmer) */
         @keyframes ribbonGlow {
-            0%, 100% { opacity: 0.75; filter: drop-shadow(0 0 25px rgba(221, 214, 254, 0.6)); }
-            50% { opacity: 0.95; filter: drop-shadow(0 0 45px rgba(255, 255, 255, 0.8)); }
+            0%, 100% { opacity: 0.65; filter: drop-shadow(0 0 20px rgba(221, 214, 254, 0.5)); }
+            50%      { opacity: 0.95; filter: drop-shadow(0 0 45px rgba(255, 255, 255, 0.85)); }
         }
         .ambient-ribbon {
-            animation: ribbonGlow 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: ribbonGlow var(--time-meso) var(--ease-ambient) infinite;
         }
 
         /* Button Micro-Interactions & Haptic Tactile Feedback */
@@ -448,10 +470,10 @@
             color: #0b0726;
             border: 1.5px solid #ffffff;
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4), inset 0 1px 1.5px #ffffff;
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
+            transition: transform 0.25s var(--ease-tactile), box-shadow 0.25s var(--ease-tactile), background 0.25s ease;
         }
         .spatial-btn-primary:hover {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px) scale(1.015);
             box-shadow: 0 16px 42px rgba(255, 255, 255, 0.65), 0 0 30px rgba(221, 214, 254, 0.5);
         }
         .spatial-btn-primary:active {
@@ -466,10 +488,10 @@
             border: 1.5px solid rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(20px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, border-color 0.35s ease;
+            transition: transform 0.25s var(--ease-tactile), box-shadow 0.25s var(--ease-tactile), background 0.25s ease, border-color 0.25s ease;
         }
         .spatial-btn-glass:hover {
-            transform: translateY(-2px) scale(1.02);
+            transform: translateY(-2px) scale(1.015);
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.12) 100%);
             border-color: rgba(255, 255, 255, 0.7);
             box-shadow: 0 12px 35px rgba(221, 214, 254, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.9);
@@ -482,20 +504,28 @@
 
         /* 3D Card Hover Perspective */
         .spatial-card-hover {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.35s var(--ease-tactile), border-color 0.35s ease, box-shadow 0.35s var(--ease-tactile);
         }
         .spatial-card-hover:hover {
-            transform: translateY(-3px) scale(1.008);
+            transform: translateY(-3px) scale(1.006);
             border-color: rgba(255, 255, 255, 0.6);
             box-shadow: 0 30px 75px rgba(6, 2, 24, 0.55), 0 0 35px rgba(221, 214, 254, 0.35), inset 0 1.5px 2px rgba(255, 255, 255, 0.9);
         }
 
+        /* Unified Trailing Arrow Kinetic Glide */
+        .group:hover .arrow-glide {
+            transform: translate(2.5px, -2.5px);
+        }
+        .arrow-glide {
+            transition: transform 0.25s var(--ease-tactile);
+        }
 
-        /* ===== SCROLL REVEAL ANIMATIONS (Apple Physics) ===== */
+
+        /* ===== SCROLL REVEAL ANIMATIONS (Apple Physics & Staggered Cadence) ===== */
         .reveal {
             opacity: 0;
             transform: translateY(24px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
         }
         .reveal.visible {
             opacity: 1;
@@ -504,7 +534,7 @@
         .reveal-left {
             opacity: 0;
             transform: translateX(-24px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
         }
         .reveal-left.visible {
             opacity: 1;
@@ -513,7 +543,7 @@
         .reveal-right {
             opacity: 0;
             transform: translateX(24px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
         }
         .reveal-right.visible {
             opacity: 1;
@@ -521,31 +551,32 @@
         }
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.96);
+            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
         }
         .reveal-scale.visible {
             opacity: 1;
             transform: scale(1);
         }
-        /* Stagger delay helpers */
-        .delay-100 { transition-delay: 0.1s; }
-        .delay-150 { transition-delay: 0.15s; }
-        .delay-200 { transition-delay: 0.2s; }
-        .delay-250 { transition-delay: 0.25s; }
-        .delay-300 { transition-delay: 0.3s; }
-        .delay-350 { transition-delay: 0.35s; }
-        .delay-400 { transition-delay: 0.4s; }
-        .delay-500 { transition-delay: 0.5s; }
-        .delay-600 { transition-delay: 0.6s; }
-        .delay-700 { transition-delay: 0.7s; }
-        .delay-800 { transition-delay: 0.8s; }
-        .delay-900 { transition-delay: 0.9s; }
+        /* Staggered Cadence: 80ms harmonic steps */
+        .delay-100 { transition-delay: 0.08s; }
+        .delay-150 { transition-delay: 0.16s; }
+        .delay-200 { transition-delay: 0.24s; }
+        .delay-250 { transition-delay: 0.32s; }
+        .delay-300 { transition-delay: 0.40s; }
+        .delay-350 { transition-delay: 0.48s; }
+        .delay-400 { transition-delay: 0.56s; }
+        .delay-500 { transition-delay: 0.64s; }
+        .delay-600 { transition-delay: 0.72s; }
+        .delay-700 { transition-delay: 0.80s; }
+        .delay-800 { transition-delay: 0.88s; }
+        .delay-900 { transition-delay: 0.96s; }
 
-        /* ===== TEXT SHIMMER EFFECT (Titanium Sheen) ===== */
+        /* ===== TEXT SHIMMER EFFECT (Meso = 8.0s, Synchronized with ribbonGlow) ===== */
         @keyframes textShimmer {
-            0% { background-position: 100% center; }
-            100% { background-position: -100% center; }
+            0%   { background-position: 100% center; opacity: 0.85; }
+            50%  { background-position: 0% center;   opacity: 1; }
+            100% { background-position: -100% center; opacity: 0.85; }
         }
         .text-shimmer {
             background: linear-gradient(90deg,
@@ -561,16 +592,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: textShimmer 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: textShimmer var(--time-meso) var(--ease-ambient) infinite;
         }
 
-        /* Gentle Apple/Linear LED Status Breathing Dot */
+        /* Gentle Apple/Linear LED Status Breathing Dot (Micro = 4.0s Synchronous Clock) */
         @keyframes pulseSoft {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.85); }
+            50%      { opacity: 0.35; transform: scale(0.85); }
         }
         .pulse-soft {
-            animation: pulseSoft 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: pulseSoft var(--time-micro) var(--ease-ambient) infinite;
         }
 
         /* Main layout container */
@@ -1170,7 +1201,7 @@
                                 <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" transform="rotate(35 50 50)"/>
                                 <circle cx="8" cy="50" r="2" fill="#c084fc" transform="rotate(35 50 50)"/>
                             </svg>
-                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" style="animation: spinSlow 75s linear infinite reverse;">
+                            <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
                                 <ellipse cx="50" cy="50" rx="40" ry="24" fill="none" stroke="rgba(192,132,252,0.4)" stroke-width="1" transform="rotate(85 50 50)"/>
                             </svg>
                         </div>

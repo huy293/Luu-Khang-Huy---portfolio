@@ -335,25 +335,79 @@
                         inset 0 2px 4px rgba(255, 255, 255, 0.85);
         }
 
-        /* Concentric 3D Glass Seal Monogram LKH */
-        /* Concentric 3D Glass Seal Monogram LKH */
+        /* ===== 3D HIGH-SPECULAR MONOGRAM GLASS LENS & CELESTIAL CORE ===== */
         .monogram-glass-lens {
-            width: 175px;
-            height: 175px;
+            width: 210px;
+            height: 210px;
             border-radius: 9999px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(221, 214, 254, 0.16) 42%, rgba(14, 8, 42, 0.88) 100%);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 2.5px solid rgba(255, 255, 255, 0.65);
-            box-shadow: 0 25px 60px rgba(6, 2, 24, 0.65),
-                        0 0 65px rgba(192, 132, 252, 0.5),
-                        inset 0 0 40px rgba(255, 255, 255, 0.75),
-                        inset 0 2.5px 4px rgba(255, 255, 255, 0.95);
+            background: radial-gradient(circle at 30% 24%, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(243, 232, 255, 0.65) 15%, 
+                rgba(192, 132, 252, 0.35) 40%, 
+                rgba(56, 189, 248, 0.22) 65%, 
+                rgba(14, 8, 42, 0.95) 100%
+            );
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 30px 80px rgba(4, 2, 20, 0.85),
+                        0 0 70px rgba(168, 85, 247, 0.7),
+                        0 0 110px rgba(56, 189, 248, 0.45),
+                        inset 0 0 45px rgba(255, 255, 255, 0.85),
+                        inset 0 3px 6px #ffffff,
+                        inset 0 -5px 15px rgba(56, 189, 248, 0.5);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
         }
+        .monogram-glass-lens:hover {
+            transform: scale(1.08) translateY(-4px);
+            border-color: #ffffff;
+            box-shadow: 0 40px 100px rgba(4, 2, 20, 0.95),
+                        0 0 100px rgba(216, 180, 254, 0.9),
+                        0 0 150px rgba(56, 189, 248, 0.7),
+                        inset 0 0 60px #ffffff,
+                        inset 0 4px 8px #ffffff;
+        }
+        
+        /* Inner Floating Crystalline Core */
+        .monogram-inner-core {
+            width: 145px;
+            height: 145px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 35% 28%, 
+                rgba(255, 255, 255, 0.5) 0%, 
+                rgba(192, 132, 252, 0.28) 45%, 
+                rgba(14, 8, 42, 0.85) 100%
+            );
+            border: 1.8px solid rgba(255, 255, 255, 0.65);
+            box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.7),
+                        0 0 35px rgba(168, 85, 247, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .monogram-glass-lens:hover .monogram-inner-core {
+            transform: scale(1.04);
+            border-color: rgba(255, 255, 255, 0.95);
+            box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.9),
+                        0 0 50px rgba(56, 189, 248, 0.7);
+        }
+
+        /* Ambient rotating orbit tilt */
+        .orbit-tilted-1 {
+            transform: rotate(-28deg);
+        }
+        .orbit-tilted-2 {
+            transform: rotate(35deg);
+        }
+
 
         /* 3D Floating Glass Orb with dual-crescent refraction */
         .glass-orb {
@@ -534,6 +588,260 @@
             position: relative;
             z-index: 1;
         }
+
+        /* ===== SCROLL ANCHOR MARGINS (PREVENT FIXED HEADER COLLISION) ===== */
+        #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+            scroll-margin-top: 100px;
+        }
+
+        /* ===== RESPONSIVE BREAKPOINT & PROJECT GRID ARCHITECTURE ===== */
+
+        /* Base / < 576px (Mobile Portrait & Small Mobile): 1 Column */
+        #inline-projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        /* 576px - 991px (Phablets, Mobile Landscape, iPad Portrait): 2 Columns */
+        @media (min-width: 576px) {
+            #inline-projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.25rem;
+            }
+        }
+
+        /* 992px - 1199px (Tablets Landscape, Small Laptops, iPad Pro): 3 Columns */
+        @media (min-width: 992px) {
+            #inline-projects-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.25rem;
+            }
+        }
+
+        /* 1200px - 1599px (Standard Desktop / 1080p): 4 Columns */
+        @media (min-width: 1200px) {
+            #inline-projects-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        /* 1600px - 1999px (Large & Ultra-wide Desktop): 5 Columns */
+        @media (min-width: 1600px) {
+            #inline-projects-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+            main {
+                max-width: 1540px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (min-width: 1800px) {
+            main {
+                max-width: 1740px;
+            }
+        }
+
+        /* ===== SCREEN SIZE SPECIFIC FINE TUNING ===== */
+
+        /* 1. < 480px: Mobile Extra-Small */
+        @media (max-width: 479px) {
+            #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+                scroll-margin-top: 75px;
+            }
+            header {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+                top: 0.5rem !important;
+            }
+            header > div {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                gap: 0.5rem !important;
+            }
+            .header-brand-text {
+                font-size: 11px !important;
+                letter-spacing: 0.05em !important;
+            }
+            .header-cta-btn {
+                padding: 0.35rem 0.65rem !important;
+                font-size: 10px !important;
+            }
+            .hero-top-indicator {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.25rem !important;
+            }
+            .hero-giant-portfolio-text {
+                font-size: clamp(2.2rem, 11vw, 3.8rem) !important;
+                letter-spacing: 0.08em !important;
+            }
+            .portrait-glass-sphere {
+                width: 240px !important;
+                height: 240px !important;
+            }
+            .glass-icon-squircle {
+                width: 46px !important;
+                height: 46px !important;
+                padding: 0.4rem !important;
+            }
+            .glass-icon-squircle svg {
+                width: 22px !important;
+                height: 22px !important;
+            }
+            .monogram-glass-lens {
+                width: 160px !important;
+                height: 160px !important;
+            }
+            .monogram-inner-core {
+                width: 110px !important;
+                height: 110px !important;
+            }
+            .monogram-inner-core span {
+                font-size: 1.6rem !important;
+            }
+        }
+
+        /* 2. 480px - 575px: Mobile Landscape / Large Mobile */
+        @media (min-width: 480px) and (max-width: 575px) {
+            #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+                scroll-margin-top: 80px;
+            }
+            .hero-top-indicator {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.3rem !important;
+            }
+            .hero-giant-portfolio-text {
+                font-size: clamp(3rem, 11vw, 4.5rem) !important;
+            }
+            .portrait-glass-sphere {
+                width: 270px !important;
+                height: 270px !important;
+            }
+            .glass-icon-squircle {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            .monogram-glass-lens {
+                width: 175px !important;
+                height: 175px !important;
+            }
+            .monogram-inner-core {
+                width: 120px !important;
+                height: 120px !important;
+            }
+        }
+
+        /* 3. 768px - 1023px: Tablet Compact Navigation Fit */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .header-nav-links {
+                display: flex !important;
+                gap: 0.75rem !important;
+                font-size: 11px !important;
+            }
+            .header-brand-text {
+                font-size: 11px !important;
+                letter-spacing: 0.06em !important;
+            }
+            .header-cta-btn {
+                padding: 0.35rem 0.75rem !important;
+                font-size: 10px !important;
+            }
+        }
+
+        /* ===== >= 2000px: ADVANCED FLUID VW SCALING ENGINE ===== */
+        /* Explicit user command: "2000 trở lên thì dùng vw" */
+        @media (min-width: 2000px) {
+            html {
+                font-size: clamp(18px, 0.92vw, 34px);
+            }
+            main {
+                max-width: 90vw !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding-left: 2.5vw !important;
+                padding-right: 2.5vw !important;
+                padding-top: 5vw !important;
+                gap: 4vw !important;
+            }
+            #hero, #skills-process, #experience-edu, #featured-projects, #achievements, #contact {
+                scroll-margin-top: 6vw !important;
+            }
+            header {
+                top: 1.2vw !important;
+            }
+            header > div {
+                max-width: 55vw !important;
+                padding: 0.6vw 1.6vw !important;
+                border-radius: 9999px !important;
+            }
+            .header-brand-text {
+                font-size: 0.7vw !important;
+            }
+            .header-nav-links {
+                gap: 1.5vw !important;
+                font-size: 0.65vw !important;
+            }
+            .header-cta-btn {
+                padding: 0.4vw 1.1vw !important;
+                font-size: 0.65vw !important;
+            }
+            .hero-giant-portfolio-text {
+                font-size: 11.5vw !important;
+                letter-spacing: 0.18em !important;
+            }
+            .portrait-glass-sphere {
+                width: 19vw !important;
+                height: 19vw !important;
+                max-width: 500px !important;
+                max-height: 500px !important;
+            }
+            .glass-icon-squircle {
+                width: 3.2vw !important;
+                height: 3.2vw !important;
+                min-width: 62px !important;
+                min-height: 62px !important;
+                border-radius: 0.8vw !important;
+            }
+            .glass-icon-squircle svg {
+                width: 1.6vw !important;
+                height: 1.6vw !important;
+                min-width: 30px !important;
+                min-height: 30px !important;
+            }
+            .process-glass-sphere {
+                width: 4vw !important;
+                height: 4vw !important;
+                min-width: 76px !important;
+                min-height: 76px !important;
+            }
+            .monogram-glass-lens {
+                width: 11vw !important;
+                height: 11vw !important;
+                min-width: 210px !important;
+                min-height: 210px !important;
+            }
+            .monogram-inner-core {
+                width: 7.6vw !important;
+                height: 7.6vw !important;
+                min-width: 145px !important;
+                min-height: 145px !important;
+            }
+            .monogram-inner-core span {
+                font-size: 1.9vw !important;
+            }
+            #inline-projects-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+                gap: 1.6vw !important;
+            }
+        }
     </style>
 </head>
 <body class="relative text-slate-100 antialiased selection:bg-purple-300 selection:text-black">
@@ -686,34 +994,34 @@
     </svg>
 
     <!-- ================= FLOATING GLASS HUD NAVIGATION PILL ================= -->
-    <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-        <div class="pointer-events-auto flex items-center justify-between gap-4 sm:gap-8 px-6 py-2.5 sm:px-8 sm:py-3 rounded-full spatial-glass-pill shadow-[0_15px_40px_rgba(0,0,0,0.35),0_0_30px_rgba(221,214,254,0.4)] max-w-4xl w-full">
+    <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none">
+        <div class="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 md:gap-8 px-4 py-2 sm:px-8 sm:py-3 rounded-full spatial-glass-pill shadow-[0_15px_40px_rgba(0,0,0,0.35),0_0_30px_rgba(221,214,254,0.4)] max-w-4xl w-full">
             
             <!-- Left: Brand Title -->
-            <a href="#hero" class="flex items-center gap-2.5 group">
-                <span class="w-2.5 h-2.5 rounded-full bg-purple-200 shadow-[0_0_12px_#ffffff] animate-ping"></span>
-                <span class="text-xs sm:text-sm font-mono font-bold tracking-widest text-white group-hover:text-purple-200 transition-colors uppercase">
+            <a href="#hero" class="flex items-center gap-2 group shrink-0">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-200 shadow-[0_0_12px_#ffffff] animate-ping shrink-0"></span>
+                <span class="header-brand-text text-xs sm:text-sm font-mono font-bold tracking-wider sm:tracking-widest text-white group-hover:text-purple-200 transition-colors uppercase whitespace-nowrap">
                     LKH • PORTFOLIO
                 </span>
             </a>
 
             <!-- Center: Waypoint Links -->
-            <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-white/90">
-                <a href="#skills-process" class="hover:text-purple-200 transition-colors font-medium">Skills</a>
-                <a href="#experience-edu" class="hover:text-purple-200 transition-colors font-medium">Experience</a>
-                <a href="#featured-projects" class="hover:text-purple-200 transition-colors font-medium">Projects</a>
-                <a href="#achievements" class="hover:text-purple-200 transition-colors font-medium">Impact</a>
+            <nav class="header-nav-links hidden md:flex items-center gap-4 lg:gap-6 text-xs font-mono text-white/90 shrink-0">
+                <a href="#skills-process" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Skills</a>
+                <a href="#experience-edu" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Experience</a>
+                <a href="#featured-projects" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Projects</a>
+                <a href="#achievements" class="hover:text-purple-200 transition-colors font-medium whitespace-nowrap">Impact</a>
             </nav>
 
             <!-- Right Controls: Audio + Quick CTA -->
-            <div class="flex items-center gap-2.5">
-                <button onclick="playEngineStartSound()" class="w-8 h-8 rounded-full spatial-glass flex items-center justify-center text-white hover:scale-110 transition-all shadow-[0_0_15px_rgba(221,214,254,0.5)] group" title="Play V12 Engine Ignition">
-                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+                <button onclick="playEngineStartSound()" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full spatial-glass flex items-center justify-center text-white hover:scale-110 transition-all shadow-[0_0_15px_rgba(221,214,254,0.5)] group shrink-0" title="Play V12 Engine Ignition">
+                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                     </svg>
                 </button>
-                <a href="#contact" class="spatial-btn-primary px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,255,255,0.6)]">
+                <a href="#contact" class="header-cta-btn spatial-btn-primary px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center gap-1.5 shadow-[0_0_20px_rgba(255,255,255,0.6)] whitespace-nowrap shrink-0">
                     <span>GET IN TOUCH</span>
                     <svg class="w-3 h-3 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
@@ -733,7 +1041,7 @@
             <div class="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-cyan-600/20 blur-3xl pointer-events-none"></div>
 
             <!-- Top Indicator Bar -->
-            <div class="relative z-10 w-full flex items-center justify-between px-2 pt-1 pb-3 text-[10px] font-mono tracking-widest uppercase border-b border-white/10 text-slate-300">
+            <div class="hero-top-indicator relative z-10 w-full flex items-center justify-between px-2 pt-1 pb-3 text-[10px] font-mono tracking-widest uppercase border-b border-white/10 text-slate-300">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
                     <span class="font-bold text-white tracking-widest">2026 PORTFOLIO</span>
@@ -1518,19 +1826,19 @@
         <!-- ================= SECTION 3: ALL PROJECTS — INLINE GRID ================= -->
         <section id="featured-projects" class="space-y-8">
             
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 px-2">
-                <div class="space-y-2">
+            <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-5 px-2">
+                <div class="space-y-2 max-w-2xl">
                     <span class="text-xs font-mono text-purple-200 uppercase tracking-widest block font-bold">FEATURED PROJECTS ✦</span>
-                    <h3 class="text-2xl font-display font-semibold text-white uppercase tracking-wide">
+                    <h3 class="text-2xl sm:text-3xl font-display font-semibold text-white uppercase tracking-wide">
                         19 PRODUCTION BUILDS &amp; CASE STUDIES
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-200">
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
                         Every project solves a real-world business challenge — from global e-commerce and AI automation to mobile apps and DevOps infrastructure.
                     </p>
                 </div>
 
                 <!-- Filter tabs -->
-                <div id="inline-filter-tabs" class="flex flex-wrap gap-2 self-start sm:self-auto">
+                <div id="inline-filter-tabs" class="flex flex-wrap items-center gap-2 self-start xl:self-auto shrink-0 max-w-full">
                     <button onclick="filterInline('all')" class="inline-filter-btn active px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-purple-200/60 text-white spatial-glass-pill transition-all" data-filter="all">All</button>
                     <button onclick="filterInline('wordpress')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="wordpress">WordPress</button>
                     <button onclick="filterInline('frontend')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="frontend">Frontend</button>
@@ -1540,7 +1848,7 @@
             </div>
 
             <!-- Inline 19-project grid (Full Width Responsive) -->
-            <div id="inline-projects-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-5">
+            <div id="inline-projects-grid">
                 <!-- Rendered by JS -->
             </div>
 
@@ -1705,28 +2013,45 @@
                 </div>
 
                 <!-- Zone 3: Giant 3D Concentric Frosted Glass Monogram Lens (3 cols) -->
-                <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0">
+                <div class="lg:col-span-3 flex justify-center items-center relative py-8 lg:py-0">
                     
-                    <!-- Ambient Purple Halo behind Seal -->
-                    <div class="absolute w-52 h-52 rounded-full bg-purple-600/35 blur-2xl pointer-events-none"></div>
+                    <!-- Ambient Purple & Cyan Halo behind Seal -->
+                    <div class="absolute w-64 h-64 rounded-full bg-gradient-to-tr from-purple-600/50 via-indigo-600/35 to-cyan-400/30 blur-3xl pointer-events-none"></div>
 
-                    <!-- Concentric Outer Rotating Dashed Orbit with Satellite Dot -->
-                    <div class="absolute w-56 h-56 rounded-full border border-dashed border-purple-200/40 animate-spin-slow pointer-events-none flex items-center justify-start">
-                        <span class="w-2 h-2 rounded-full bg-cyan-300 shadow-[0_0_10px_#38bdf8] -ml-1"></span>
+                    <!-- Orbit 1: Primary Tilted Elliptical Orbit with Glowing Cyan Satellite -->
+                    <div class="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full border border-dashed border-purple-200/40 orbit-tilted-1 animate-spin-slow pointer-events-none flex items-center justify-start">
+                        <span class="w-3.5 h-3.5 rounded-full bg-cyan-300 shadow-[0_0_12px_#38bdf8,0_0_24px_#ffffff] -ml-2"></span>
                     </div>
-                    <div class="absolute w-64 h-64 rounded-full border border-white/10 pointer-events-none"></div>
+
+                    <!-- Orbit 2: Counter-Tilted Elliptical Orbit with Luminous Fuchsia Satellite -->
+                    <div class="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full border border-dashed border-cyan-300/30 orbit-tilted-2 animate-spin-reverse-slow pointer-events-none flex items-center justify-end">
+                        <span class="w-3 h-3 rounded-full bg-fuchsia-400 shadow-[0_0_12px_#e879f9,0_0_20px_#ffffff] -mr-1.5"></span>
+                    </div>
+
+                    <!-- Orbit 3: Outer Atmospheric Telemetry Ring with Coordinate Points -->
+                    <div class="absolute w-80 h-80 sm:w-92 sm:h-92 rounded-full border border-white/10 pointer-events-none flex items-center justify-center">
+                        <span class="absolute top-0 w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                        <span class="absolute bottom-0 w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                        <span class="absolute left-0 w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                        <span class="absolute right-0 w-1.5 h-1.5 rounded-full bg-white/50"></span>
+                    </div>
 
                     <!-- The 3D Glass Lens Monogram -->
-                    <div class="monogram-glass-lens group cursor-pointer hover:scale-105 transition-transform duration-500">
+                    <div class="monogram-glass-lens group">
                         
-                        <!-- Inner Bevel Glass Ring -->
-                        <div class="w-32 h-32 rounded-full border border-white/30 flex items-center justify-center bg-gradient-to-br from-white/15 via-transparent to-black/20 shadow-[inset_0_0_25px_rgba(255,255,255,0.45)]">
+                        <!-- Inner Floating Crystalline Core -->
+                        <div class="monogram-inner-core">
                             <!-- Monogram Typography LKH -->
-                            <span class="text-3xl sm:text-4xl font-display font-light text-white tracking-[0.22em] select-none text-shimmer">LKH</span>
+                            <span class="text-3xl sm:text-4xl font-display font-black text-white tracking-[0.25em] select-none text-shimmer">LKH</span>
+                            <!-- Core light bloom -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400/10 via-purple-400/15 to-white/20 pointer-events-none"></div>
                         </div>
 
-                        <!-- Specular Crescent Reflection Highlight -->
-                        <div class="absolute top-2 left-6 w-20 h-9 rounded-full bg-gradient-to-b from-white/70 to-transparent blur-[1px] -rotate-12 pointer-events-none"></div>
+                        <!-- Specular Crescent Reflection Highlight (Top Left) -->
+                        <div class="absolute top-2.5 left-6 w-24 h-10 rounded-full bg-gradient-to-b from-white/90 via-white/40 to-transparent blur-[1px] -rotate-12 pointer-events-none"></div>
+
+                        <!-- Secondary Rim Glint (Bottom Right) -->
+                        <div class="absolute bottom-3 right-6 w-16 h-7 rounded-full bg-gradient-to-t from-cyan-300/60 to-transparent blur-[1px] -rotate-12 pointer-events-none"></div>
                     </div>
 
                 </div>

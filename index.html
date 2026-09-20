@@ -593,10 +593,16 @@
                         inset 0 2px 4px rgba(255, 255, 255, 0.85);
         }
 
-        /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE ===== */
-        @keyframes float-gentle {
-            0%, 100% { transform: translateY(0); }
-            50%      { transform: translateY(-5px); }
+        /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE: LIVELY ZERO-G BOUNCE ===== */
+        @keyframes orb-float-bounce {
+            0%, 100% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            }
+            50% {
+                transform: translateY(-16px);
+                animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            }
         }
 
         .monogram-glass-lens {
@@ -607,35 +613,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.4s var(--ease-tactile), filter 0.4s var(--ease-tactile);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s var(--ease-tactile);
             cursor: pointer;
-            animation: float-gentle var(--time-meso) var(--ease-ambient) infinite;
+            animation: orb-float-bounce 3.6s infinite;
             will-change: transform;
             z-index: 10;
         }
         .celestial-monogram-zone:hover .monogram-glass-lens,
         .group\/monogram:hover .monogram-glass-lens,
         .monogram-glass-lens:hover {
-            transform: translateY(-8px) scale(1.08);
-            filter: drop-shadow(0 0 35px rgba(192, 132, 252, 0.7)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.5));
+            transform: translateY(-18px) scale(1.06);
+            filter: drop-shadow(0 16px 32px rgba(7, 3, 25, 0.85)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.35));
         }
         .monogram-glass-lens img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             filter: drop-shadow(0 14px 28px rgba(7, 3, 25, 0.7));
-            transition: filter 0.4s var(--ease-tactile), transform 0.4s var(--ease-tactile);
+            transition: filter 0.4s var(--ease-tactile), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .celestial-monogram-zone:hover .monogram-glass-lens img,
+        .group\/monogram:hover .monogram-glass-lens img,
+        .monogram-glass-lens:hover img {
+            transform: scale(1.04);
+            filter: drop-shadow(0 18px 36px rgba(7, 3, 25, 0.9)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
         }
         .celestial-monogram-zone:hover .monogram-orbit-ring,
         .group\/monogram:hover .monogram-orbit-ring {
-            border-color: rgba(221, 214, 254, 0.8);
-            box-shadow: 0 0 25px rgba(192, 132, 252, 0.4);
+            border-color: rgba(221, 214, 254, 0.55);
+            box-shadow: 0 0 14px rgba(192, 132, 252, 0.25);
             animation-duration: 8s;
         }
         .celestial-monogram-zone:hover .monogram-satellite,
         .group\/monogram:hover .monogram-satellite {
-            transform: scale(1.3);
-            box-shadow: 0 0 12px #38bdf8, 0 0 24px #38bdf8, 0 0 36px #ffffff;
+            transform: scale(1.25);
+            box-shadow: 0 0 8px #38bdf8, 0 0 16px rgba(56, 189, 248, 0.4);
         }
 
 
@@ -2647,15 +2659,9 @@
                 <!-- Zone 3: 3D Concentric Luminous Glass Monogram (3 cols) -->
                 <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0 reveal-scale delay-250 celestial-monogram-zone group/monogram">
                     
-                    <!-- Ambient Radiant Halo Glow behind Sphere -->
-                    <div class="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/15 blur-3xl pointer-events-none pulse-soft"></div>
-
-                    <!-- Outer Subtle Concentric Dashed Ring -->
-                    <div class="absolute w-60 h-60 sm:w-64 sm:h-64 rounded-full border border-dashed border-purple-300/20 pointer-events-none"></div>
-
                     <!-- Clean Rotating Dashed Orbit with Glowing Cyan Satellite -->
                     <div class="monogram-orbit-ring absolute w-52 h-52 sm:w-56 sm:h-56 rounded-full border border-dashed border-purple-200/40 animate-spin-slow pointer-events-none flex items-center justify-start transition-all duration-700">
-                        <span class="monogram-satellite w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8,0_0_16px_#38bdf8,0_0_24px_#ffffff] -ml-1.5 flex items-center justify-center transition-all duration-500">
+                        <span class="monogram-satellite w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_6px_#38bdf8,0_0_12px_rgba(56,189,248,0.45)] -ml-1.5 flex items-center justify-center transition-all duration-500">
                             <span class="w-1 h-1 rounded-full bg-white"></span>
                         </span>
                     </div>

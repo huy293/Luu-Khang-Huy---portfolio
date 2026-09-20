@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luu Khang Huy - Frontend, Fullstack & DevOps Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: #f1f5f9;
+            margin: 0;
+            padding: 20px 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .cv-container {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #1f2937;
+            background: #ffffff;
+            line-height: 1.55;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 36px 42px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
+        .cv-header {
+            text-align: center;
+            border-bottom: 1.5px solid #111827;
+            padding-bottom: 16px;
+            margin-bottom: 18px;
+        }
+        .cv-name {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #111827;
+            letter-spacing: -0.3px;
+            line-height: 1.15;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+        }
+        .cv-headline {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #2563eb;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+        .cv-contacts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            font-size: 0.84rem;
+            color: #4b5563;
+            align-items: center;
+        }
+        .cv-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .cv-contact-item a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .cv-contact-item a:hover {
+            text-decoration: underline;
+        }
+        .cv-sec-title {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #111827;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1.5px solid #111827;
+            padding-bottom: 4px;
+            margin-top: 18px;
+            margin-bottom: 12px;
+        }
+        strong {
+            color: #111827;
+        }
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .cv-container {
+                padding: 12px 20px;
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            @page {
+                margin: 12mm 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="cv-header">
+            <h1 class="cv-name">Luu Khang Huy</h1>
+            <div class="cv-headline">Frontend, Fullstack & DevOps Engineer</div>
+            <div class="cv-contacts">
+                <span class="cv-contact-item">
+                    <svg style="width:13px;height:13px;display:inline-block;vertical-align:-1px;color:#2563eb;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> 
+                    <a href="mailto:luuhuy.290303@gmail.com">luuhuy.290303@gmail.com</a>
+                </span>
+                <span class="cv-contact-item">
+                    <svg style="width:13px;height:13px;display:inline-block;vertical-align:-1px;color:#2563eb;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 
+                    <span>0986648481</span>
+                </span>
+                <span class="cv-contact-item">
+                    <svg style="width:13px;height:13px;display:inline-block;vertical-align:-1px;color:#2563eb;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> 
+                    <span>Ho Chi Minh City, Vietnam</span>
+                </span>
+                <span class="cv-contact-item">
+                    <svg style="width:13px;height:13px;display:inline-block;vertical-align:-1px;color:#2563eb;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> 
+                    <a href="https://github.com/huy293" target="_blank">github.com/huy293 <svg style="width:11px;height:11px;display:inline-block;vertical-align:0px;margin-left:3px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+                </span>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div class="cv-sec-title">PROFESSIONAL SUMMARY</div>
+            <p style="font-size: 0.87rem; color: #374151; line-height: 1.65; text-align: justify; margin: 0;">
+                Frontend, Fullstack & DevOps Engineer with 1+ year of production experience building high-performance web applications, robust backends, and scalable cloud infrastructure. Experienced in Next.js (App Router), React, custom WordPress/WooCommerce plugin development, Node.js (Express), Python (Flask), SQL/NoSQL databases, Linux VPS administration, CI/CD automation, Docker, Cloudflare Zero Trust, and AWS S3.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div class="cv-sec-title">TECHNICAL SKILLS</div>
+            <div style="font-size: 0.86rem; color: #374151;">
+                
+                    <div style="margin-bottom: 5px; line-height: 1.55;">
+                        <strong style="color: #111827;">• Frontend Engineering:</strong> 
+                        <span style="color: #374151;">Next.js (App Router), React, TypeScript, JavaScript (ES6+), Tailwind CSS, CSS Modules, Framer Motion, Spline 3D.</span>
+                    </div>
+                    <div style="margin-bottom: 5px; line-height: 1.55;">
+                        <strong style="color: #111827;">• Fullstack & Backend:</strong> 
+                        <span style="color: #374151;">Node.js (Express), Python (Flask), PHP OOP, SQL (MySQL), NoSQL (MongoDB), Redis, REST API, GraphQL (Apollo Client), DBeaver.</span>
+                    </div>
+                    <div style="margin-bottom: 5px; line-height: 1.55;">
+                        <strong style="color: #111827;">• WordPress & Custom Plugins:</strong> 
+                        <span style="color: #374151;">Custom Plugin Development, WooCommerce, Elementor Pro, Flatsome Theme, ACF Pro.</span>
+                    </div>
+                    <div style="margin-bottom: 5px; line-height: 1.55;">
+                        <strong style="color: #111827;">• DevOps & Cloud Infrastructure:</strong> 
+                        <span style="color: #374151;">Linux VPS (aaPanel), Docker, Docker Compose, Nginx, GitLab CI/CD (GitLab Runner), GitHub Actions, Cloudflare Zero Trust (Zero Open Ports), AWS S3.</span>
+                    </div>
+                    <div style="margin-bottom: 5px; line-height: 1.55;">
+                        <strong style="color: #111827;">• Developer Tools:</strong> 
+                        <span style="color: #374151;">Git, Postman, VS Code, Figma, DBeaver.</span>
+                    </div>
+                    <div style="margin-bottom: 5px; line-height: 1.55;">
+                        <strong style="color: #111827;">• Languages:</strong> 
+                        <span style="color: #374151;">English (Aptis ESOL B2 - Professional Working Proficiency).</span>
+                    </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div class="cv-sec-title">WORK EXPERIENCE</div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <strong style="color: #111827; font-size: 0.94rem;">Frontend & DevOps Engineer</strong> 
+                        <span style="color: #4b5563; font-weight: 600;">— QUESTX Co., Ltd. (Full-time)</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">04/2025 - Present</span>
+                </div>
+                <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;">
+                    <li style="margin-bottom: 4px;">Led frontend architecture and DevOps infrastructure across company web applications, SaaS platforms, and client systems:</li><li style="margin-bottom: 4px;">Architected and built modern Jamstack web applications using Next.js App Router, React, and CSS Modules, integrating interactive 3D spatial models via Spline 3D and GraphQL APIs.</li><li style="margin-bottom: 4px;">Developed custom WordPress/WooCommerce plugins including real-time product customizers (huy-product-wizard), dynamic VietQR payment gateways with instant IPN webhooks (vietqr-dynamic), and B2B multi-address/tax calculation engines (user-address-book).</li><li style="margin-bottom: 4px;">Designed isolated Multi-Environment infrastructure (Production & Staging servers) on Linux VPS; automated build and zero-downtime deployment pipelines using GitLab Runner and GitHub Actions (SSH & Secrets).</li><li style="margin-bottom: 4px;">Hardened server network security using Cloudflare Zero Trust Tunnels (cloudflared) with Zero Open Ports policy to block port scanning and external attacks.</li><li style="margin-bottom: 4px;">Offloaded static and media assets to AWS S3, reducing server bandwidth usage and optimizing Core Web Vitals to achieve Google PageSpeed Insights Desktop > 90 and Mobile > 75.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div class="cv-sec-title">EDUCATION</div>
+            <div style="margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <strong style="color: #111827;">Bachelor of Information Technology</strong> 
+                        <span style="color: #4b5563;">— Ton Duc Thang University (TDTU)</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">2021 - 2025</span>
+                </div>
+                <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;">
+                    <li style="margin-bottom: 4px;">Graduated with a formal Bachelor's Degree in Information Technology. Outstanding Capstone Project: Engineered HH_Movie — a high-performance cross-platform video streaming web app with adaptive bitrate streaming (HLS & FFmpeg), VNPAY HMAC-SHA512 automated payment gateway with IPN webhooks, comprehensive CRM & dynamic revenue analytics dashboard, fully containerized via Docker Compose behind Nginx reverse proxy.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div class="cv-sec-title">FEATURED PROJECTS</div>
+            
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <a href="https://homenest.com.vn" target="_blank" style="color: #1d4ed8; font-weight: 700; text-decoration: underline;">HomeNest.com.vn <svg style="width:11px;height:11px;display:inline-block;vertical-align:0px;margin-left:3px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: Frontend & DevOps Engineer (Lead Developer)</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">04/2025 - Present</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Led technical migration from legacy WordPress to Next.js App Router with Headless WordPress and GraphQL APIs via Apollo Client.</li><li style="margin-bottom: 4px;">Integrated interactive Spline 3D spatial models (@splinetool/react-spline) for rich interactive product experiences.</li><li style="margin-bottom: 4px;">Configured automated GitHub Actions CI/CD pipeline deploying to aaPanel Linux VPS, offloaded media assets to AWS S3, and optimized Core Web Vitals (Desktop > 90, Mobile > 75).</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> Next.js (App Router), Apollo Client, GraphQL, Spline 3D, Framer Motion, AWS S3, GitHub Actions CI/CD, Linux VPS.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <strong style="color: #111827;">AI Meeting Copilot & Realtime Live Translator</strong> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: Lead Python & Desktop UI Developer</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">2026</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Architected and built a standalone Windows Desktop application designed for real-time cross-lingual meeting assistance (Google Meet, Zoom, MS Teams, Slack) via a floating HUD (Always-on-top, Glassmorphism).</li><li style="margin-bottom: 4px;">Captured internal speaker and system audio streams directly via WASAPI Loopback without requiring virtual audio drivers, integrated with Voice Activity Detection (VAD) and noise filtering.</li><li style="margin-bottom: 4px;">Integrated ultra-low-latency Whisper STT (~150ms via Groq Cloud) and dual-model contextual LLM translation (Gemini 2.5 Flash / GPT-4o-mini) for bidirectional EN ➔ VI / VI ➔ EN translation.</li><li style="margin-bottom: 4px;">Built 'Question Radar' engine that automatically detects participant questions, summarizes key discussion points, and generates contextual response suggestions in Vietnamese alongside polished English responses across 4 communication tones (Professional, Friendly, Concise, Technical).</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> Python, PySide6, WASAPI Loopback, Groq Whisper STT, Google Gemini API, OpenAI GPT-4o-mini, SoundCard, Asyncio.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <strong style="color: #111827;">Vietnam Market Scanner - AI-Driven Quant Terminal</strong> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: Full-stack Developer</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">2026</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Built an AI-driven quantitative intelligence terminal and analytics engine for the Vietnamese financial market (Equities, SJC Gold, Vietcombank Forex USD/VND, and Macro Economic Feeds).</li><li style="margin-bottom: 4px;">Developed automated ETL pipeline scraping real-time SJC Gold prices, central bank exchange rates, and financial RSS feeds.</li><li style="margin-bottom: 4px;">Designed a Multi-Agent AI Investment Committee debate system with 5 specialized persona agents (Fundamental/DuPont Analysis, Forensic Accounting/OCF Quality, Technical Indicators, Macro Environment, and Committee Chairman consensus rating).</li><li style="margin-bottom: 4px;">Engineered Quantitative Macro Correlation Engine computing Pearson correlation coefficients (r) and linear regression models (y = ax + b) against USD/VND and Gold SJC, visualized with dynamic scatter plots and trendlines on Chart.js.</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> Python, Flask REST API, NumPy, Pandas, Scipy, JavaScript (ES6+), Chart.js, Multi-Agent LLMs, vnstock, Vietcap API.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <a href="https://gofficedashboard.homenest.tech/" target="_blank" style="color: #1d4ed8; font-weight: 700; text-decoration: underline;">GoOFFICE - Digital Workplace Platform <svg style="width:11px;height:11px;display:inline-block;vertical-align:0px;margin-left:3px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: DevOps & Infrastructure Engineer</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">06/2025 - Present</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Designed and deployed cloud infrastructure for GoOFFICE enterprise collaboration platform on Linux VPS (aaPanel).</li><li style="margin-bottom: 4px;">Established isolated Production and Staging environments on Linux VPS with aaPanel.</li><li style="margin-bottom: 4px;">Automated testing, building, and deployment using GitLab CI/CD and self-hosted GitLab Runner.</li><li style="margin-bottom: 4px;">Hardened network security using Cloudflare Zero Trust Tunnels (cloudflared) with Zero Open Ports architecture.</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> GitLab CI/CD, GitLab Runner, Cloudflare Zero Trust, Docker, Nginx Reverse Proxy, Linux VPS.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <a href="https://order.green-bridge.fr/" target="_blank" style="color: #1d4ed8; font-weight: 700; text-decoration: underline;">French Tea B2B/B2C Ecosystem (order.green-bridge.fr & nuagesauvage.fr) <svg style="width:11px;height:11px;display:inline-block;vertical-align:0px;margin-left:3px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: Lead WordPress & Custom Plugin Developer</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">01/2026 - 06/2026</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Engineered luxury French tea E-Commerce systems targeting European retail and B2B wholesale clients.</li><li style="margin-bottom: 4px;">Authored custom plugin 'user-address-book' for corporate accounts to manage multi-destination shipping and custom B2B checkouts.</li><li style="margin-bottom: 4px;">Implemented automated EU VAT/TVA tax calculation engine and optimized LiteSpeed caching to maintain PageSpeed Desktop > 90 and Mobile > 75.</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> WordPress, WooCommerce, Custom Plugin (PHP), VAT/TVA Tax Engine, LiteSpeed Cache, DirectAdmin.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <a href="https://miraemb.com" target="_blank" style="color: #1d4ed8; font-weight: 700; text-decoration: underline;">Mira Embroidery (miraemb.com) & CandyGoGo Factory <svg style="width:11px;height:11px;display:inline-block;vertical-align:0px;margin-left:3px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: WordPress & Custom Plugin Developer</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">09/2025 - Present</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Developed and maintained customized E-Commerce platforms for corporate gifts and custom embroidery using WordPress and WooCommerce.</li><li style="margin-bottom: 4px;">Authored custom plugin 'huy-product-wizard' allowing real-time interactive product customization, artwork upload, and dynamic pricing calculation.</li><li style="margin-bottom: 4px;">Authored custom plugin 'vietqr-dynamic' providing automated VietQR payment generation with instant IPN webhook reconciliation.</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> WordPress, WooCommerce, Custom Plugins (PHP OOP), JavaScript (ES6+), AJAX, REST API, DirectAdmin.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <strong style="color: #111827;">HH_Movie - Video Streaming Web App & CRM System</strong> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: Full-stack Developer (Capstone Project - TDTU)</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">2024 - 2025</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">Architected an end-to-end video streaming web platform and administrative CRM dashboard using React and Node.js (Express).</li><li style="margin-bottom: 4px;">Implemented adaptive bitrate streaming (360p - 1080p) via HLS protocol and automated FFmpeg video transcoding.</li><li style="margin-bottom: 4px;">Integrated VNPAY payment gateway (HMAC-SHA512) with automated IPN webhooks for instant VIP upgrades and containerized the multi-tier stack with Docker Compose behind Nginx.</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> React, Node.js (Express), MySQL, Redis, FFmpeg, HLS.js, VNPAY API, Docker Compose, Nginx.</div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem;">
+                    <div>
+                        <strong style="color: #111827;">Additional Projects Portfolio</strong> 
+                        <span style="color: #4b5563; font-size: 0.84rem; font-weight: 500;">| Role: Frontend & DevOps Engineer</span>
+                    </div>
+                    <span style="font-family: monospace; font-size: 0.82rem; font-weight: 600; color: #4b5563; white-space: nowrap;">2025 - 2026</span>
+                </div>
+                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 0.86rem; color: #374151; line-height: 1.55; text-align: justify;"><li style="margin-bottom: 4px;">HomeNest.software (Lead Dev): Next.js App Router, Docker, Nginx, AWS S3, GitHub Actions CI/CD.</li><li style="margin-bottom: 4px;">QuestX Corporate Portal (questx.com.vn): Next.js App Router, Framer Motion 3D Parallax Scroll, GitHub Actions.</li><li style="margin-bottom: 4px;">Thảm Len Hàng Kênh (thamlenhangkenh.com): Next.js + Headless WP REST API, AWS S3, aaPanel VPS.</li><li style="margin-bottom: 4px;">HTCS Mobile App Ecosystem: Production Linux VPS, Cloudflare Tunnel, Android App Bundle (.aab) build with EAS CLI.</li><li style="margin-bottom: 4px;">Thế Giới Nước Hoa (thegioinuochoa.com.vn): Custom interactive campaign landing pages (HTML5/CSS3/ES6+).</li><li style="margin-bottom: 4px;">Global Portals: CMD Supply (US), Hajime Studio (Japan), NST Fan (Industrial) - WordPress, Elementor, WPML.</li></ul>
+                <div style="font-size: 0.82rem; color: #4b5563; margin-top: 4px; padding-left: 18px;"><strong style="color: #1f2937;">Tech Stack:</strong> Next.js, React, Docker, Cloudflare Zero Trust, AWS S3, EAS CLI (.aab), WordPress.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

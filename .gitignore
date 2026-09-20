@@ -1,0 +1,13 @@
+﻿# Dependencies & Build
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Environment & Secrets
+.env
+.env.local
+
+# Python Cache
+__pycache__/
+*.pyc

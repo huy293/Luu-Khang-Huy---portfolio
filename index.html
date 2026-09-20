@@ -216,7 +216,7 @@
                         inset 0 1.5px 2px rgba(255, 255, 255, 0.85), 
                         inset 0 -1.5px 2px rgba(0, 0, 0, 0.15),
                         0 0 0 0.5px rgba(139,92,246,0.1);
-            border-radius: 2.25rem;
+            border-radius: 0.75rem;
             position: relative;
         }
 
@@ -226,6 +226,7 @@
             -webkit-backdrop-filter: blur(24px);
             border: 1.2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), inset 0 1px 1.5px rgba(255, 255, 255, 0.75);
+            border-radius: 0.5rem;
         }
 
         .spatial-glass-pill {
@@ -234,6 +235,219 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1.5px solid rgba(255, 255, 255, 0.45);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 0.85);
+        }
+
+        /* ==========================================================================
+           ARCHITECTURAL SILHOUETTES & BESPOKE SECTION FRAMES (ANTI-GENERIC BUBBLE)
+           ========================================================================== */
+
+        /* 1. HERO - Aerospace Command Deck with Precision HUD Reticles */
+        .arch-hero-frame {
+            border-radius: 0.75rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+        }
+        .hud-corner {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+            z-index: 20;
+        }
+        .hud-corner-tl { top: -1px; left: -1px; border-top: 2.5px solid #38bdf8; border-left: 2.5px solid #38bdf8; }
+        .hud-corner-tr { top: -1px; right: -1px; border-top: 2.5px solid #c084fc; border-right: 2.5px solid #c084fc; }
+        .hud-corner-bl { bottom: -1px; left: -1px; border-bottom: 2.5px solid #c084fc; border-left: 2.5px solid #c084fc; }
+        .hud-corner-br { bottom: -1px; right: -1px; border-bottom: 2.5px solid #38bdf8; border-right: 2.5px solid #38bdf8; }
+
+        /* 2. ABOUT ME - Asymmetric Bi-Diagonal Chamfer */
+        .arch-about-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(192, 132, 252, 0.3) 50%, rgba(56, 189, 248, 0.25) 100%);
+            clip-path: polygon(32px 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%, 0 32px);
+            filter: drop-shadow(0 25px 70px rgba(0, 0, 0, 0.7));
+        }
+        .arch-about-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(14, 10, 30, 0.92) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(31px 0, 100% 0, 100% calc(100% - 31px), calc(100% - 31px) 100%, 0 100%, 0 31px);
+        }
+        .arch-card-tl-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+            clip-path: polygon(24px 0, 100% 0, 100% 100%, 0 100%, 0 24px);
+            transition: all 0.35s var(--ease-tactile);
+        }
+        .arch-card-tl-wrap:hover {
+            background: linear-gradient(135deg, #38bdf8 0%, #c084fc 100%);
+            filter: drop-shadow(0 15px 35px rgba(56, 189, 248, 0.3));
+        }
+        .arch-card-tl-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(16, 11, 36, 0.85) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            clip-path: polygon(23px 0, 100% 0, 100% 100%, 0 100%, 0 23px);
+            height: 100%;
+        }
+
+        .arch-card-tr-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(225deg, rgba(192, 132, 252, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+            clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+            transition: all 0.35s var(--ease-tactile);
+        }
+        .arch-card-tr-wrap:hover {
+            background: linear-gradient(225deg, #c084fc 0%, #38bdf8 100%);
+            filter: drop-shadow(0 15px 35px rgba(192, 132, 252, 0.3));
+        }
+        .arch-card-tr-inner {
+            background: linear-gradient(225deg, rgba(255, 255, 255, 0.08) 0%, rgba(16, 11, 36, 0.85) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            clip-path: polygon(0 0, calc(100% - 23px) 0, 100% 23px, 100% 100%, 0 100%);
+            height: 100%;
+        }
+
+        .arch-card-diag-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(192, 132, 252, 0.45) 50%, rgba(56, 189, 248, 0.35) 100%);
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+            transition: all 0.35s var(--ease-tactile);
+        }
+        .arch-card-diag-wrap:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #c084fc 50%, #38bdf8 100%);
+            filter: drop-shadow(0 15px 35px rgba(192, 132, 252, 0.35));
+        }
+        .arch-card-diag-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(16, 11, 36, 0.85) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            clip-path: polygon(19px 0, 100% 0, 100% calc(100% - 19px), calc(100% - 19px) 100%, 0 100%, 0 19px);
+            height: 100%;
+        }
+
+        /* 3. SECTION 2: PROCESS & TECH STACK - ASYMMETRIC COMMAND CONSOLE */
+        .arch-process-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(225deg, rgba(255, 255, 255, 0.45) 0%, rgba(56, 189, 248, 0.35) 45%, rgba(192, 132, 252, 0.25) 100%);
+            clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 36px 100%, 0 calc(100% - 36px));
+            filter: drop-shadow(0 25px 70px rgba(0, 0, 0, 0.7));
+        }
+        .arch-process-inner {
+            background: linear-gradient(225deg, rgba(255, 255, 255, 0.12) 0%, rgba(14, 10, 30, 0.88) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(0 0, calc(100% - 35px) 0, 100% 35px, 100% 100%, 35px 100%, 0 calc(100% - 35px));
+        }
+        .arch-cartridge-br {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+            border-radius: 0.35rem 0.35rem 0 0.35rem;
+        }
+
+        /* 4. SECTION 2.5: EXPERIENCE & EDUCATION - TACTICAL DOSSIER SPECIMEN (SCREENSHOT FIXED) */
+        .arch-dossier-questx-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.85) 0%, rgba(192, 132, 252, 0.45) 45%, rgba(255, 255, 255, 0.2) 100%);
+            clip-path: polygon(36px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 36px);
+            filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6));
+            transition: all 0.35s var(--ease-tactile);
+        }
+        .arch-dossier-questx-wrap:hover {
+            background: linear-gradient(135deg, #38bdf8 0%, #c084fc 45%, #ffffff 100%);
+            filter: drop-shadow(0 30px 70px rgba(56, 189, 248, 0.3));
+        }
+        .arch-dossier-questx-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(16, 11, 36, 0.88) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(35px 0, 100% 0, 100% calc(100% - 23px), calc(100% - 23px) 100%, 0 100%, 0 35px);
+            height: 100%;
+        }
+
+        .arch-dossier-edu-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(225deg, rgba(192, 132, 252, 0.8) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(56, 189, 248, 0.2) 100%);
+            clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+            transition: all 0.35s var(--ease-tactile);
+        }
+        .arch-dossier-edu-wrap:hover {
+            background: linear-gradient(225deg, #c084fc 0%, #ffffff 60%, #38bdf8 100%);
+            filter: drop-shadow(0 25px 60px rgba(192, 132, 252, 0.25));
+        }
+        .arch-dossier-edu-inner {
+            background: linear-gradient(225deg, rgba(255, 255, 255, 0.12) 0%, rgba(16, 11, 36, 0.88) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(0 0, calc(100% - 31px) 0, 100% 31px, 100% 100%, 0 100%);
+            height: 100%;
+        }
+
+        .arch-dossier-aptis-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(45deg, rgba(56, 189, 248, 0.8) 0%, rgba(192, 132, 252, 0.4) 50%, rgba(255, 255, 255, 0.2) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+            transition: all 0.35s var(--ease-tactile);
+        }
+        .arch-dossier-aptis-wrap:hover {
+            background: linear-gradient(45deg, #38bdf8 0%, #c084fc 60%, #ffffff 100%);
+            filter: drop-shadow(0 25px 60px rgba(56, 189, 248, 0.25));
+        }
+        .arch-dossier-aptis-inner {
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.12) 0%, rgba(16, 11, 36, 0.88) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 27px 100%, 0 calc(100% - 27px));
+            height: 100%;
+        }
+
+        /* 5. SECTION 3: HEXAGONAL CYBER FILTER TABS & PROJECT CARTRIDGES */
+        .hex-filter-tab {
+            clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%);
+            border-radius: 0;
+        }
+        .arch-project-cartridge {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+            border-radius: 0.35rem 0.35rem 0 0.35rem;
+        }
+
+        /* 6. SECTION 4: ACHIEVEMENTS TELEMETRY RACK (OCTAGONAL BEVEL) */
+        .arch-telemetry-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(192, 132, 252, 0.3) 50%, rgba(56, 189, 248, 0.25) 100%);
+            clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
+            filter: drop-shadow(0 25px 70px rgba(0, 0, 0, 0.7));
+        }
+        .arch-telemetry-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(14, 10, 30, 0.88) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(17px 0, calc(100% - 17px) 0, 100% 17px, 100% calc(100% - 17px), calc(100% - 17px) 100%, 17px 100%, 0 calc(100% - 17px), 0 17px);
+        }
+
+        /* 7. SECTION 5: CONTACT & MONOGRAM - OCTAGONAL AIRLOCK COMMAND MODULE */
+        .arch-command-airlock-wrap {
+            position: relative;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(192, 132, 252, 0.35) 45%, rgba(56, 189, 248, 0.3) 100%);
+            clip-path: polygon(36px 0, calc(100% - 36px) 0, 100% 36px, 100% calc(100% - 36px), calc(100% - 36px) 100%, 36px 100%, 0 calc(100% - 36px), 0 36px);
+            filter: drop-shadow(0 30px 90px rgba(0, 0, 0, 0.75));
+        }
+        .arch-command-airlock-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(14, 10, 30, 0.88) 100%);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            clip-path: polygon(35px 0, calc(100% - 35px) 0, 100% 35px, 100% calc(100% - 35px), calc(100% - 35px) 100%, 35px 100%, 0 calc(100% - 35px), 0 35px);
         }
 
         /* 3D Embossed Spatial Glass Squircle for Tech Stack */
@@ -1380,7 +1594,12 @@
     <main class="relative z-10 w-full px-4 sm:px-8 lg:px-12 xl:px-16 pt-16 pb-8 space-y-14 lg:space-y-18">
 
         <!-- ===== SECTION 1: HERO — SPATIAL GLASS SHOWCASE ===== -->
-        <section id="hero" class="spatial-glass rounded-[2.5rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden border border-white/20 shadow-[0_25px_70px_rgba(0,0,0,0.7)]">
+        <section id="hero" class="spatial-glass arch-hero-frame p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.7)]">
+            <!-- Tactical Aerospace HUD Corner Reticles -->
+            <div class="hud-corner hud-corner-tl"></div>
+            <div class="hud-corner hud-corner-tr"></div>
+            <div class="hud-corner hud-corner-bl"></div>
+            <div class="hud-corner hud-corner-br"></div>
 
             <!-- Subtle ambient backlights -->
             <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-purple-600/25 blur-3xl pointer-events-none"></div>
@@ -1520,42 +1739,44 @@
 
                 <!-- Right Column (4 cols): Philosophy Card with 3D Orbital Wireframe -->
                 <div class="lg:col-span-4 flex justify-center lg:justify-end reveal-right delay-300">
-                    <div class="spatial-glass-sub spatial-card-hover p-6 sm:p-7 rounded-[2rem] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-xl max-w-sm w-full space-y-4 transition-all group">
-                        
-                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                            <span class="text-[10px] font-mono text-purple-300 font-bold tracking-widest uppercase">ENGINEERING PHILOSOPHY ✦</span>
-                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                    <div class="arch-card-tl-wrap spatial-card-hover max-w-sm w-full transition-all group">
+                        <div class="arch-card-tl-inner p-6 sm:p-7 space-y-4">
+                            
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                <span class="text-[10px] font-mono text-purple-300 font-bold tracking-widest uppercase">ENGINEERING PHILOSOPHY ✦</span>
+                                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                            </div>
+
+                            <!-- 3D Glowing Orbital Gyroscope Wireframe -->
+                            <div class="relative w-28 h-28 mx-auto my-2 flex items-center justify-center">
+                                <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-xl pointer-events-none"></div>
+                                <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-white via-purple-200 to-cyan-300 shadow-[0_0_18px_#ffffff,0_0_30px_rgba(192,132,252,0.8)] z-10 pulse-soft"></div>
+                                <svg class="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" viewBox="0 0 100 100">
+                                    <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(221,214,254,0.65)" stroke-width="1.2" stroke-dasharray="3 3" transform="rotate(-25 50 50)"/>
+                                    <circle cx="92" cy="50" r="2.5" fill="#38bdf8" transform="rotate(-25 50 50)"/>
+                                </svg>
+                                <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
+                                    <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" transform="rotate(35 50 50)"/>
+                                    <circle cx="8" cy="50" r="2" fill="#c084fc" transform="rotate(35 50 50)"/>
+                                </svg>
+                                <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
+                                    <ellipse cx="50" cy="50" rx="40" ry="24" fill="none" stroke="rgba(192,132,252,0.4)" stroke-width="1" transform="rotate(85 50 50)"/>
+                                </svg>
+                            </div>
+
+                            <p class="text-xs text-slate-200 leading-relaxed italic text-center font-sans sm:text-[13px]">
+                                "Solve root causes, not symptoms. High ownership from the first commit to 24/7 production uptime — because true engineering integrity is proven in edge cases, resilience, and delivered business value."
+                            </p>
+
+                            <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                                <a href="#skills-process" class="text-purple-300 hover:text-white transition-colors inline-flex items-center gap-1 font-bold">
+                                    <span>Capabilities &amp; Process</span>
+                                    <span>→</span>
+                                </a>
+                                <span class="text-[10px] text-slate-400">ENGINEERING</span>
+                            </div>
+
                         </div>
-
-                        <!-- 3D Glowing Orbital Gyroscope Wireframe -->
-                        <div class="relative w-28 h-28 mx-auto my-2 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-xl pointer-events-none"></div>
-                            <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-white via-purple-200 to-cyan-300 shadow-[0_0_18px_#ffffff,0_0_30px_rgba(192,132,252,0.8)] z-10 pulse-soft"></div>
-                            <svg class="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" viewBox="0 0 100 100">
-                                <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(221,214,254,0.65)" stroke-width="1.2" stroke-dasharray="3 3" transform="rotate(-25 50 50)"/>
-                                <circle cx="92" cy="50" r="2.5" fill="#38bdf8" transform="rotate(-25 50 50)"/>
-                            </svg>
-                            <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
-                                <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" transform="rotate(35 50 50)"/>
-                                <circle cx="8" cy="50" r="2" fill="#c084fc" transform="rotate(35 50 50)"/>
-                            </svg>
-                            <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
-                                <ellipse cx="50" cy="50" rx="40" ry="24" fill="none" stroke="rgba(192,132,252,0.4)" stroke-width="1" transform="rotate(85 50 50)"/>
-                            </svg>
-                        </div>
-
-                        <p class="text-xs text-slate-200 leading-relaxed italic text-center font-sans sm:text-[13px]">
-                            "Solve root causes, not symptoms. High ownership from the first commit to 24/7 production uptime — because true engineering integrity is proven in edge cases, resilience, and delivered business value."
-                        </p>
-
-                        <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
-                            <a href="#skills-process" class="text-purple-300 hover:text-white transition-colors inline-flex items-center gap-1 font-bold">
-                                <span>Capabilities &amp; Process</span>
-                                <span>→</span>
-                            </a>
-                            <span class="text-[10px] text-slate-400">ENGINEERING</span>
-                        </div>
-
                     </div>
                 </div>
 
@@ -1566,7 +1787,8 @@
 
 
         <!-- ================= SECTION 1.5: ABOUT LUU KHANG HUY — THE ENGINEER BEHIND THE BUILDS ================= -->
-        <section id="about" class="spatial-glass rounded-[2.5rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden border border-white/20 shadow-[0_25px_70px_rgba(0,0,0,0.7)] space-y-8">
+        <section id="about" class="arch-about-wrap relative">
+            <div class="arch-about-inner p-6 sm:p-10 lg:p-12 space-y-8 relative overflow-hidden">
             
             <!-- Subtle ambient backlights -->
             <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-purple-600/20 blur-3xl pointer-events-none"></div>
@@ -1590,120 +1812,127 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                 <!-- Card 1: Work Methodology & End-to-End Ownership -->
-                <div class="spatial-glass-sub spatial-card-hover p-6 sm:p-7 rounded-[2rem] border border-white/20 transition-all flex flex-col justify-between space-y-6 group reveal delay-150">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                            <span class="text-[10px] font-mono text-purple-300 font-bold tracking-widest uppercase">01 // WORK METHODOLOGY</span>
-                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                <div class="arch-card-tl-wrap spatial-card-hover group reveal delay-150">
+                    <div class="arch-card-tl-inner p-6 sm:p-7 flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                <span class="text-[10px] font-mono text-purple-300 font-bold tracking-widest uppercase">// 01_WORK_METHODOLOGY</span>
+                                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-display font-bold text-white">
+                                End-to-End Ownership &amp; Clean Architecture
+                            </h3>
+                            <p class="text-xs text-slate-200 leading-relaxed">
+                                I never "throw code over the wall". Every project is owned from first-principles business discovery to automated CI/CD and production monitoring. I maintain single sources of truth, clean modular architecture, and zero tolerated technical debt.
+                            </p>
+                            <div class="space-y-2 pt-2 border-t border-white/10">
+                                <div class="flex items-center gap-2 text-xs text-slate-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
+                                    <span>End-to-End Product Ownership</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-slate-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
+                                    <span>Single Source of Truth &amp; In-Place Refactoring</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-slate-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                                    <span>Rigorous Cross-Device Verification Before Handover</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-base sm:text-lg font-display font-bold text-white">
-                            End-to-End Ownership &amp; Clean Architecture
-                        </h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
-                            I never "throw code over the wall". Every project is owned from first-principles business discovery to automated CI/CD and production monitoring. I maintain single sources of truth, clean modular architecture, and zero tolerated technical debt.
-                        </p>
-                        <div class="space-y-2 pt-2 border-t border-white/10">
-                            <div class="flex items-center gap-2 text-xs text-slate-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
-                                <span>End-to-End Product Ownership</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
-                                <span>Single Source of Truth &amp; In-Place Refactoring</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-                                <span>Rigorous Cross-Device Verification Before Handover</span>
-                            </div>
+                        <div class="pt-2 text-[11px] font-mono text-purple-300 border-t border-white/10">
+                            <span>First-Principles · Modular · Zero Cutting Corners</span>
                         </div>
-                    </div>
-                    <div class="pt-2 text-[11px] font-mono text-purple-300 border-t border-white/10">
-                        <span>First-Principles · Modular · Zero Cutting Corners</span>
                     </div>
                 </div>
 
                 <!-- Card 2: Problem-Solving Mindset & Root-Cause Resolution -->
-                <div class="spatial-glass-sub spatial-card-hover p-6 sm:p-7 rounded-[2rem] border border-white/20 transition-all flex flex-col justify-between space-y-6 group reveal delay-250">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                            <span class="text-[10px] font-mono text-cyan-300 font-bold tracking-widest uppercase">02 // PROBLEM-SOLVING RIGOR</span>
-                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                <div class="arch-card-tr-wrap spatial-card-hover group reveal delay-250">
+                    <div class="arch-card-tr-inner p-6 sm:p-7 flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                <span class="text-[10px] font-mono text-cyan-300 font-bold tracking-widest uppercase">// 02_PROBLEM_SOLVING</span>
+                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-display font-bold text-white">
+                                Root-Cause Resolution Over Quick Hacks
+                            </h3>
+                            <p class="text-xs text-slate-200 leading-relaxed">
+                                When facing performance regressions, race conditions, or architecture hurdles, I reject band-aid fixes and superficial overrides. I inspect raw traces, profile memory and network bottlenecks, and resolve issues cleanly at their source.
+                            </p>
+                            <div class="space-y-2 pt-2 border-t border-white/10">
+                                <div class="flex items-center gap-2 text-xs text-slate-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
+                                    <span>Root Cause Analysis (Zero superficial overrides)</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-slate-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                                    <span>Performance Profiling (&lt;0.9s FCP · &gt;95 PageSpeed)</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-xs text-slate-200">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
+                                    <span>Pragmatic Stack (Selecting tools by business ROI)</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-base sm:text-lg font-display font-bold text-white">
-                            Root-Cause Resolution Over Quick Hacks
-                        </h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
-                            When facing performance regressions, race conditions, or architecture hurdles, I reject band-aid fixes and superficial overrides. I inspect raw traces, profile memory and network bottlenecks, and resolve issues cleanly at their source.
-                        </p>
-                        <div class="space-y-2 pt-2 border-t border-white/10">
-                            <div class="flex items-center gap-2 text-xs text-slate-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
-                                <span>Root Cause Analysis (Zero superficial overrides)</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-                                <span>Performance Profiling (&lt;0.9s FCP · &gt;95 PageSpeed)</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-200">
-                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>
-                                <span>Pragmatic Stack (Selecting tools by business ROI)</span>
-                            </div>
+                        <div class="pt-2 text-[11px] font-mono text-cyan-300 border-t border-white/10">
+                            <span>Root Cause · Profiling · Pragmatic Engineering</span>
                         </div>
-                    </div>
-                    <div class="pt-2 text-[11px] font-mono text-cyan-300 border-t border-white/10">
-                        <span>Root Cause · Profiling · Pragmatic Engineering</span>
                     </div>
                 </div>
 
                 <!-- Card 3: Work Attitude, Candor & Global Reliability -->
-                <div class="spatial-glass-sub spatial-card-hover p-6 sm:p-7 rounded-[2rem] border border-white/20 transition-all flex flex-col justify-between space-y-6 group reveal delay-350">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                            <span class="text-[10px] font-mono text-emerald-300 font-bold tracking-widest uppercase">03 // ATTITUDE &amp; INTEGRITY</span>
-                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        </div>
-                        <h3 class="text-base sm:text-lg font-display font-bold text-white">
-                            Humility, Direct Candor &amp; Delivery SLA
-                        </h3>
-                        <p class="text-xs text-slate-200 leading-relaxed">
-                            I communicate directly and transparently without excuses or technical jargon. When errors arise, I take full accountability, explain the root cause, and fix them immediately. Committed to 100% on-time milestone delivery across global partners.
-                        </p>
-                        <div class="space-y-2.5 pt-2 border-t border-white/10">
-                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10">
-                                <div>
-                                    <p class="text-[11px] font-mono font-bold text-white">Direct, Honest Communication</p>
-                                    <p class="text-[9px] font-mono text-slate-300">Transparent updates · Zero technical obfuscation</p>
-                                </div>
-                                <span class="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-200 text-[9px] font-mono font-bold">TRANSPARENT</span>
+                <div class="arch-card-diag-wrap spatial-card-hover group reveal delay-350">
+                    <div class="arch-card-diag-inner p-6 sm:p-7 flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                <span class="text-[10px] font-mono text-emerald-300 font-bold tracking-widest uppercase">// 03_ATTITUDE_INTEGRITY</span>
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                             </div>
-                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10">
-                                <div>
-                                    <p class="text-[11px] font-mono font-bold text-white">100% On-Time Delivery SLA</p>
-                                    <p class="text-[9px] font-mono text-slate-300">France · USA · Japan · Vietnam (19 Builds)</p>
+                            <h3 class="text-base sm:text-lg font-display font-bold text-white">
+                                Humility, Direct Candor &amp; Delivery SLA
+                            </h3>
+                            <p class="text-xs text-slate-200 leading-relaxed">
+                                I communicate directly and transparently without excuses or technical jargon. When errors arise, I take full accountability, explain the root cause, and fix them immediately. Committed to 100% on-time milestone delivery across global partners.
+                            </p>
+                            <div class="space-y-2.5 pt-2 border-t border-white/10">
+                                <div class="flex items-center justify-between p-2.5 rounded bg-white/5 border border-white/10">
+                                    <div>
+                                        <p class="text-[11px] font-mono font-bold text-white">Direct, Honest Communication</p>
+                                        <p class="text-[9px] font-mono text-slate-300">Transparent updates · Zero technical obfuscation</p>
+                                    </div>
+                                    <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-200 text-[9px] font-mono font-bold">TRANSPARENT</span>
                                 </div>
-                                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-[9px] font-mono font-bold">HONORED</span>
+                                <div class="flex items-center justify-between p-2.5 rounded bg-white/5 border border-white/10">
+                                    <div>
+                                        <p class="text-[11px] font-mono font-bold text-white">100% On-Time Delivery SLA</p>
+                                        <p class="text-[9px] font-mono text-slate-300">France · USA · Japan · Vietnam (19 Builds)</p>
+                                    </div>
+                                    <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-200 text-[9px] font-mono font-bold">HONORED</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex items-center justify-between pt-2 border-t border-white/10">
-                        <a href="#skills-process" class="text-emerald-300 hover:text-white transition-colors text-xs font-mono font-bold inline-flex items-center gap-1">
-                            <span>How I Solve Problems</span>
-                            <span>↓</span>
-                        </a>
-                        <a href="#experience-edu" class="text-slate-300 hover:text-white transition-colors text-xs font-mono">
-                            <span>Full History →</span>
-                        </a>
+                        <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                            <a href="#skills-process" class="text-emerald-300 hover:text-white transition-colors text-xs font-mono font-bold inline-flex items-center gap-1">
+                                <span>How I Solve Problems</span>
+                                <span>↓</span>
+                            </a>
+                            <a href="#experience-edu" class="text-slate-300 hover:text-white transition-colors text-xs font-mono">
+                                <span>Full History →</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
             </div>
-
+            </div>
         </section>
 
 
 
-        <!-- ================= SECTION 2: MY TECH STACK & PROCESS (CONTINUOUS SPATIAL GLASS PANEL) ================= -->
-        <section id="skills-process" class="spatial-glass p-6 sm:p-10 relative">
+        <!-- ================= SECTION 2: MY TECH STACK & PROCESS (ASYMMETRIC COMMAND CONSOLE) ================= -->
+        <section id="skills-process" class="arch-process-wrap relative">
+            <div class="arch-process-inner p-6 sm:p-10 relative">
             
             <!-- Dedicated 3D Toroidal Glass Ribbon Loop & Perspective Mesh wrapping Section 2 (as in Awwwards reference) -->
             <div class="absolute -right-8 -top-12 -bottom-14 w-80 sm:w-[420px] pointer-events-none z-0 hidden lg:block overflow-visible">
@@ -2190,6 +2419,7 @@
                 </div>
 
             </div>
+            </div>
         </section>
 
         <!-- ================= SECTION 2.5: EXPERIENCE & EDUCATION (FULL CV SYNC) ================= -->
@@ -2211,80 +2441,82 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                 
                 <!-- Left Card (7 cols): Work Experience at QUESTX -->
-                <div class="lg:col-span-7 spatial-glass p-6 sm:p-8 rounded-[2rem] spatial-card-hover relative overflow-hidden flex flex-col justify-between space-y-6 reveal-left delay-150">
-                    <!-- Ambient Glow -->
-                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="lg:col-span-7 arch-dossier-questx-wrap spatial-card-hover reveal-left delay-150">
+                    <div class="arch-dossier-questx-inner p-6 sm:p-8 relative overflow-hidden flex flex-col justify-between space-y-6">
+                        <!-- Ambient Glow -->
+                        <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                    <div class="space-y-4 relative z-10">
-                        <!-- Company Header -->
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/10">
-                            <div>
-                                <span class="text-[10px] font-mono font-bold text-cyan-300 tracking-wider uppercase block">ENTERPRISE • FULL-TIME</span>
-                                <h4 class="text-xl font-display font-bold text-white tracking-wide">QUESTX CO., LTD.</h4>
-                                <p class="text-xs font-mono text-purple-200 mt-0.5">Frontend &amp; DevOps Engineer · Ho Chi Minh City</p>
+                        <div class="space-y-4 relative z-10">
+                            <!-- Company Header -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/10">
+                                <div>
+                                    <span class="text-[10px] font-mono font-bold text-cyan-300 tracking-wider uppercase block">// ENTERPRISE • FULL-TIME</span>
+                                    <h4 class="text-xl font-display font-bold text-white tracking-wide">QUESTX CO., LTD.</h4>
+                                    <p class="text-xs font-mono text-purple-200 mt-0.5">Frontend &amp; DevOps Engineer · Ho Chi Minh City</p>
+                                </div>
+                                <span class="self-start sm:self-auto px-3 py-1 rounded spatial-glass-pill text-[10px] font-mono font-bold text-white border border-purple-300/40 shrink-0">
+                                    04/2025 — PRESENT
+                                </span>
                             </div>
-                            <span class="self-start sm:self-auto px-3 py-1 rounded-full spatial-glass-pill text-[10px] font-mono font-bold text-white border border-purple-300/40 shrink-0">
-                                04/2025 — PRESENT
-                            </span>
+
+                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
+                                Taking full engineering ownership of production deliverables: untangling legacy monolithic bottlenecks into high-performance headless Next.js architectures, engineering custom business plugins from scratch, and enforcing strict zero-trust infrastructure with zero open management ports.
+                            </p>
+
+                            <!-- 4 Core Responsibilities / Technical Pillars -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                                
+                                <div class="p-3.5 rounded-md bg-white/[0.04] border border-white/10 space-y-1 hover:border-cyan-300/40 transition-colors">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                        <h5 class="text-xs font-bold text-white tracking-tight">Headless Architecture &amp; Vitals</h5>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300 leading-normal">
+                                        Deconstructed legacy monolithic systems into decoupled Next.js 15 App Router &amp; GraphQL, resolving render bottlenecks to achieve Core Web Vitals SLA (Desktop &gt;90, Mobile &gt;75).
+                                    </p>
+                                </div>
+
+                                <div class="p-3.5 rounded-md bg-white/[0.04] border border-white/10 space-y-1 hover:border-purple-300/40 transition-colors">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                        <h5 class="text-xs font-bold text-white tracking-tight">Custom Plugin Problem-Solving</h5>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300 leading-normal">
+                                        Authored 3 production plugins from first principles: dynamic canvas preview (<code class="text-purple-200 font-mono text-[10px]">huy-product-wizard</code>), automated IPN webhooks (<code class="text-cyan-200 font-mono text-[10px]">vietqr-dynamic</code>), and EU VAT compliance.
+                                    </p>
+                                </div>
+
+                                <div class="p-3.5 rounded-md bg-white/[0.04] border border-white/10 space-y-1 hover:border-pink-300/40 transition-colors">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+                                        <h5 class="text-xs font-bold text-white tracking-tight">Infrastructure Discipline &amp; CI/CD</h5>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300 leading-normal">
+                                        Eliminated deployment errors by architecting isolated Staging and Production topologies (aaPanel Linux VPS); automated 100% of workflows via GitLab Runners &amp; GitHub Actions.
+                                    </p>
+                                </div>
+
+                                <div class="p-3.5 rounded-md bg-white/[0.04] border border-white/10 space-y-1 hover:border-emerald-400/40 transition-colors">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <h5 class="text-xs font-bold text-white tracking-tight">Zero Trust &amp; Mobile Delivery</h5>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300 leading-normal">
+                                        Hardened perimeter defenses via Cloudflare Zero Trust Tunnels (Zero Open Ports); managed secure Keystores and automated React Native to .aab packaging via EAS CLI.
+                                    </p>
+                                </div>
+
+                            </div>
                         </div>
 
-                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
-                            Taking full engineering ownership of production deliverables: untangling legacy monolithic bottlenecks into high-performance headless Next.js architectures, engineering custom business plugins from scratch, and enforcing strict zero-trust infrastructure with zero open management ports.
-                        </p>
-
-                        <!-- 4 Core Responsibilities / Technical Pillars -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                            
-                            <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 space-y-1 hover:border-purple-300/40 transition-colors">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                                    <h5 class="text-xs font-bold text-white tracking-tight">Headless Architecture &amp; Vitals</h5>
-                                </div>
-                                <p class="text-[11px] text-slate-300 leading-normal">
-                                    Deconstructed legacy monolithic systems into decoupled Next.js 15 App Router &amp; GraphQL, resolving render bottlenecks to achieve Core Web Vitals SLA (Desktop &gt;90, Mobile &gt;75).
-                                </p>
-                            </div>
-
-                            <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 space-y-1 hover:border-purple-300/40 transition-colors">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-                                    <h5 class="text-xs font-bold text-white tracking-tight">Custom Plugin Problem-Solving</h5>
-                                </div>
-                                <p class="text-[11px] text-slate-300 leading-normal">
-                                    Authored 3 production plugins from first principles: dynamic canvas preview (<code class="text-purple-200 font-mono text-[10px]">huy-product-wizard</code>), automated IPN webhooks (<code class="text-cyan-200 font-mono text-[10px]">vietqr-dynamic</code>), and EU VAT compliance.
-                                </p>
-                            </div>
-
-                            <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 space-y-1 hover:border-purple-300/40 transition-colors">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-pink-400"></span>
-                                    <h5 class="text-xs font-bold text-white tracking-tight">Infrastructure Discipline &amp; CI/CD</h5>
-                                </div>
-                                <p class="text-[11px] text-slate-300 leading-normal">
-                                    Eliminated deployment errors by architecting isolated Staging and Production topologies (aaPanel Linux VPS); automated 100% of workflows via GitLab Runners &amp; GitHub Actions.
-                                </p>
-                            </div>
-
-                            <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 space-y-1 hover:border-purple-300/40 transition-colors">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                    <h5 class="text-xs font-bold text-white tracking-tight">Zero Trust &amp; Mobile Delivery</h5>
-                                </div>
-                                <p class="text-[11px] text-slate-300 leading-normal">
-                                    Hardened perimeter defenses via Cloudflare Zero Trust Tunnels (Zero Open Ports); managed secure Keystores and automated React Native to .aab packaging via EAS CLI.
-                                </p>
-                            </div>
-
+                        <div class="pt-3 border-t border-white/10 flex flex-wrap items-center gap-2 text-[10px] font-mono text-purple-200 relative z-10">
+                            <span class="font-bold text-slate-300">TECH ARTIFACTS:</span>
+                            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">Next.js App Router</span>
+                            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">PHP OOP Plugins</span>
+                            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">GitLab Runner CI/CD</span>
+                            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">Cloudflare Zero Trust</span>
+                            <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">AWS S3</span>
                         </div>
-                    </div>
-
-                    <div class="pt-3 border-t border-white/10 flex flex-wrap items-center gap-2 text-[10px] font-mono text-purple-200 relative z-10">
-                        <span class="font-bold text-slate-300">TECH ARTIFACTS:</span>
-                        <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">Next.js App Router</span>
-                        <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">PHP OOP Plugins</span>
-                        <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">GitLab Runner CI/CD</span>
-                        <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">Cloudflare Zero Trust</span>
-                        <span class="px-2 py-0.5 rounded bg-white/10 border border-white/10">AWS S3</span>
                     </div>
                 </div>
 
@@ -2292,63 +2524,63 @@
                 <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
                     
                     <!-- Education Card -->
-                    <div class="spatial-glass p-6 rounded-[2rem] spatial-card-hover relative overflow-hidden flex-1 space-y-3 reveal-right delay-200">
-                        <div class="flex items-center justify-between gap-2">
-                            <span class="text-[10px] font-mono font-bold text-purple-300 tracking-wider uppercase block">FORMAL ACADEMIA • 2021 — 2025</span>
-                            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 border border-purple-300/40 text-[10px] font-mono font-bold text-purple-200">
-                                GRADUATED
-                            </span>
+                    <div class="arch-dossier-edu-wrap spatial-card-hover flex-1 reveal-right delay-200">
+                        <div class="arch-dossier-edu-inner p-6 relative overflow-hidden space-y-3">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] font-mono font-bold text-purple-300 tracking-wider uppercase block">FORMAL ACADEMIA • 2021 — 2025</span>
+                                <span class="px-2.5 py-0.5 rounded bg-purple-500/20 border border-purple-300/40 text-[10px] font-mono font-bold text-purple-200">
+                                    GRADUATED
+                                </span>
+                            </div>
+                            <h4 class="text-lg font-display font-bold text-white tracking-wide">
+                                TON DUC THANG UNIVERSITY (TDTU)
+                            </h4>
+                            <p class="text-xs font-mono text-cyan-200 font-semibold">
+                                Bachelor of Information Technology
+                            </p>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-1">
+                                <strong class="text-white">Honors Capstone Project:</strong> Engineered <code class="text-cyan-200 font-mono text-[11px]">HH_Movie</code>, an adaptive video streaming platform with bandwidth-aware HLS FFmpeg transcoding, VNPAY HMAC-SHA512 webhook integration, CRM revenue analytics, and Docker Compose behind Nginx.
+                            </p>
                         </div>
-                        <h4 class="text-lg font-display font-bold text-white tracking-wide">
-                            TON DUC THANG UNIVERSITY (TDTU)
-                        </h4>
-                        <p class="text-xs font-mono text-cyan-200 font-semibold">
-                            Bachelor of Information Technology
-                        </p>
-                        <p class="text-xs text-slate-300 leading-relaxed pt-1">
-                            <strong class="text-white">Honors Capstone Project:</strong> Engineered <code class="text-cyan-200 font-mono text-[11px]">HH_Movie</code>, an adaptive video streaming platform with bandwidth-aware HLS FFmpeg transcoding, VNPAY HMAC-SHA512 webhook integration, CRM revenue analytics, and Docker Compose behind Nginx.
-                        </p>
                     </div>
 
                     <!-- Certifications & International Delivery Bento Sub-card -->
-                    <div class="spatial-glass p-6 rounded-[2rem] spatial-card-hover relative overflow-hidden flex-1 space-y-3 reveal-right delay-300">
-                        <div class="flex items-center justify-between gap-2">
-                            <span class="text-[10px] font-mono font-bold text-cyan-300 tracking-wider uppercase block">CREDENTIALS &amp; GLOBAL DELIVERY</span>
-                            <span class="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-[9px] font-mono font-bold text-blue-200">
-                                GLOBAL READY
-                            </span>
-                        </div>
-                        
-                        <div class="space-y-2.5">
-                            <!-- English Certificate -->
-                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-blue-400/30 transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-200 shrink-0 font-mono text-xs font-bold shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                                    B2
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <h5 class="text-xs font-bold text-white">English Proficiency: Aptis ESOL B2</h5>
-                                        <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-slate-300">British Council</span>
-                                    </div>
-                                    <p class="text-[11px] text-slate-300 leading-tight mt-1">Professional Working Proficiency — Fluent technical communication and direct collaboration with international clients.</p>
-                                </div>
+                    <div class="arch-dossier-aptis-wrap spatial-card-hover flex-1 reveal-right delay-300">
+                        <div class="arch-dossier-aptis-inner p-6 relative overflow-hidden space-y-3">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] font-mono font-bold text-cyan-300 tracking-wider uppercase block">CREDENTIALS &amp; GLOBAL DELIVERY</span>
+                                <span class="px-2 py-0.5 rounded bg-blue-500/20 border border-blue-400/40 text-[9px] font-mono font-bold text-blue-200">
+                                    GLOBAL READY
+                                </span>
                             </div>
-
-                            <!-- International Delivery Experience -->
-                            <div class="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-emerald-400/30 transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-200 shrink-0 font-mono text-xs font-bold shadow-[0_0_10px_rgba(52,211,153,0.3)]">
-                                    <svg class="w-4 h-4 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <h5 class="text-xs font-bold text-white">Global Partner Delivery Experience</h5>
-                                        <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-emerald-300">France · USA · Japan</span>
+                            
+                            <div class="space-y-2.5">
+                                <!-- English Certificate -->
+                                <div class="flex items-start gap-3 p-3 rounded-md bg-white/[0.04] border border-white/10 hover:border-blue-400/30 transition-colors">
+                                    <div class="w-8 h-8 rounded bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-200 shrink-0 font-mono text-xs font-bold shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                        B2
                                     </div>
-                                    <p class="text-[11px] text-slate-300 leading-tight mt-1">Directly engineered and shipped production systems for partners in France (Green Bridge, Nuage Sauvage), the United States (CMD Supply), and Japan (Hajime Studio).</p>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h5 class="text-xs font-bold text-white">English Proficiency: Aptis ESOL B2</h5>
+                                            <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-slate-300">British Council</span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-300 leading-tight mt-1">Professional Working Proficiency — Fluent technical communication and direct collaboration with international clients.</p>
+                                    </div>
+                                </div>
+
+                                <!-- International Delivery Experience -->
+                                <div class="flex items-start gap-3 p-3 rounded-md bg-white/[0.04] border border-white/10 hover:border-emerald-400/30 transition-colors">
+                                    <div class="w-8 h-8 rounded bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-200 shrink-0 font-mono text-xs font-bold shadow-[0_0_10px_rgba(52,211,153,0.3)]">
+                                        19
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <h5 class="text-xs font-bold text-white">Global Partner Delivery Experience</h5>
+                                            <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-white/10 text-slate-300">France · USA · Japan</span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-300 leading-tight mt-1">Directly engineered and shipped production systems for partners in France (Green Bridge, Nuage Sauvage), the United States (CMD Supply), and Japan (Haijima Studio).</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2378,12 +2610,12 @@
 
                 <!-- Filter tabs -->
                 <div id="inline-filter-tabs" class="flex flex-wrap items-center gap-2 self-start xl:self-auto shrink-0 max-w-full reveal delay-150">
-                    <button onclick="filterInline('all')" class="inline-filter-btn active px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-purple-200/60 text-white spatial-glass-pill transition-all" data-filter="all">All (19)</button>
-                    <button onclick="filterInline('fullstack')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="fullstack">Full-Stack (6)</button>
-                    <button onclick="filterInline('frontend')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="frontend">Frontend &amp; 3D (5)</button>
-                    <button onclick="filterInline('devops')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="devops">Cloud &amp; DevOps (9)</button>
-                    <button onclick="filterInline('ai')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="ai">AI &amp; Quant (2)</button>
-                    <button onclick="filterInline('wordpress')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="wordpress">WordPress &amp; Plugins (7)</button>
+                    <button onclick="filterInline('all')" class="inline-filter-btn active hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-purple-200/60 text-white bg-white/20 shadow-[0_0_15px_rgba(192,132,252,0.4)] transition-all" data-filter="all">All (19)</button>
+                    <button onclick="filterInline('fullstack')" class="inline-filter-btn hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 bg-white/5 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="fullstack">Full-Stack (6)</button>
+                    <button onclick="filterInline('frontend')" class="inline-filter-btn hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 bg-white/5 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="frontend">Frontend &amp; 3D (5)</button>
+                    <button onclick="filterInline('devops')" class="inline-filter-btn hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 bg-white/5 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="devops">Cloud &amp; DevOps (9)</button>
+                    <button onclick="filterInline('ai')" class="inline-filter-btn hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 bg-white/5 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="ai">AI &amp; Quant (2)</button>
+                    <button onclick="filterInline('wordpress')" class="inline-filter-btn hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 bg-white/5 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="wordpress">WordPress &amp; Plugins (7)</button>
                 </div>
             </div>
 
@@ -2418,8 +2650,9 @@
                 </div>
 
                 <!-- Right Metrics Slab (8 cols): 4 Glowing Stat Columns -->
-                <div class="lg:col-span-8 spatial-glass p-6 sm:p-8 spatial-card-hover relative overflow-hidden reveal-right delay-200">
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+                <div class="lg:col-span-8 arch-telemetry-wrap spatial-card-hover reveal-right delay-200">
+                    <div class="arch-telemetry-inner p-6 sm:p-8 relative overflow-hidden">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/20">
                         
                         <!-- Stat 1: 19+ Projects -->
                         <div class="space-y-2 pt-4 sm:pt-0 flex flex-col items-center reveal delay-100">
@@ -2470,13 +2703,15 @@
                         </div>
 
                     </div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- ================= SECTION 5: FOOTER CONTACT (LET'S CREATE SOMETHING AMAZING) ================= -->
-        <footer id="contact" class="spatial-glass rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden border border-white/25 shadow-[0_30px_90px_rgba(0,0,0,0.7)]">
+        <!-- ================= SECTION 5: FOOTER CONTACT (OCTAGONAL COMMAND AIRLOCK) ================= -->
+        <footer id="contact" class="arch-command-airlock-wrap relative">
+            <div class="arch-command-airlock-inner p-8 sm:p-12 relative overflow-hidden">
 
             <!-- Ambient Glows -->
             <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-purple-600/25 blur-3xl pointer-events-none"></div>
@@ -2513,11 +2748,11 @@
                     
                     <!-- Email Item -->
                     <div onclick="copyToClipboard('luuhuy.290303@gmail.com','email-copied-toast')"
-                         class="p-3 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-purple-300/40 hover:bg-white/[0.08] transition-all cursor-pointer group space-y-1">
+                         class="p-3 rounded-lg bg-white/[0.04] border border-white/10 hover:border-purple-300/40 hover:bg-white/[0.08] transition-all cursor-pointer group space-y-1">
                         <span class="text-[9px] font-mono text-purple-300/80 uppercase tracking-widest font-bold block">EMAIL</span>
                         <div class="flex items-center justify-between gap-2">
                             <div class="flex items-center gap-2">
-                                <div class="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
+                                <div class="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
                                     <svg class="w-3 h-3 text-purple-200 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
@@ -2531,11 +2766,11 @@
 
                     <!-- Phone Item -->
                     <div onclick="copyToClipboard('+84986648481','phone-copied-toast')"
-                         class="p-3 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-purple-300/40 hover:bg-white/[0.08] transition-all cursor-pointer group space-y-1">
+                         class="p-3 rounded-lg bg-white/[0.04] border border-white/10 hover:border-purple-300/40 hover:bg-white/[0.08] transition-all cursor-pointer group space-y-1">
                         <span class="text-[9px] font-mono text-purple-300/80 uppercase tracking-widest font-bold block">PHONE / ZALO</span>
                         <div class="flex items-center justify-between gap-2">
                             <div class="flex items-center gap-2">
-                                <div class="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
+                                <div class="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
                                     <svg class="w-3 h-3 text-purple-200 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                                     </svg>
@@ -2547,7 +2782,7 @@
                     </div>
 
                     <!-- Location Item -->
-                    <div class="p-3 rounded-2xl bg-white/[0.04] border border-white/10 space-y-1">
+                    <div class="p-3 rounded-lg bg-white/[0.04] border border-white/10 space-y-1">
                         <span class="text-[9px] font-mono text-purple-300/80 uppercase tracking-widest font-bold block">LOCATION</span>
                         <div class="flex items-center gap-2">
                             <div class="w-6 h-6 rounded-lg bg-white/10 flex items-center justify-center shrink-0 border border-white/15">
@@ -2650,6 +2885,7 @@
                 </div>
             </div>
 
+            </div>
         </footer>
 
     </main>
@@ -2679,7 +2915,7 @@
     
     <!-- Modal 1: 19 Projects Blueprint -->
     <div id="garage-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="relative w-full max-w-5xl bg-[#0e0a2b] border-2 border-purple-300/70 rounded-3xl shadow-[0_0_90px_rgba(221,214,254,0.5)] overflow-hidden max-h-[92vh] flex flex-col">
+        <div class="relative w-full max-w-5xl bg-[#0e0a2b] border-2 border-purple-300/70 rounded-xl shadow-[0_0_90px_rgba(221,214,254,0.5)] overflow-hidden max-h-[92vh] flex flex-col">
             
             <div class="p-5 sm:p-6 border-b border-white/10 bg-gradient-to-r from-purple-950/70 via-black to-purple-950/70 flex items-center justify-between shrink-0">
                 <div class="flex items-center gap-3">
@@ -2709,12 +2945,12 @@
 
             <!-- Filter Tabs -->
             <div class="px-6 py-3 border-b border-white/10 bg-black/40 flex flex-wrap items-center justify-center gap-2 shrink-0" id="quest-filters">
-                <button class="quest-filter active px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-purple-500 text-white shadow-[0_0_12px_rgba(221,214,254,0.6)]" data-filter="all">All (19)</button>
-                <button class="quest-filter px-3.5 py-1.5 rounded-full text-xs font-mono font-medium spatial-glass-pill text-slate-200 hover:text-white" data-filter="fullstack">Full-Stack (6)</button>
-                <button class="quest-filter px-3.5 py-1.5 rounded-full text-xs font-mono font-medium spatial-glass-pill text-slate-200 hover:text-white" data-filter="frontend">Frontend &amp; 3D (5)</button>
-                <button class="quest-filter px-3.5 py-1.5 rounded-full text-xs font-mono font-medium spatial-glass-pill text-slate-200 hover:text-white" data-filter="devops">Cloud &amp; DevOps (9)</button>
-                <button class="quest-filter px-3.5 py-1.5 rounded-full text-xs font-mono font-medium spatial-glass-pill text-slate-200 hover:text-white" data-filter="ai">AI &amp; Quant (2)</button>
-                <button class="quest-filter px-3.5 py-1.5 rounded-full text-xs font-mono font-medium spatial-glass-pill text-slate-200 hover:text-white" data-filter="wordpress">WordPress &amp; Plugins (7)</button>
+                <button class="quest-filter active hex-filter-tab px-4 py-1.5 text-xs font-mono font-bold bg-purple-500 text-white shadow-[0_0_12px_rgba(221,214,254,0.6)]" data-filter="all">All (19)</button>
+                <button class="quest-filter hex-filter-tab px-4 py-1.5 text-xs font-mono font-medium border border-white/20 bg-white/5 text-slate-200 hover:text-white" data-filter="fullstack">Full-Stack (6)</button>
+                <button class="quest-filter hex-filter-tab px-4 py-1.5 text-xs font-mono font-medium border border-white/20 bg-white/5 text-slate-200 hover:text-white" data-filter="frontend">Frontend &amp; 3D (5)</button>
+                <button class="quest-filter hex-filter-tab px-4 py-1.5 text-xs font-mono font-medium border border-white/20 bg-white/5 text-slate-200 hover:text-white" data-filter="devops">Cloud &amp; DevOps (9)</button>
+                <button class="quest-filter hex-filter-tab px-4 py-1.5 text-xs font-mono font-medium border border-white/20 bg-white/5 text-slate-200 hover:text-white" data-filter="ai">AI &amp; Quant (2)</button>
+                <button class="quest-filter hex-filter-tab px-4 py-1.5 text-xs font-mono font-medium border border-white/20 bg-white/5 text-slate-200 hover:text-white" data-filter="wordpress">WordPress &amp; Plugins (7)</button>
             </div>
 
             <!-- Scrollable Grid -->
@@ -2729,7 +2965,7 @@
 
     <!-- Modal 2: Single Project Inspect Modal -->
     <div id="quest-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="relative w-full max-w-2xl bg-[#0e0a2b] border border-white/30 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+        <div class="relative w-full max-w-2xl bg-[#0e0a2b] border border-white/30 rounded-xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
             <div class="relative aspect-video w-full overflow-hidden bg-black shrink-0">
                 <img id="q-modal-img" src="" alt="" class="w-full h-full object-cover object-top">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0e0a2b] via-transparent to-black/60"></div>
@@ -2911,15 +3147,15 @@
             filtered.forEach((p, index) => {
                 const card = document.createElement('div');
                 const delayClass = delays[index % delays.length];
-                card.className = `spatial-glass spatial-card-hover p-4 rounded-2xl flex flex-col justify-between group cursor-pointer reveal ${delayClass}`;
+                card.className = `spatial-glass arch-project-cartridge spatial-card-hover p-4 flex flex-col justify-between group cursor-pointer reveal ${delayClass} border border-white/20`;
                 card.onclick = () => openQuestModal(p.id);
                 card.innerHTML = `
                     <div class="space-y-3">
-                        <div class="aspect-[16/10] w-full rounded-xl overflow-hidden relative border border-white/30 bg-black/40">
+                        <div class="aspect-[16/10] w-full rounded-md overflow-hidden relative border border-white/30 bg-black/40">
                             <img src="${p.img}" alt="${p.title}"
                                 class="w-full h-full object-cover object-top group-hover:scale-108 group-hover:brightness-105 transition-all duration-500"
                                 onerror="this.onerror=null;this.src='https://ps.w.org/woocommerce/assets/banner-772x250.png'">
-                            <span class="absolute top-2 left-2 px-2 py-0.5 rounded spatial-glass-pill text-[9px] font-mono font-bold text-white border border-purple-200/60 group-hover:border-white group-hover:shadow-[0_0_12px_rgba(192,132,252,0.6)] transition-all">${p.tag}</span>
+                            <span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[9px] font-mono font-bold text-white bg-black/60 border border-purple-200/60 group-hover:border-white group-hover:shadow-[0_0_12px_rgba(192,132,252,0.6)] transition-all">${p.tag}</span>
                         </div>
                         <div>
                             <div class="flex items-center justify-between gap-1">
@@ -2944,8 +3180,8 @@
             document.querySelectorAll('.inline-filter-btn').forEach(btn => {
                 const isActive = btn.dataset.filter === filter;
                 btn.className = isActive
-                    ? 'inline-filter-btn active px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-purple-200/60 text-white spatial-glass-pill transition-all'
-                    : 'inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all';
+                    ? 'inline-filter-btn active hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-purple-200/60 text-white bg-white/20 shadow-[0_0_15px_rgba(192,132,252,0.4)] transition-all'
+                    : 'inline-filter-btn hex-filter-tab px-4 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 bg-white/5 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all';
             });
             renderInlineProjects(filter);
         }

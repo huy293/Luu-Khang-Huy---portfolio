@@ -650,6 +650,27 @@
             box-shadow: 0 0 8px #38bdf8, 0 0 16px rgba(56, 189, 248, 0.4);
         }
 
+        /* 3D Celestial Quantum Astrolabe Gyroscope Artwork */
+        @keyframes astrolabe-precess {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            }
+            50% {
+                transform: translateY(-8px) rotate(4deg);
+                animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            }
+        }
+        .astrolabe-art-lens {
+            animation: astrolabe-precess 4.2s infinite;
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s var(--ease-tactile);
+        }
+        .group\/astrolabe:hover .astrolabe-art-lens {
+            transform: translateY(-12px) scale(1.08);
+            filter: drop-shadow(0 14px 28px rgba(7, 3, 25, 0.85)) drop-shadow(0 0 18px rgba(168, 85, 247, 0.35));
+        }
+
 
 
         /* 3D Floating Ray-Traced Optical Glass & Spatial Artifacts System (5 Distinct Physical Forms) */
@@ -1606,21 +1627,16 @@
                                 <span class="w-2 h-2 rounded-full bg-purple-400"></span>
                             </div>
 
-                            <!-- 3D Glowing Orbital Gyroscope Wireframe -->
-                            <div class="relative w-28 h-28 mx-auto my-2 flex items-center justify-center">
-                                <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-xl pointer-events-none"></div>
-                                <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-white via-purple-200 to-cyan-300 shadow-[0_0_18px_#ffffff,0_0_30px_rgba(192,132,252,0.8)] z-10 pulse-soft"></div>
-                                <svg class="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" viewBox="0 0 100 100">
-                                    <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(221,214,254,0.65)" stroke-width="1.2" stroke-dasharray="3 3" transform="rotate(-25 50 50)"/>
-                                    <circle cx="92" cy="50" r="2.5" fill="#38bdf8" transform="rotate(-25 50 50)"/>
-                                </svg>
-                                <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
-                                    <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" transform="rotate(35 50 50)"/>
-                                    <circle cx="8" cy="50" r="2" fill="#c084fc" transform="rotate(35 50 50)"/>
-                                </svg>
-                                <svg class="absolute inset-0 w-full h-full animate-spin-reverse-slow pointer-events-none" viewBox="0 0 100 100">
-                                    <ellipse cx="50" cy="50" rx="40" ry="24" fill="none" stroke="rgba(192,132,252,0.4)" stroke-width="1" transform="rotate(85 50 50)"/>
-                                </svg>
+                            <!-- 3D Ray-Traced Celestial Quantum Astrolabe (Authentic Digital Artwork) -->
+                            <div class="relative w-32 h-32 sm:w-36 sm:h-36 mx-auto my-2 flex items-center justify-center group/astrolabe">
+                                <div class="astrolabe-art-lens w-full h-full relative flex items-center justify-center cursor-pointer">
+                                    <picture>
+                                        <source srcset="assets/huy/quantum_astrolabe_3d.webp" type="image/webp">
+                                        <img src="assets/huy/quantum_astrolabe_loop.gif" 
+                                             alt="Quantum Astrolabe Gyroscope 3D Artwork" 
+                                             class="w-full h-full object-contain pointer-events-none select-none drop-shadow-[0_10px_22px_rgba(7,3,25,0.85)]">
+                                    </picture>
+                                </div>
                             </div>
 
                             <p class="text-xs text-slate-200 leading-relaxed italic text-center font-sans sm:text-[13px]">

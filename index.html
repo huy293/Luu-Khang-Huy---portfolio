@@ -663,6 +663,16 @@
             }
         }
 
+        .monogram-float-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: orb-float-bounce 3.6s infinite;
+            will-change: transform;
+            z-index: 10;
+        }
+
         .monogram-glass-lens {
             width: 172px;
             height: 172px;
@@ -671,41 +681,85 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s var(--ease-tactile);
+            transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
             cursor: pointer;
-            animation: orb-float-bounce 3.6s infinite;
             will-change: transform;
-            z-index: 10;
         }
         .celestial-monogram-zone:hover .monogram-glass-lens,
         .group\/monogram:hover .monogram-glass-lens,
         .monogram-glass-lens:hover {
-            transform: translateY(-18px) scale(1.06);
-            filter: drop-shadow(0 16px 32px rgba(7, 3, 25, 0.85)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.35));
+            transform: scale(1.08);
+            filter: drop-shadow(0 16px 36px rgba(7, 3, 25, 0.9)) drop-shadow(0 0 24px rgba(168, 85, 247, 0.45));
         }
         .monogram-glass-lens img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             filter: drop-shadow(0 14px 28px rgba(7, 3, 25, 0.7));
-            transition: filter 0.4s var(--ease-tactile), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: filter 0.4s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         .celestial-monogram-zone:hover .monogram-glass-lens img,
         .group\/monogram:hover .monogram-glass-lens img,
         .monogram-glass-lens:hover img {
-            transform: scale(1.04);
-            filter: drop-shadow(0 18px 36px rgba(7, 3, 25, 0.9)) drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+            transform: scale(1.02);
+            filter: drop-shadow(0 18px 36px rgba(7, 3, 25, 0.95)) drop-shadow(0 0 22px rgba(192, 132, 252, 0.5));
         }
         .celestial-monogram-zone:hover .monogram-orbit-ring,
         .group\/monogram:hover .monogram-orbit-ring {
-            border-color: rgba(221, 214, 254, 0.55);
-            box-shadow: 0 0 14px rgba(192, 132, 252, 0.25);
-            animation-duration: 8s;
+            border-color: rgba(221, 214, 254, 0.65);
+            box-shadow: 0 0 16px rgba(192, 132, 252, 0.35);
+            animation-duration: 9s;
         }
         .celestial-monogram-zone:hover .monogram-satellite,
         .group\/monogram:hover .monogram-satellite {
-            transform: scale(1.25);
-            box-shadow: 0 0 8px #38bdf8, 0 0 16px rgba(56, 189, 248, 0.4);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px #38bdf8, 0 0 20px rgba(56, 189, 248, 0.6), 0 0 30px rgba(192, 132, 252, 0.5);
+        }
+
+        /* ===== XIANXIA QI & LIGHTNING AURA SYSTEM (TU TIEN HOVER EFFECT) ===== */
+        .celestial-corona-system {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .celestial-art-disc {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 480px;
+            height: 480px;
+            max-width: none;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.75);
+            will-change: transform, opacity;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes xianxia-aura-spin {
+            from { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            to   { transform: translate(-50%, -50%) scale(1) rotate(360deg); }
+        }
+
+        @keyframes xianxia-qi-flow {
+            0%, 100% {
+                filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.5)) drop-shadow(0 0 24px rgba(168, 85, 247, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.75)) drop-shadow(0 0 35px rgba(192, 132, 252, 0.6));
+            }
+        }
+
+        .celestial-monogram-zone:hover .celestial-art-disc,
+        .group\/monogram:hover .celestial-art-disc {
+            opacity: 0.95;
+            animation: xianxia-aura-spin 24s linear infinite, xianxia-qi-flow 2.4s ease-in-out infinite;
         }
 
         /* 3D Celestial Quantum Astrolabe Gyroscope Artwork */
@@ -2748,20 +2802,33 @@
                 <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0 reveal-scale delay-250 celestial-monogram-zone group/monogram">
                     
                     <!-- Clean Rotating Dashed Orbit with Glowing Cyan Satellite -->
-                    <div class="monogram-orbit-ring absolute w-52 h-52 sm:w-56 sm:h-56 rounded-full border border-dashed border-purple-200/40 animate-spin-slow pointer-events-none flex items-center justify-start transition-all duration-700">
+                    <div class="monogram-orbit-ring absolute w-52 h-52 sm:w-56 sm:h-56 rounded-full border border-dashed border-purple-200/40 pointer-events-none flex items-center justify-start transition-all duration-700">
                         <span class="monogram-satellite w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_6px_#38bdf8,0_0_12px_rgba(56,189,248,0.45)] -ml-1.5 flex items-center justify-center transition-all duration-500">
                             <span class="w-1 h-1 rounded-full bg-white"></span>
                         </span>
                     </div>
 
-                    <!-- The 3D Glass Sphere Monogram (Authentic 3D Digital Artwork) -->
-                    <div class="monogram-glass-lens cursor-pointer relative z-10">
-                        <picture>
-                            <source srcset="assets/huy/lkh_monogram_orb_3d.webp" type="image/webp">
-                            <img src="assets/huy/lkh_monogram_orb_3d.png" 
-                                 alt="LKH 3D Luminous Monogram Sphere" 
+                    <!-- Continuous Celestial Xianxia Qi & Lightning Aura (Active on Hover, Zero Glare at Rest) -->
+                    <div class="celestial-corona-system pointer-events-none">
+                        <picture class="celestial-art-disc">
+                            <source srcset="assets/huy/xianxia_qi_lightning_art.webp" type="image/webp">
+                            <img src="assets/huy/xianxia_qi_lightning_art.png" 
+                                 alt="Xianxia Celestial Qi & Lightning Aura" 
                                  class="w-full h-full object-contain pointer-events-none select-none">
                         </picture>
+                    </div>
+
+                    <!-- Outer Float Wrap: Continuous Zero-G Floating Bounce -->
+                    <div class="monogram-float-wrap">
+                        <!-- The 3D Glass Sphere Monogram (Authentic 3D Digital Artwork) -->
+                        <div class="monogram-glass-lens cursor-pointer relative z-10">
+                            <picture>
+                                <source srcset="assets/huy/lkh_monogram_orb_3d.webp" type="image/webp">
+                                <img src="assets/huy/lkh_monogram_orb_3d.png" 
+                                     alt="LKH 3D Luminous Monogram Sphere" 
+                                     class="w-full h-full object-contain pointer-events-none select-none">
+                            </picture>
+                        </div>
                     </div>
 
                 </div>

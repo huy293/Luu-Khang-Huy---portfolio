@@ -305,6 +305,36 @@
             margin: 0 auto;
             transition: transform 0.35s var(--ease-tactile), filter 0.35s var(--ease-tactile);
         }
+        .process-art-lens::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 170px;
+            height: 170px;
+            border-radius: 9999px;
+            background: repeating-conic-gradient(
+                from 0deg,
+                rgba(255, 255, 255, 0.45) 0deg 3.5deg,
+                rgba(192, 132, 252, 0.4) 3.5deg 8deg,
+                rgba(56, 189, 248, 0.25) 8deg 11deg,
+                transparent 11deg 22.5deg
+            );
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 25%, rgba(0,0,0,0.6) 50%, transparent 72%);
+            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 25%, rgba(0,0,0,0.6) 50%, transparent 72%);
+            filter: blur(2px);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.6);
+            transition: opacity 0.4s ease, transform 0.4s var(--ease-tactile);
+            pointer-events: none;
+            z-index: -1;
+            will-change: transform, opacity;
+        }
+        .process-art-lens:hover::before {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: celestial-spin-cw 10s linear infinite;
+        }
         .process-art-lens:hover {
             transform: translateY(-8px) scale(1.18);
             filter: drop-shadow(0 0 35px rgba(192, 132, 252, 0.95)) 
@@ -349,10 +379,167 @@
                         inset 0 2px 4px rgba(255, 255, 255, 0.85);
         }
 
-        /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE & FLOATING PURPLE ORB ===== */
+        /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE & CELESTIAL SOLAR CORONA ===== */
         @keyframes float-gentle {
             0%, 100% { transform: translateY(0); }
             50%      { transform: translateY(-4px); }
+        }
+
+        @keyframes celestial-spin-cw {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to   { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes celestial-spin-ccw {
+            from { transform: translate(-50%, -50%) rotate(360deg); }
+            to   { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+        @keyframes celestial-corona-pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.85);
+                opacity: 0.95;
+                border-color: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 0 25px rgba(192, 132, 252, 0.9), inset 0 0 15px rgba(56, 189, 248, 0.75);
+            }
+            50% {
+                opacity: 0.6;
+                border-color: rgba(192, 132, 252, 0.75);
+                box-shadow: 0 0 50px rgba(192, 132, 252, 0.7), 0 0 85px rgba(56, 189, 248, 0.5);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.75);
+                opacity: 0;
+                border-color: rgba(56, 189, 248, 0);
+                box-shadow: 0 0 95px rgba(56, 189, 248, 0);
+            }
+        }
+        @keyframes celestial-core-flare {
+            0%, 100% {
+                filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.95)) 
+                        drop-shadow(0 0 70px rgba(192, 132, 252, 0.9)) 
+                        drop-shadow(0 0 110px rgba(56, 189, 248, 0.75));
+                transform: scale(1.06) rotate(3deg);
+            }
+            50% {
+                filter: drop-shadow(0 0 50px rgba(255, 255, 255, 1)) 
+                        drop-shadow(0 0 100px rgba(232, 121, 249, 0.95)) 
+                        drop-shadow(0 0 150px rgba(56, 189, 248, 0.85));
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        .celestial-corona-system {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 0;
+        }
+
+        /* Ray Layer 1: Clockwise Primary Violet-White God Rays (16 Beams) */
+        .celestial-rays-cw {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            height: 380px;
+            border-radius: 9999px;
+            background: repeating-conic-gradient(
+                from 0deg,
+                rgba(255, 255, 255, 0.55) 0deg 3.5deg,
+                rgba(192, 132, 252, 0.45) 3.5deg 8deg,
+                rgba(56, 189, 248, 0.3) 8deg 11.5deg,
+                transparent 11.5deg 22.5deg
+            );
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0.7) 48%, transparent 74%);
+            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0.7) 48%, transparent 74%);
+            filter: blur(1.5px);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.65);
+            transition: opacity 0.5s ease, transform 0.5s var(--ease-tactile);
+            will-change: transform, opacity;
+        }
+
+        /* Ray Layer 2: Counter-Clockwise Secondary Cyan-Lilac Caustic Rays (12 Beams) */
+        .celestial-rays-ccw {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 440px;
+            height: 440px;
+            border-radius: 9999px;
+            background: repeating-conic-gradient(
+                from 11deg,
+                rgba(56, 189, 248, 0.45) 0deg 4deg,
+                rgba(232, 121, 249, 0.4) 4deg 10deg,
+                transparent 10deg 30deg
+            );
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 18%, rgba(0,0,0,0.65) 50%, transparent 76%);
+            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 18%, rgba(0,0,0,0.65) 50%, transparent 76%);
+            filter: blur(2.5px);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.6);
+            transition: opacity 0.55s ease, transform 0.55s var(--ease-tactile);
+            will-change: transform, opacity;
+        }
+
+        /* Pulsing Solar Flare Plasma Shockwaves */
+        .celestial-shockwave-1,
+        .celestial-shockwave-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 195px;
+            height: 195px;
+            border-radius: 9999px;
+            border: 1.5px solid rgba(255, 255, 255, 0);
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: opacity 0.4s ease;
+        }
+
+        /* Active Perpetual Hover Radiance */
+        .celestial-monogram-zone:hover .celestial-rays-cw,
+        .group\/monogram:hover .celestial-rays-cw,
+        .monogram-glass-lens:hover ~ .celestial-corona-system .celestial-rays-cw,
+        .monogram-glass-lens:hover .celestial-rays-cw {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: celestial-spin-cw 10s linear infinite;
+        }
+        .celestial-monogram-zone:hover .celestial-rays-ccw,
+        .group\/monogram:hover .celestial-rays-ccw,
+        .monogram-glass-lens:hover ~ .celestial-corona-system .celestial-rays-ccw,
+        .monogram-glass-lens:hover .celestial-rays-ccw {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            animation: celestial-spin-ccw 14s linear infinite;
+        }
+        .celestial-monogram-zone:hover .celestial-shockwave-1,
+        .group\/monogram:hover .celestial-shockwave-1,
+        .monogram-glass-lens:hover ~ .celestial-corona-system .celestial-shockwave-1,
+        .monogram-glass-lens:hover .celestial-shockwave-1 {
+            animation: celestial-corona-pulse 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+        }
+        .celestial-monogram-zone:hover .celestial-shockwave-2,
+        .group\/monogram:hover .celestial-shockwave-2,
+        .monogram-glass-lens:hover ~ .celestial-corona-system .celestial-shockwave-2,
+        .monogram-glass-lens:hover .celestial-shockwave-2 {
+            animation: celestial-corona-pulse 2.4s cubic-bezier(0.2, 0.8, 0.4, 1) infinite 1.2s;
+        }
+
+        .celestial-monogram-zone:hover .monogram-orbit-ring,
+        .group\/monogram:hover .monogram-orbit-ring {
+            border-color: rgba(221, 214, 254, 0.9);
+            box-shadow: 0 0 30px rgba(192, 132, 252, 0.55);
+            animation-duration: 6s;
+        }
+        .celestial-monogram-zone:hover .monogram-satellite,
+        .group\/monogram:hover .monogram-satellite {
+            transform: scale(1.4);
+            box-shadow: 0 0 14px #38bdf8, 0 0 28px #38bdf8, 0 0 42px #ffffff, 0 0 60px #c084fc;
         }
 
         .monogram-glass-lens {
@@ -367,10 +554,13 @@
             cursor: pointer;
             animation: float-gentle var(--time-meso) var(--ease-ambient) infinite;
             will-change: transform;
+            z-index: 10;
         }
+        .celestial-monogram-zone:hover .monogram-glass-lens,
+        .group\/monogram:hover .monogram-glass-lens,
         .monogram-glass-lens:hover {
-            transform: translateY(-7px) scale(1.09);
-            filter: drop-shadow(0 0 40px rgba(192, 132, 252, 0.85)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.65));
+            transform: translateY(-8px) scale(1.12);
+            filter: drop-shadow(0 0 50px rgba(192, 132, 252, 0.95)) drop-shadow(0 0 25px rgba(56, 189, 248, 0.8));
         }
         .monogram-glass-lens img {
             width: 100%;
@@ -379,9 +569,10 @@
             filter: drop-shadow(0 14px 28px rgba(7, 3, 25, 0.7));
             transition: filter 0.4s var(--ease-tactile), transform 0.4s var(--ease-tactile);
         }
+        .celestial-monogram-zone:hover .monogram-glass-lens img,
+        .group\/monogram:hover .monogram-glass-lens img,
         .monogram-glass-lens:hover img {
-            transform: scale(1.05) rotate(4deg);
-            filter: drop-shadow(0 0 45px rgba(168, 85, 247, 0.9)) drop-shadow(0 20px 40px rgba(7, 3, 25, 0.9));
+            animation: celestial-core-flare 2.2s ease-in-out infinite alternate;
         }
 
 
@@ -2370,23 +2561,31 @@
                 </div>
 
                 <!-- Zone 3: 3D Concentric Luminous Glass Monogram (3 cols) -->
-                <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0 reveal-scale delay-250">
+                <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0 reveal-scale delay-250 celestial-monogram-zone group/monogram">
                     
                     <!-- Ambient Radiant Halo Glow behind Sphere -->
                     <div class="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/15 blur-3xl pointer-events-none pulse-soft"></div>
+
+                    <!-- Continuous Celestial Solar Corona & Volumetric God Rays (Active on Hover) -->
+                    <div class="celestial-corona-system pointer-events-none">
+                        <div class="celestial-rays-cw"></div>
+                        <div class="celestial-rays-ccw"></div>
+                        <div class="celestial-shockwave-1"></div>
+                        <div class="celestial-shockwave-2"></div>
+                    </div>
 
                     <!-- Outer Subtle Concentric Dashed Ring -->
                     <div class="absolute w-60 h-60 sm:w-64 sm:h-64 rounded-full border border-dashed border-purple-300/20 pointer-events-none"></div>
 
                     <!-- Clean Rotating Dashed Orbit with Glowing Cyan Satellite -->
-                    <div class="absolute w-52 h-52 sm:w-56 sm:h-56 rounded-full border border-dashed border-purple-200/40 animate-spin-slow pointer-events-none flex items-center justify-start">
-                        <span class="w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8,0_0_16px_#38bdf8,0_0_24px_#ffffff] -ml-1.5 flex items-center justify-center">
+                    <div class="monogram-orbit-ring absolute w-52 h-52 sm:w-56 sm:h-56 rounded-full border border-dashed border-purple-200/40 animate-spin-slow pointer-events-none flex items-center justify-start transition-all duration-700">
+                        <span class="monogram-satellite w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8,0_0_16px_#38bdf8,0_0_24px_#ffffff] -ml-1.5 flex items-center justify-center transition-all duration-500">
                             <span class="w-1 h-1 rounded-full bg-white"></span>
                         </span>
                     </div>
 
                     <!-- The 3D Glass Sphere Monogram (Authentic 3D Digital Artwork) -->
-                    <div class="monogram-glass-lens group cursor-pointer relative">
+                    <div class="monogram-glass-lens cursor-pointer relative z-10">
                         <picture>
                             <source srcset="assets/huy/lkh_monogram_orb_3d.webp" type="image/webp">
                             <img src="assets/huy/lkh_monogram_orb_3d.png" 

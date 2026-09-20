@@ -77,19 +77,19 @@
             position: absolute;
             border-radius: 9999px;
             filter: blur(80px);
-            animation: nebulaDrift 20s ease-in-out infinite;
+            animation: nebulaDrift 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            will-change: transform;
         }
-        .nb-1 { width: 650px; height: 550px; top: -15%; left: -10%;  background: radial-gradient(circle, rgba(168,85,247,0.45) 0%, transparent 70%); animation-delay: 0s;   animation-duration: 22s; opacity: 0.75; }
-        .nb-2 { width: 550px; height: 550px; top: 20%;  right: -12%; background: radial-gradient(circle, rgba(129,140,248,0.4) 0%, transparent 70%);  animation-delay: -7s;  animation-duration: 28s; opacity: 0.65; }
-        .nb-3 { width: 750px; height: 450px; top: 52%;  left: -8%;   background: radial-gradient(circle, rgba(56,189,248,0.25) 0%, transparent 70%);  animation-delay: -14s; animation-duration: 35s; opacity: 0.55; }
-        .nb-4 { width: 600px; height: 600px; bottom:-5%; right:-5%;  background: radial-gradient(circle, rgba(192,132,252,0.35) 0%, transparent 70%); animation-delay: -4s;  animation-duration: 30s; opacity: 0.6; }
-        .nb-5 { width: 450px; height: 400px; top: 38%;  left: 35%;   background: radial-gradient(circle, rgba(236,72,153,0.14) 0%, transparent 70%); animation-delay: -10s; animation-duration: 40s; opacity: 0.45; }
+        .nb-1 { width: 650px; height: 550px; top: -15%; left: -10%;  background: radial-gradient(circle, rgba(168,85,247,0.35) 0%, transparent 70%); animation-delay: 0s;   animation-duration: 32s; opacity: 0.65; }
+        .nb-2 { width: 550px; height: 550px; top: 20%;  right: -12%; background: radial-gradient(circle, rgba(129,140,248,0.3) 0%, transparent 70%);  animation-delay: -7s;  animation-duration: 38s; opacity: 0.55; }
+        .nb-3 { width: 750px; height: 450px; top: 52%;  left: -8%;   background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, transparent 70%);  animation-delay: -14s; animation-duration: 45s; opacity: 0.45; }
+        .nb-4 { width: 600px; height: 600px; bottom:-5%; right:-5%;  background: radial-gradient(circle, rgba(192,132,252,0.25) 0%, transparent 70%); animation-delay: -4s;  animation-duration: 40s; opacity: 0.5; }
+        .nb-5 { width: 450px; height: 400px; top: 38%;  left: 35%;   background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%); animation-delay: -10s; animation-duration: 50s; opacity: 0.35; }
 
         @keyframes nebulaDrift {
             0%   { transform: translate(0, 0) scale(1); }
-            25%  { transform: translate(30px, -20px) scale(1.05); }
-            50%  { transform: translate(-20px, 35px) scale(0.95); }
-            75%  { transform: translate(20px, 10px) scale(1.02); }
+            33%  { transform: translate(12px, -8px) scale(1.02); }
+            66%  { transform: translate(-10px, 10px) scale(0.98); }
             100% { transform: translate(0, 0) scale(1); }
         }
 
@@ -120,12 +120,12 @@
                 radial-gradient(1px 1px at 42% 95%,  rgba(255,255,255,0.3) 0%, transparent 100%),
                 radial-gradient(1px 1px at 95% 50%,  rgba(255,255,255,0.6) 0%, transparent 100%),
                 radial-gradient(1px 1px at 3%  50%,  rgba(255,255,255,0.4) 0%, transparent 100%);
-            animation: starTwinkle 8s ease-in-out infinite alternate;
+            animation: starTwinkle 12s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
         }
         @keyframes starTwinkle {
-            0%   { opacity: 0.6; }
-            50%  { opacity: 1; }
-            100% { opacity: 0.7; }
+            0%   { opacity: 0.5; }
+            50%  { opacity: 0.8; }
+            100% { opacity: 0.6; }
         }
 
         /* Layer 4: Spatial coordinate architectural blueprint grid */
@@ -158,12 +158,13 @@
                 transparent 100%
             );
             filter: blur(45px);
-            animation: auroraShift 14s ease-in-out infinite alternate;
+            animation: auroraShift 20s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+            will-change: transform, opacity;
         }
         @keyframes auroraShift {
-            0%   { opacity: 0.6; transform: scaleX(1);   }
-            50%  { opacity: 0.9; transform: scaleX(1.05); }
-            100% { opacity: 0.7; transform: scaleX(0.97); }
+            0%   { opacity: 0.55; transform: scaleX(1);   }
+            50%  { opacity: 0.75; transform: scaleX(1.02); }
+            100% { opacity: 0.6; transform: scaleX(0.98); }
         }
 
         /* Layer 6: Soft purple spatial vignette */
@@ -180,12 +181,13 @@
             position: absolute;
             pointer-events: none;
             filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 18px rgba(216, 180, 254, 0.8));
-            animation: starPulse 5s ease-in-out infinite alternate;
+            animation: starPulse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+            will-change: transform, opacity;
         }
         @keyframes starPulse {
-            0%   { transform: scale(0.7) rotate(0deg); opacity: 0.35; }
-            50%  { transform: scale(1.2) rotate(15deg); opacity: 1; }
-            100% { transform: scale(0.8) rotate(-10deg); opacity: 0.5; }
+            0%   { transform: scale(0.85) rotate(0deg); opacity: 0.4; }
+            50%  { transform: scale(1.05) rotate(6deg); opacity: 0.85; }
+            100% { transform: scale(0.88) rotate(-4deg); opacity: 0.5; }
         }
 
         ::selection {
@@ -318,7 +320,7 @@
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE & FLOATING PURPLE ORB ===== */
         @keyframes float-gentle {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-4px); }
         }
 
         .monogram-glass-lens {
@@ -331,10 +333,11 @@
             justify-content: center;
             transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
-            animation: float-gentle 6s ease-in-out infinite;
+            animation: float-gentle 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            will-change: transform;
         }
         .monogram-glass-lens:hover {
-            transform: translateY(-6px) scale(1.05);
+            transform: translateY(-4px) scale(1.03);
         }
         .monogram-glass-lens img {
             width: 100%;
@@ -390,35 +393,35 @@
         }
 
         @keyframes floatOrb {
-            0%   { transform: translateY(0) rotate(0deg) scale(1); }
-            50%  { transform: translateY(-22px) rotate(4deg) scale(1.04); }
-            100% { transform: translateY(0) rotate(0deg) scale(1); }
+            0%   { transform: translateY(0) rotate(0deg); }
+            50%  { transform: translateY(-7px) rotate(1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
         }
         @keyframes floatOrbReverse {
-            0%   { transform: translateY(0) rotate(0deg) scale(1); }
-            50%  { transform: translateY(20px) rotate(-4deg) scale(0.96); }
-            100% { transform: translateY(0) rotate(0deg) scale(1); }
+            0%   { transform: translateY(0) rotate(0deg); }
+            50%  { transform: translateY(7px) rotate(-1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
         }
         @keyframes floatOrbSlow {
-            0%   { transform: translateY(0) translateX(0) scale(1); }
-            33%  { transform: translateY(-14px) translateX(8px) scale(1.02); }
-            66%  { transform: translateY(10px) translateX(-6px) scale(0.98); }
-            100% { transform: translateY(0) translateX(0) scale(1); }
+            0%   { transform: translateY(0) translateX(0); }
+            50%  { transform: translateY(-5px) translateX(3px); }
+            100% { transform: translateY(0) translateX(0); }
         }
 
-        .animate-orb-1 { animation: floatOrb        7s  ease-in-out infinite; }
-        .animate-orb-2 { animation: floatOrbReverse  9s  ease-in-out infinite; }
-        .animate-orb-3 { animation: floatOrb         11s ease-in-out infinite 2s; }
-        .animate-orb-4 { animation: floatOrbSlow     14s ease-in-out infinite 1s; }
-        .animate-orb-5 { animation: floatOrbReverse  16s ease-in-out infinite 3s; }
+        .animate-orb-1 { animation: floatOrb        16s cubic-bezier(0.4, 0, 0.2, 1) infinite; will-change: transform; }
+        .animate-orb-2 { animation: floatOrbReverse 19s cubic-bezier(0.4, 0, 0.2, 1) infinite; will-change: transform; }
+        .animate-orb-3 { animation: floatOrb        22s cubic-bezier(0.4, 0, 0.2, 1) infinite 2s; will-change: transform; }
+        .animate-orb-4 { animation: floatOrbSlow    26s cubic-bezier(0.4, 0, 0.2, 1) infinite 1s; will-change: transform; }
+        .animate-orb-5 { animation: floatOrbReverse 30s cubic-bezier(0.4, 0, 0.2, 1) infinite 3s; will-change: transform; }
 
-        /* Slow Spin for 3D Halo Rings */
+        /* Slow Spin for 3D Halo Rings - Stately astronomical rotation */
         @keyframes spinSlow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
         .animate-spin-slow {
-            animation: spinSlow 24s linear infinite;
+            animation: spinSlow 65s linear infinite;
+            will-change: transform;
         }
 
         @keyframes spinReverseSlow {
@@ -426,62 +429,73 @@
             to { transform: rotate(0deg); }
         }
         .animate-spin-reverse-slow {
-            animation: spinReverseSlow 32s linear infinite;
+            animation: spinReverseSlow 85s linear infinite;
+            will-change: transform;
         }
 
         /* Continuous Ambient Light Ribbon Flow */
         @keyframes ribbonGlow {
-            0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 35px rgba(221, 214, 254, 0.8)); }
-            50% { opacity: 1; filter: drop-shadow(0 0 65px rgba(255, 255, 255, 0.95)); }
+            0%, 100% { opacity: 0.75; filter: drop-shadow(0 0 25px rgba(221, 214, 254, 0.6)); }
+            50% { opacity: 0.95; filter: drop-shadow(0 0 45px rgba(255, 255, 255, 0.8)); }
         }
         .ambient-ribbon {
-            animation: ribbonGlow 6s ease-in-out infinite;
+            animation: ribbonGlow 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
-        /* Button Micro-Interactions */
+        /* Button Micro-Interactions & Haptic Tactile Feedback */
         .spatial-btn-primary {
             background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
             color: #0b0726;
             border: 1.5px solid #ffffff;
-            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.5), inset 0 1px 1.5px #ffffff;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4), inset 0 1px 1.5px #ffffff;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
         }
         .spatial-btn-primary:hover {
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 18px 50px rgba(255, 255, 255, 0.75), 0 0 35px rgba(221, 214, 254, 0.6);
+            box-shadow: 0 16px 42px rgba(255, 255, 255, 0.65), 0 0 30px rgba(221, 214, 254, 0.5);
+        }
+        .spatial-btn-primary:active {
+            transform: translateY(0px) scale(0.97);
+            box-shadow: 0 6px 18px rgba(255, 255, 255, 0.35);
+            transition-duration: 0.1s;
         }
 
         .spatial-btn-glass {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.07) 100%);
             color: #ffffff;
-            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(20px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 0.75);
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, border-color 0.35s ease;
         }
         .spatial-btn-glass:hover {
             transform: translateY(-2px) scale(1.02);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.14) 100%);
-            border-color: rgba(255, 255, 255, 0.75);
-            box-shadow: 0 15px 45px rgba(221, 214, 254, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.12) 100%);
+            border-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 12px 35px rgba(221, 214, 254, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+        }
+        .spatial-btn-glass:active {
+            transform: translateY(0px) scale(0.97);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition-duration: 0.1s;
         }
 
         /* 3D Card Hover Perspective */
         .spatial-card-hover {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .spatial-card-hover:hover {
-            transform: translateY(-6px) scale(1.015);
-            border-color: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 40px 100px rgba(6, 2, 24, 0.6), 0 0 50px rgba(221, 214, 254, 0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.95);
+            transform: translateY(-3px) scale(1.008);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 30px 75px rgba(6, 2, 24, 0.55), 0 0 35px rgba(221, 214, 254, 0.35), inset 0 1.5px 2px rgba(255, 255, 255, 0.9);
         }
 
 
-        /* ===== SCROLL REVEAL ANIMATIONS ===== */
+        /* ===== SCROLL REVEAL ANIMATIONS (Apple Physics) ===== */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(24px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.visible {
             opacity: 1;
@@ -489,8 +503,8 @@
         }
         .reveal-left {
             opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateX(-24px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-left.visible {
             opacity: 1;
@@ -498,8 +512,8 @@
         }
         .reveal-right {
             opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateX(24px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-right.visible {
             opacity: 1;
@@ -507,8 +521,8 @@
         }
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.88);
-            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: scale(0.95);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-scale.visible {
             opacity: 1;
@@ -528,26 +542,35 @@
         .delay-800 { transition-delay: 0.8s; }
         .delay-900 { transition-delay: 0.9s; }
 
-        /* ===== TEXT SHIMMER EFFECT ===== */
+        /* ===== TEXT SHIMMER EFFECT (Titanium Sheen) ===== */
         @keyframes textShimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+            0% { background-position: 100% center; }
+            100% { background-position: -100% center; }
         }
         .text-shimmer {
             background: linear-gradient(90deg,
-                rgba(255,255,255,0.6) 0%,
-                #fff 20%,
-                #e2d9f3 40%,
-                #c4b5fd 50%,
-                #e2d9f3 60%,
-                #fff 80%,
-                rgba(255,255,255,0.6) 100%
+                rgba(255,255,255,0.7) 0%,
+                #ffffff 25%,
+                #ddd6fe 45%,
+                #f1f5f9 55%,
+                #c4b5fd 65%,
+                #ffffff 85%,
+                rgba(255,255,255,0.7) 100%
             );
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: textShimmer 5s linear infinite;
+            animation: textShimmer 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        /* Gentle Apple/Linear LED Status Breathing Dot */
+        @keyframes pulseSoft {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+        .pulse-soft {
+            animation: pulseSoft 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
         /* Main layout container */
@@ -952,7 +975,7 @@
             
             <!-- Left: Brand Title -->
             <a href="#hero" class="flex items-center gap-2 group shrink-0">
-                <span class="w-2.5 h-2.5 rounded-full bg-purple-200 shadow-[0_0_12px_#ffffff] animate-ping shrink-0"></span>
+                <span class="w-2 h-2 rounded-full bg-purple-300 shadow-[0_0_8px_rgba(221,214,254,0.8)] pulse-soft shrink-0"></span>
                 <span class="header-brand-text text-xs sm:text-sm font-mono font-bold tracking-wider sm:tracking-widest text-white group-hover:text-purple-200 transition-colors uppercase whitespace-nowrap">
                     LKH • PORTFOLIO
                 </span>
@@ -997,7 +1020,7 @@
             <!-- Top Indicator Bar -->
             <div class="hero-top-indicator relative z-10 w-full flex items-center justify-between px-2 pt-1 pb-3 text-[10px] font-mono tracking-widest uppercase border-b border-white/10 text-slate-300">
                 <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                    <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.8)] pulse-soft"></span>
                     <span class="font-bold text-white tracking-widest">2026 PORTFOLIO</span>
                 </div>
                 <div class="text-purple-300 font-semibold tracking-[0.2em]">
@@ -1017,7 +1040,7 @@
                 <div class="lg:col-span-4 space-y-4 text-left">
                     <div class="space-y-1">
                         <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/5 border border-purple-300/30 text-[9.5px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8] animate-pulse"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8] pulse-soft"></span>
                             <span>ENGINEERING EXCELLENCE</span>
                         </div>
                         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-black tracking-tight text-white uppercase leading-[1.05]">
@@ -1071,7 +1094,7 @@
                             </a>
                             <a href="#contact"
                                class="spatial-glass-pill px-4 py-2.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase inline-flex items-center justify-center gap-1.5 hover:border-white/60 transition-all text-white">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pulse-soft"></span>
                                 <span>HIRE ↗</span>
                             </a>
                         </div>
@@ -1097,7 +1120,7 @@
 
                         <!-- Top availability chip -->
                         <div class="absolute top-4 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-emerald-400/50 backdrop-blur-md shadow-[0_0_15px_rgba(52,211,153,0.3)]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pulse-soft"></span>
                             <span class="text-[9px] font-mono font-bold text-emerald-300 uppercase tracking-wider">Available For Hire</span>
                         </div>
 
@@ -1138,7 +1161,7 @@
                         <!-- 3D Glowing Orbital Gyroscope Wireframe -->
                         <div class="relative w-28 h-28 mx-auto my-2 flex items-center justify-center">
                             <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-xl pointer-events-none"></div>
-                            <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-white via-purple-200 to-cyan-300 shadow-[0_0_18px_#ffffff,0_0_30px_rgba(192,132,252,0.8)] z-10 animate-pulse"></div>
+                            <div class="w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-white via-purple-200 to-cyan-300 shadow-[0_0_18px_#ffffff,0_0_30px_rgba(192,132,252,0.8)] z-10 pulse-soft"></div>
                             <svg class="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" viewBox="0 0 100 100">
                                 <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(221,214,254,0.65)" stroke-width="1.2" stroke-dasharray="3 3" transform="rotate(-25 50 50)"/>
                                 <circle cx="92" cy="50" r="2.5" fill="#38bdf8" transform="rotate(-25 50 50)"/>
@@ -1147,7 +1170,7 @@
                                 <ellipse cx="50" cy="50" rx="42" ry="17" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" transform="rotate(35 50 50)"/>
                                 <circle cx="8" cy="50" r="2" fill="#c084fc" transform="rotate(35 50 50)"/>
                             </svg>
-                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" style="animation: spinSlow 36s linear infinite reverse;">
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" style="animation: spinSlow 75s linear infinite reverse;">
                                 <ellipse cx="50" cy="50" rx="40" ry="24" fill="none" stroke="rgba(192,132,252,0.4)" stroke-width="1" transform="rotate(85 50 50)"/>
                             </svg>
                         </div>
@@ -1183,7 +1206,7 @@
             <!-- Section Header -->
             <div class="space-y-2.5 max-w-3xl">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                     <span>HOW I WORK: ATTITUDE, DISCIPLINE &amp; PROBLEM SOLVING ✦</span>
                 </div>
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white uppercase tracking-tight text-shimmer">
@@ -1403,7 +1426,7 @@
                 <div class="lg:col-span-6 space-y-6">
                     <div class="space-y-2.5">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                             <span>SOFTWARE &amp; DEVOPS STACK ✦</span>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-display font-extrabold uppercase tracking-tight text-white text-shimmer">
@@ -1589,7 +1612,7 @@
                 <div class="lg:col-span-6 space-y-6">
                     <div class="space-y-2.5">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] pulse-soft"></span>
                             <span>HOW I WORK &amp; SOLVE PROBLEMS ✦</span>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-display font-extrabold uppercase tracking-tight text-white text-shimmer">
@@ -1805,7 +1828,7 @@
             
             <div class="px-2 space-y-2.5 max-w-3xl">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                     <span>EXPERIENCE &amp; EDUCATION ✦</span>
                 </div>
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white uppercase tracking-tight text-shimmer">
@@ -1973,7 +1996,7 @@
             <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-5 px-2">
                 <div class="space-y-2.5 max-w-2xl">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                         <span>FEATURED PROJECTS ✦</span>
                     </div>
                     <h3 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white uppercase tracking-tight text-shimmer">
@@ -2014,7 +2037,7 @@
                 <!-- Left Editorial Column (4 cols) -->
                 <div class="lg:col-span-4 space-y-2.5 px-2">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                         <span>ACHIEVEMENTS &amp; IMPACT ✦</span>
                     </div>
                     <h3 class="text-2xl sm:text-3xl font-display font-extrabold uppercase tracking-tight text-white text-shimmer leading-tight">
@@ -2097,7 +2120,7 @@
                 <div class="lg:col-span-4 space-y-4">
                     <div class="space-y-2.5">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                             <span>GET IN TOUCH ✦</span>
                         </div>
                         <h2 class="text-2xl sm:text-3xl font-display font-extrabold text-white uppercase tracking-tight text-shimmer leading-tight">
@@ -2170,7 +2193,7 @@
                 <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0">
                     
                     <!-- Ambient Radiant Halo Glow behind Sphere -->
-                    <div class="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-purple-600/35 via-indigo-600/25 to-cyan-400/20 blur-3xl pointer-events-none animate-pulse"></div>
+                    <div class="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/15 blur-3xl pointer-events-none pulse-soft"></div>
 
                     <!-- Outer Subtle Concentric Dashed Ring -->
                     <div class="absolute w-60 h-60 sm:w-64 sm:h-64 rounded-full border border-dashed border-purple-300/20 pointer-events-none"></div>
@@ -2236,7 +2259,7 @@
                 </p>
                 <div class="text-[11px] font-mono text-purple-300 tracking-[0.25em] uppercase inline-flex items-center gap-2 font-semibold">
                     <span>THANK YOU FOR VISITING</span>
-                    <svg class="w-3.5 h-3.5 text-purple-300 inline-block fill-purple-300/40 animate-pulse" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <svg class="w-3.5 h-3.5 text-purple-300 inline-block fill-purple-300/40 pulse-soft" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
                 </div>

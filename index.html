@@ -521,11 +521,12 @@
         }
 
 
-        /* ===== SCROLL REVEAL ANIMATIONS (Apple Physics & Staggered Cadence) ===== */
+        /* ===== SCROLL REVEAL & PAGE APPEAR ANIMATIONS (Apple Physics & Staggered Cadence) ===== */
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
+            transform: translateY(20px);
+            transition: opacity 0.55s var(--ease-tactile), transform 0.55s var(--ease-tactile);
+            will-change: opacity, transform;
         }
         .reveal.visible {
             opacity: 1;
@@ -533,8 +534,9 @@
         }
         .reveal-left {
             opacity: 0;
-            transform: translateX(-24px);
-            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
+            transform: translateX(-20px);
+            transition: opacity 0.55s var(--ease-tactile), transform 0.55s var(--ease-tactile);
+            will-change: opacity, transform;
         }
         .reveal-left.visible {
             opacity: 1;
@@ -542,8 +544,9 @@
         }
         .reveal-right {
             opacity: 0;
-            transform: translateX(24px);
-            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
+            transform: translateX(20px);
+            transition: opacity 0.55s var(--ease-tactile), transform 0.55s var(--ease-tactile);
+            will-change: opacity, transform;
         }
         .reveal-right.visible {
             opacity: 1;
@@ -552,25 +555,47 @@
         .reveal-scale {
             opacity: 0;
             transform: scale(0.96);
-            transition: opacity 0.65s var(--ease-tactile), transform 0.65s var(--ease-tactile);
+            transition: opacity 0.6s var(--ease-tactile), transform 0.6s var(--ease-tactile);
+            will-change: opacity, transform;
         }
         .reveal-scale.visible {
             opacity: 1;
             transform: scale(1);
         }
-        /* Staggered Cadence: 80ms harmonic steps */
-        .delay-100 { transition-delay: 0.08s; }
-        .delay-150 { transition-delay: 0.16s; }
-        .delay-200 { transition-delay: 0.24s; }
-        .delay-250 { transition-delay: 0.32s; }
-        .delay-300 { transition-delay: 0.40s; }
-        .delay-350 { transition-delay: 0.48s; }
-        .delay-400 { transition-delay: 0.56s; }
-        .delay-500 { transition-delay: 0.64s; }
-        .delay-600 { transition-delay: 0.72s; }
-        .delay-700 { transition-delay: 0.80s; }
-        .delay-800 { transition-delay: 0.88s; }
-        .delay-900 { transition-delay: 0.96s; }
+
+        /* Fixed Navigation Header Page-Load Entrance */
+        @keyframes headerAppearDown {
+            0%   { opacity: 0; transform: translateY(-24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .header-appear {
+            animation: headerAppearDown 0.75s var(--ease-tactile) both;
+        }
+
+        /* Staggered Harmonic Cadence: 50-60ms steps for fluid responsive ripples */
+        .delay-100 { transition-delay: 0.05s; }
+        .delay-150 { transition-delay: 0.10s; }
+        .delay-200 { transition-delay: 0.15s; }
+        .delay-250 { transition-delay: 0.20s; }
+        .delay-300 { transition-delay: 0.25s; }
+        .delay-350 { transition-delay: 0.30s; }
+        .delay-400 { transition-delay: 0.35s; }
+        .delay-450 { transition-delay: 0.40s; }
+        .delay-500 { transition-delay: 0.45s; }
+        .delay-600 { transition-delay: 0.50s; }
+        .delay-700 { transition-delay: 0.55s; }
+        .delay-800 { transition-delay: 0.60s; }
+        .delay-900 { transition-delay: 0.65s; }
+
+        /* Accessibility: Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right, .reveal-scale, .header-appear {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+                animation: none !important;
+            }
+        }
 
         /* ===== TEXT SHIMMER EFFECT (Meso = 8.0s, Synchronized with ribbonGlow) ===== */
         @keyframes textShimmer {
@@ -1002,7 +1027,7 @@
 
     <!-- ================= FLOATING GLASS HUD NAVIGATION PILL ================= -->
     <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none">
-        <div class="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 md:gap-8 px-4 py-2 sm:px-8 sm:py-3 rounded-full spatial-glass-pill shadow-[0_15px_40px_rgba(0,0,0,0.35),0_0_30px_rgba(221,214,254,0.4)] max-w-4xl w-full">
+        <div class="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 md:gap-8 px-4 py-2 sm:px-8 sm:py-3 rounded-full spatial-glass-pill shadow-[0_15px_40px_rgba(0,0,0,0.35),0_0_30px_rgba(221,214,254,0.4)] max-w-4xl w-full header-appear">
             
             <!-- Left: Brand Title -->
             <a href="#hero" class="flex items-center gap-2 group shrink-0">
@@ -1049,7 +1074,7 @@
             <div class="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-cyan-600/20 blur-3xl pointer-events-none"></div>
 
             <!-- Top Indicator Bar -->
-            <div class="hero-top-indicator relative z-10 w-full flex items-center justify-between px-2 pt-1 pb-3 text-[10px] font-mono tracking-widest uppercase border-b border-white/10 text-slate-300">
+            <div class="hero-top-indicator relative z-10 w-full flex items-center justify-between px-2 pt-1 pb-3 text-[10px] font-mono tracking-widest uppercase border-b border-white/10 text-slate-300 reveal delay-100">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.8)] pulse-soft"></span>
                     <span class="font-bold text-white tracking-widest">2026 PORTFOLIO</span>
@@ -1060,7 +1085,7 @@
             </div>
 
             <!-- Giant 3D Embossed Frosted Text Watermark -->
-            <div class="relative z-0 w-full flex justify-center text-center select-none pointer-events-none overflow-hidden pt-2 pb-0">
+            <div class="relative z-0 w-full flex justify-center text-center select-none pointer-events-none overflow-hidden pt-2 pb-0 reveal-scale delay-150">
                 <h2 class="hero-giant-portfolio-text">PORTFOLIO</h2>
             </div>
 
@@ -1068,7 +1093,7 @@
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center -mt-6 sm:-mt-10 lg:-mt-14 pb-4">
 
                 <!-- Left Column (4 cols): Punchy Core Keywords & Value Proposition -->
-                <div class="lg:col-span-4 space-y-4 text-left">
+                <div class="lg:col-span-4 space-y-4 text-left reveal-left delay-200">
                     <div class="space-y-1">
                         <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/5 border border-purple-300/30 text-[9.5px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                             <span class="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8] pulse-soft"></span>
@@ -1133,7 +1158,7 @@
                 </div>
 
                 <!-- Center Column (4 cols): Glowing 3D Glass Sphere Portrait -->
-                <div class="lg:col-span-4 flex justify-center relative">
+                <div class="lg:col-span-4 flex justify-center relative reveal-scale delay-250">
                     <!-- Ambient Halo Backlight -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/40 via-indigo-600/30 to-cyan-400/20 rounded-full blur-3xl pointer-events-none scale-125"></div>
 
@@ -1181,7 +1206,7 @@
                 </div>
 
                 <!-- Right Column (4 cols): Philosophy Card with 3D Orbital Wireframe -->
-                <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                <div class="lg:col-span-4 flex justify-center lg:justify-end reveal-right delay-300">
                     <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-xl max-w-sm w-full space-y-4 hover:border-white/50 transition-all group">
                         
                         <div class="flex items-center justify-between border-b border-white/10 pb-3">
@@ -1235,7 +1260,7 @@
             <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-cyan-600/20 blur-3xl pointer-events-none"></div>
 
             <!-- Section Header -->
-            <div class="space-y-2.5 max-w-3xl">
+            <div class="space-y-2.5 max-w-3xl reveal delay-100">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                     <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                     <span>HOW I WORK: ATTITUDE, DISCIPLINE &amp; PROBLEM SOLVING ✦</span>
@@ -1252,7 +1277,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                 <!-- Card 1: Work Methodology & End-to-End Ownership -->
-                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-purple-300/40 transition-all flex flex-col justify-between space-y-6 group">
+                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-purple-300/40 transition-all flex flex-col justify-between space-y-6 group reveal delay-150">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-white/10 pb-3">
                             <span class="text-[10px] font-mono text-purple-300 font-bold tracking-widest uppercase">01 // WORK METHODOLOGY</span>
@@ -1285,7 +1310,7 @@
                 </div>
 
                 <!-- Card 2: Problem-Solving Mindset & Root-Cause Resolution -->
-                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-cyan-300/40 transition-all flex flex-col justify-between space-y-6 group">
+                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-cyan-300/40 transition-all flex flex-col justify-between space-y-6 group reveal delay-250">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-white/10 pb-3">
                             <span class="text-[10px] font-mono text-cyan-300 font-bold tracking-widest uppercase">02 // PROBLEM-SOLVING RIGOR</span>
@@ -1318,7 +1343,7 @@
                 </div>
 
                 <!-- Card 3: Work Attitude, Candor & Global Reliability -->
-                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-emerald-300/40 transition-all flex flex-col justify-between space-y-6 group">
+                <div class="spatial-glass-sub p-6 sm:p-7 rounded-[2rem] border border-white/20 hover:border-emerald-300/40 transition-all flex flex-col justify-between space-y-6 group reveal delay-350">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-white/10 pb-3">
                             <span class="text-[10px] font-mono text-emerald-300 font-bold tracking-widest uppercase">03 // ATTITUDE &amp; INTEGRITY</span>
@@ -1455,7 +1480,7 @@
                 
                 <!-- Left Sub-Panel (6 cols): My Tech Stack (Embossed Glass Squircle Icons) -->
                 <div class="lg:col-span-6 space-y-6">
-                    <div class="space-y-2.5">
+                    <div class="space-y-2.5 reveal delay-100">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                             <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                             <span>SOFTWARE &amp; DEVOPS STACK ✦</span>
@@ -1467,7 +1492,7 @@
                     </div>
 
                     <!-- 10 Squircle Glass Icon Buttons Grid -->
-                    <div class="grid grid-cols-5 gap-2.5 sm:gap-3.5">
+                    <div class="grid grid-cols-5 gap-2.5 sm:gap-3.5 reveal delay-150">
                         
                         <!-- Next.js 15 -->
                         <div class="flex flex-col items-center text-center group cursor-pointer" title="Next.js 15 (App Router, Server Components & SSG)">
@@ -1641,7 +1666,7 @@
 
                 <!-- Right Sub-Panel (6 cols): My Process & Architecture (4 Holographic 3D Glass Spheres) -->
                 <div class="lg:col-span-6 space-y-6">
-                    <div class="space-y-2.5">
+                    <div class="space-y-2.5 reveal delay-100">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                             <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] pulse-soft"></span>
                             <span>HOW I WORK &amp; SOLVE PROBLEMS ✦</span>
@@ -1656,7 +1681,7 @@
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center relative">
                         
                         <!-- Step 01: Discover / 3D Crystal Hypercube -->
-                        <div class="space-y-2.5 flex flex-col items-center group relative">
+                        <div class="space-y-2.5 flex flex-col items-center group relative reveal delay-150">
                             <div class="relative flex items-center justify-center">
                                 <!-- Ambient Violet-Lilac Aura -->
                                 <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/35 to-indigo-500/25 rounded-full blur-lg pointer-events-none scale-110"></div>
@@ -1684,7 +1709,7 @@
                         </div>
 
                         <!-- Step 02: Define / Solution Optical Prism -->
-                        <div class="space-y-2.5 flex flex-col items-center group relative">
+                        <div class="space-y-2.5 flex flex-col items-center group relative reveal delay-250">
                             <div class="relative flex items-center justify-center">
                                 <!-- Ambient Cyan-Azure Aura -->
                                 <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400/35 to-blue-500/25 rounded-full blur-lg pointer-events-none scale-110"></div>
@@ -1712,7 +1737,7 @@
                         </div>
 
                         <!-- Step 03: Design & Build / Kinetic Gyroscope -->
-                        <div class="space-y-2.5 flex flex-col items-center group relative">
+                        <div class="space-y-2.5 flex flex-col items-center group relative reveal delay-350">
                             <div class="relative flex items-center justify-center">
                                 <!-- Ambient Pink-Magenta Aura -->
                                 <div class="absolute inset-0 bg-gradient-to-tr from-pink-500/35 to-rose-400/25 rounded-full blur-lg pointer-events-none scale-110"></div>
@@ -1740,7 +1765,7 @@
                         </div>
 
                         <!-- Step 04: Deliver / Space Propulsion Launch Node -->
-                        <div class="space-y-2.5 flex flex-col items-center group">
+                        <div class="space-y-2.5 flex flex-col items-center group reveal delay-450">
                             <div class="relative flex items-center justify-center">
                                 <!-- Ambient Emerald-Mint Aura -->
                                 <div class="absolute inset-0 bg-gradient-to-tr from-emerald-400/35 to-teal-400/25 rounded-full blur-lg pointer-events-none scale-110"></div>
@@ -1769,7 +1794,7 @@
 
                 <!-- Comprehensive Skills & Technologies Matrix from CV (6 Core Technical Pillars) -->
                 <div class="lg:col-span-12 pt-6 border-t border-white/10 relative z-10">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 reveal delay-100">
                         <div>
                             <span class="text-[10px] font-mono text-cyan-300 uppercase tracking-widest font-bold block">DETAILED EXPERTISE FROM CV ✦</span>
                             <h4 class="text-base sm:text-lg font-display font-bold text-white uppercase tracking-wide">
@@ -1783,7 +1808,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
                         
                         <!-- 1. Frontend & 3D Spatial -->
-                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all">
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all reveal delay-150">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
                                 <h5 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Frontend &amp; 3D Spatial</h5>
@@ -1794,7 +1819,7 @@
                         </div>
 
                         <!-- 2. Fullstack & Backend -->
-                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all">
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all reveal delay-200">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-purple-400"></span>
                                 <h5 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Fullstack &amp; Backend</h5>
@@ -1805,7 +1830,7 @@
                         </div>
 
                         <!-- 3. WordPress & Custom Plugins -->
-                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all">
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all reveal delay-250">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-pink-400"></span>
                                 <h5 class="text-xs font-bold text-white uppercase tracking-wider font-mono">WordPress &amp; Custom Plugins</h5>
@@ -1816,7 +1841,7 @@
                         </div>
 
                         <!-- 4. DevOps & Cloud Infrastructure -->
-                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all">
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all reveal delay-300">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                                 <h5 class="text-xs font-bold text-white uppercase tracking-wider font-mono">DevOps &amp; Cloud Infra</h5>
@@ -1827,7 +1852,7 @@
                         </div>
 
                         <!-- 5. Web Performance & Optimization -->
-                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all">
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all reveal delay-350">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                                 <h5 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Web Performance &amp; Vitals</h5>
@@ -1838,7 +1863,7 @@
                         </div>
 
                         <!-- 6. Developer Tools & Systems -->
-                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all">
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2 hover:border-purple-300/40 transition-all reveal delay-400">
                             <div class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
                                 <h5 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Developer Tools &amp; Systems</h5>
@@ -1857,7 +1882,7 @@
         <!-- ================= SECTION 2.5: EXPERIENCE & EDUCATION (FULL CV SYNC) ================= -->
         <section id="experience-edu" class="space-y-6">
             
-            <div class="px-2 space-y-2.5 max-w-3xl">
+            <div class="px-2 space-y-2.5 max-w-3xl reveal delay-100">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                     <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                     <span>EXPERIENCE &amp; EDUCATION ✦</span>
@@ -1873,7 +1898,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
                 
                 <!-- Left Card (7 cols): Work Experience at QUESTX -->
-                <div class="lg:col-span-7 spatial-glass p-6 sm:p-8 rounded-[2rem] spatial-card-hover relative overflow-hidden flex flex-col justify-between space-y-6">
+                <div class="lg:col-span-7 spatial-glass p-6 sm:p-8 rounded-[2rem] spatial-card-hover relative overflow-hidden flex flex-col justify-between space-y-6 reveal-left delay-150">
                     <!-- Ambient Glow -->
                     <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -1954,7 +1979,7 @@
                 <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
                     
                     <!-- Education Card -->
-                    <div class="spatial-glass p-6 rounded-[2rem] spatial-card-hover relative overflow-hidden flex-1 space-y-3">
+                    <div class="spatial-glass p-6 rounded-[2rem] spatial-card-hover relative overflow-hidden flex-1 space-y-3 reveal-right delay-200">
                         <div class="flex items-center justify-between gap-2">
                             <span class="text-[10px] font-mono font-bold text-purple-300 tracking-wider uppercase block">FORMAL ACADEMIA • 2021 — 2025</span>
                             <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 border border-purple-300/40 text-[10px] font-mono font-bold text-purple-200">
@@ -1973,7 +1998,7 @@
                     </div>
 
                     <!-- Certifications & International Delivery Bento Sub-card -->
-                    <div class="spatial-glass p-6 rounded-[2rem] spatial-card-hover relative overflow-hidden flex-1 space-y-3">
+                    <div class="spatial-glass p-6 rounded-[2rem] spatial-card-hover relative overflow-hidden flex-1 space-y-3 reveal-right delay-300">
                         <div class="flex items-center justify-between gap-2">
                             <span class="text-[10px] font-mono font-bold text-cyan-300 tracking-wider uppercase block">CREDENTIALS &amp; GLOBAL DELIVERY</span>
                             <span class="px-2 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-[9px] font-mono font-bold text-blue-200">
@@ -2025,7 +2050,7 @@
         <section id="featured-projects" class="space-y-8">
             
             <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-5 px-2">
-                <div class="space-y-2.5 max-w-2xl">
+                <div class="space-y-2.5 max-w-2xl reveal delay-100">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                         <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                         <span>FEATURED PROJECTS ✦</span>
@@ -2039,7 +2064,7 @@
                 </div>
 
                 <!-- Filter tabs -->
-                <div id="inline-filter-tabs" class="flex flex-wrap items-center gap-2 self-start xl:self-auto shrink-0 max-w-full">
+                <div id="inline-filter-tabs" class="flex flex-wrap items-center gap-2 self-start xl:self-auto shrink-0 max-w-full reveal delay-150">
                     <button onclick="filterInline('all')" class="inline-filter-btn active px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-purple-200/60 text-white spatial-glass-pill transition-all" data-filter="all">All (19)</button>
                     <button onclick="filterInline('fullstack')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="fullstack">Full-Stack (6)</button>
                     <button onclick="filterInline('frontend')" class="inline-filter-btn px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20 text-slate-300 hover:border-purple-200/60 hover:text-white transition-all" data-filter="frontend">Frontend &amp; 3D (5)</button>
@@ -2066,7 +2091,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 <!-- Left Editorial Column (4 cols) -->
-                <div class="lg:col-span-4 space-y-2.5 px-2">
+                <div class="lg:col-span-4 space-y-2.5 px-2 reveal-left delay-100">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                         <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
                         <span>ACHIEVEMENTS &amp; IMPACT ✦</span>
@@ -2080,11 +2105,11 @@
                 </div>
 
                 <!-- Right Metrics Slab (8 cols): 4 Glowing Stat Columns -->
-                <div class="lg:col-span-8 spatial-glass p-6 sm:p-8 spatial-card-hover relative overflow-hidden">
+                <div class="lg:col-span-8 spatial-glass p-6 sm:p-8 spatial-card-hover relative overflow-hidden reveal-right delay-200">
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-white/20">
                         
                         <!-- Stat 1: 19+ Projects -->
-                        <div class="space-y-2 pt-4 sm:pt-0 flex flex-col items-center">
+                        <div class="space-y-2 pt-4 sm:pt-0 flex flex-col items-center reveal delay-100">
                             <div class="w-8 h-8 rounded-full bg-purple-400/20 border border-purple-300/40 flex items-center justify-center text-purple-200 shadow-[0_0_15px_rgba(221,214,254,0.35)]">
                                 <svg class="w-4 h-4 text-purple-200" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>
                             </div>
@@ -2096,7 +2121,7 @@
                         </div>
 
                         <!-- Stat 2: >95 PageSpeed -->
-                        <div class="space-y-2 pt-4 sm:pt-0 sm:pl-6 flex flex-col items-center">
+                        <div class="space-y-2 pt-4 sm:pt-0 sm:pl-6 flex flex-col items-center reveal delay-200">
                             <div class="w-8 h-8 rounded-full bg-cyan-400/20 border border-cyan-300/40 flex items-center justify-center text-cyan-200 shadow-[0_0_15px_rgba(56,189,248,0.35)]">
                                 <svg class="w-4 h-4 text-cyan-200" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                             </div>
@@ -2108,7 +2133,7 @@
                         </div>
 
                         <!-- Stat 3: <1.2s FCP -->
-                        <div class="space-y-2 pt-4 sm:pt-0 sm:pl-6 flex flex-col items-center">
+                        <div class="space-y-2 pt-4 sm:pt-0 sm:pl-6 flex flex-col items-center reveal delay-300">
                             <div class="w-8 h-8 rounded-full bg-pink-400/20 border border-pink-300/40 flex items-center justify-center text-pink-200 shadow-[0_0_15px_rgba(244,114,182,0.35)]">
                                 <svg class="w-4 h-4 text-pink-200" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.5s-6 5.5-6 10.5a6 6 0 0 0 12 0c0-5-6-10.5-6-10.5zm0 14a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
                             </div>
@@ -2120,7 +2145,7 @@
                         </div>
 
                         <!-- Stat 4: 100% On-time -->
-                        <div class="space-y-2 pt-4 sm:pt-0 sm:pl-6 flex flex-col items-center">
+                        <div class="space-y-2 pt-4 sm:pt-0 sm:pl-6 flex flex-col items-center reveal delay-400">
                             <div class="w-8 h-8 rounded-full bg-emerald-400/20 border border-emerald-300/40 flex items-center justify-center text-emerald-200 shadow-[0_0_15px_rgba(52,211,153,0.35)]">
                                 <svg class="w-4 h-4 text-emerald-200" fill="currentColor" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
                             </div>
@@ -2148,7 +2173,7 @@
             <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
                 <!-- Zone 1: Big CTA & Narrative (4 cols) -->
-                <div class="lg:col-span-4 space-y-4">
+                <div class="lg:col-span-4 space-y-4 reveal-left delay-100">
                     <div class="space-y-2.5">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-purple-300/30 text-[10px] font-mono font-semibold tracking-[0.2em] text-purple-200 uppercase">
                             <span class="w-1.5 h-1.5 rounded-full bg-purple-400 pulse-soft"></span>
@@ -2171,7 +2196,7 @@
                 </div>
 
                 <!-- Zone 2: Direct Contact Details (3 cols) -->
-                <div class="lg:col-span-3 space-y-5">
+                <div class="lg:col-span-3 space-y-5 reveal delay-200">
                     
                     <!-- Email Item -->
                     <div class="space-y-1">
@@ -2221,7 +2246,7 @@
                 </div>
 
                 <!-- Zone 3: 3D Concentric Luminous Glass Monogram (3 cols) -->
-                <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0">
+                <div class="lg:col-span-3 flex justify-center items-center relative py-6 lg:py-0 reveal-scale delay-250">
                     
                     <!-- Ambient Radiant Halo Glow behind Sphere -->
                     <div class="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/15 blur-3xl pointer-events-none pulse-soft"></div>
@@ -2249,7 +2274,7 @@
                 </div>
 
                 <!-- Zone 4: Social Channels (2 cols) -->
-                <div class="lg:col-span-2 space-y-4">
+                <div class="lg:col-span-2 space-y-4 reveal-right delay-300">
                     <span class="text-[9px] font-mono text-purple-300/80 uppercase tracking-widest font-bold block">SOCIAL</span>
                     <div class="flex flex-col gap-2.5">
                         <a href="https://github.com/huy293" target="_blank" rel="noopener noreferrer"
@@ -2284,7 +2309,7 @@
             </div>
 
             <!-- Bottom Copyright & Thank You Strip -->
-            <div class="relative z-10 pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
+            <div class="relative z-10 pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center reveal delay-100">
                 <p class="text-[11px] font-mono text-slate-300">
                     © 2026 Luu Khang Huy — Frontend &amp; DevOps Engineer. All rights reserved.
                 </p>
@@ -2444,10 +2469,11 @@
             grid.innerHTML = '';
             
             const filtered = filter === 'all' ? projectsList : projectsList.filter(p => p.category.includes(filter));
-            
-            filtered.forEach(p => {
+            const delays = ['delay-100', 'delay-150', 'delay-200'];
+            filtered.forEach((p, index) => {
                 const card = document.createElement('div');
-                card.className = "spatial-glass-sub spatial-card-hover p-4 rounded-2xl flex flex-col justify-between group hover:border-white transition-all cursor-pointer";
+                const delayClass = delays[index % delays.length];
+                card.className = `spatial-glass-sub spatial-card-hover p-4 rounded-2xl flex flex-col justify-between group hover:border-white transition-all cursor-pointer reveal ${delayClass}`;
                 card.onclick = () => openQuestModal(p.id);
                 card.innerHTML = `
                     <div>
@@ -2552,9 +2578,11 @@
             if (!grid) return;
             const filtered = filter === 'all' ? projectsList : projectsList.filter(p => p.category.includes(filter));
             grid.innerHTML = '';
-            filtered.forEach(p => {
+            const delays = ['delay-100', 'delay-150', 'delay-200', 'delay-250'];
+            filtered.forEach((p, index) => {
                 const card = document.createElement('div');
-                card.className = 'spatial-glass spatial-card-hover p-4 rounded-2xl flex flex-col justify-between group cursor-pointer';
+                const delayClass = delays[index % delays.length];
+                card.className = `spatial-glass spatial-card-hover p-4 rounded-2xl flex flex-col justify-between group cursor-pointer reveal ${delayClass}`;
                 card.onclick = () => openQuestModal(p.id);
                 card.innerHTML = `
                     <div class="space-y-3">
@@ -2625,23 +2653,41 @@
             }
         }
 
-        // ===== SCROLL REVEAL ENGINE =====
+        // ===== SCROLL REVEAL & PAGE APPEAR ENGINE =====
         (function() {
             const revealClasses = ['reveal', 'reveal-left', 'reveal-right', 'reveal-scale'];
             const selector = revealClasses.map(c => '.' + c).join(', ');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
+            
+            // Double rAF ensures CSS paint cycle has committed initial opacity:0 before observing
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+                    document.querySelectorAll(selector).forEach(el => observer.observe(el));
+
+                    const mutationObs = new MutationObserver(() => {
+                        document.querySelectorAll(selector + ':not(.visible)').forEach(el => observer.observe(el));
+                    });
+                    mutationObs.observe(document.body, { childList: true, subtree: true });
+
+                    // Graceful fallback for any elements above fold or after timeout
+                    setTimeout(() => {
+                        document.querySelectorAll(selector + ':not(.visible)').forEach(el => {
+                            const rect = el.getBoundingClientRect();
+                            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                                el.classList.add('visible');
+                            }
+                        });
+                    }, 1200);
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-            document.querySelectorAll(selector).forEach(el => observer.observe(el));
-            const mutationObs = new MutationObserver(() => {
-                document.querySelectorAll(selector + ':not(.visible)').forEach(el => observer.observe(el));
             });
-            mutationObs.observe(document.body, { childList: true, subtree: true });
         })();
 
         // ===== ACHIEVEMENT COUNTER ANIMATION =====

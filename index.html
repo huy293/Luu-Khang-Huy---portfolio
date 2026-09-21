@@ -628,22 +628,17 @@
             transform-origin: center;
         }
         .hud-avatar-lens {
-            animation: avatar-gentle-float 4.8s infinite;
+            will-change: transform, filter;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+        }
+        .hud-avatar-svg {
+            animation: avatar-gentle-float 4.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
             will-change: transform;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s var(--ease-tactile);
         }
         .portrait-viewport-wrap:hover .hud-avatar-lens,
         .hud-avatar-lens:hover {
-            transform: translateY(-8px) scale(1.03);
-            filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.4)) drop-shadow(0 0 25px rgba(192, 132, 252, 0.35));
-        }
-        .portrait-viewport-wrap:hover .anim-orbit-primary,
-        .hud-avatar-lens:hover .anim-orbit-primary {
-            animation-duration: 2.0s;
-        }
-        .portrait-viewport-wrap:hover .anim-orbit-secondary,
-        .hud-avatar-lens:hover .anim-orbit-secondary {
-            animation-duration: 4.0s;
+            transform: translateY(-4px) scale(1.025);
+            filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 24px rgba(56, 189, 248, 0.35));
         }
 
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE: LIVELY ZERO-G BOUNCE ===== */
@@ -1673,7 +1668,7 @@
                     <div class="hud-avatar-lens relative w-72 h-72 sm:w-84 sm:h-84 lg:w-[350px] lg:h-[350px] xl:w-[375px] xl:h-[375px] aspect-square flex items-center justify-center cursor-pointer select-none">
                         
                         <!-- Master Pure Vector SVG Cyber Reticle (Upright, Symmetrical, Ultra-Thin Hairlines, Silky Starlight Motion) -->
-                        <svg viewBox="0 0 400 400" class="w-full h-full relative z-10 pointer-events-auto">
+                        <svg viewBox="0 0 400 400" class="hud-avatar-svg w-full h-full relative z-10 pointer-events-auto">
                             <defs>
                                 <!-- Central Avatar Circular Aperture Clip -->
                                 <clipPath id="lkh-avatar-clip">

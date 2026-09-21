@@ -580,7 +580,7 @@
             pointer-events: none;
         }
 
-        /* Luxury Squircle Aurora Lens (Hero Center 1:1 Animated Avatar Frame) */
+        /* Holographic HUD Target-Lock Reticle (Hero Center 1:1 Animated Avatar Frame) */
         .portrait-viewport-wrap {
             position: relative;
             display: flex;
@@ -597,60 +597,15 @@
                 animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
             }
         }
-        @keyframes aurora-beam-spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .squircle-aurora-wrap {
-            position: relative;
-            border-radius: 2.25rem;
-            padding: 2.5px;
-            overflow: hidden;
-            box-shadow: 0 30px 70px rgba(5, 2, 20, 0.95), 0 0 50px rgba(168, 85, 247, 0.35);
+        .hud-avatar-lens {
             animation: avatar-gentle-float 4.8s infinite;
             will-change: transform;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s var(--ease-tactile);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s var(--ease-tactile);
         }
-        @media (min-width: 640px) {
-            .squircle-aurora-wrap {
-                border-radius: 2.5rem;
-            }
-        }
-        .squircle-aurora-beam {
-            position: absolute;
-            inset: -65%;
-            background: conic-gradient(from 0deg, transparent 0 280deg, #38bdf8 310deg, #ffffff 338deg, #c084fc 360deg);
-            animation: aurora-beam-spin 3.8s linear infinite;
-            filter: blur(1.5px);
-        }
-        .squircle-aurora-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: calc(2.25rem - 2.5px);
-            background: #08031d;
-            overflow: hidden;
-            box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.35), inset 0 0 30px rgba(0, 0, 0, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        @media (min-width: 640px) {
-            .squircle-aurora-inner {
-                border-radius: calc(2.5rem - 2.5px);
-            }
-        }
-        .squircle-aurora-inner img {
-            transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1), filter 0.6s var(--ease-tactile);
-        }
-        .portrait-viewport-wrap:hover .squircle-aurora-wrap,
-        .squircle-aurora-wrap:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 35px 80px rgba(5, 2, 20, 0.98),
-                        0 0 65px rgba(168, 85, 247, 0.5),
-                        0 0 35px rgba(56, 189, 248, 0.45);
-        }
-        .portrait-viewport-wrap:hover .squircle-aurora-inner img,
-        .squircle-aurora-wrap:hover .squircle-aurora-inner img {
-            transform: scale(1.04);
+        .portrait-viewport-wrap:hover .hud-avatar-lens,
+        .hud-avatar-lens:hover {
+            transform: translateY(-12px) scale(1.04);
+            filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.5)) drop-shadow(0 0 25px rgba(192, 132, 252, 0.4));
         }
 
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE: LIVELY ZERO-G BOUNCE ===== */
@@ -1671,55 +1626,30 @@
                     </div>
                 </div>
 
-                <!-- Center Column (4 cols): Luxury Squircle Aurora Lens Animated Avatar Frame (1:1 Ratio) -->
+                <!-- Center Column (4 cols): Holographic HUD Target-Lock Reticle Animated Avatar (1:1 Ratio) -->
                 <div class="lg:col-span-4 flex justify-center relative reveal-scale delay-250 portrait-viewport-wrap group">
-                    <!-- Ambient Soft Spatial Glow behind Squircle -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/20 rounded-3xl blur-3xl pointer-events-none scale-110"></div>
+                    <!-- Ambient Soft Spatial Glow behind HUD -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/25 rounded-full blur-3xl pointer-events-none scale-110"></div>
 
-                    <!-- 1:1 Luxury Squircle Aurora Lens -->
-                    <div class="squircle-aurora-wrap relative w-72 h-72 sm:w-84 sm:h-84 lg:w-[350px] lg:h-[350px] xl:w-[370px] xl:h-[370px] aspect-square flex items-center justify-center cursor-pointer">
-                        <!-- Orbiting Conic Aurora Laser Beam -->
-                        <div class="squircle-aurora-beam pointer-events-none"></div>
+                    <!-- 1:1 Holographic HUD Target-Lock Avatar Lens -->
+                    <div class="hud-avatar-lens relative w-72 h-72 sm:w-84 sm:h-84 lg:w-[350px] lg:h-[350px] xl:w-[375px] xl:h-[375px] aspect-square flex items-center justify-center cursor-pointer">
+                        <picture class="w-full h-full block">
+                            <source srcset="assets/huy/huy_hud_avatar_animated.webp" type="image/webp">
+                            <img src="assets/huy/huy_hud_avatar_animated.gif" 
+                                 alt="Luu Khang Huy - Holographic HUD Target-Lock Avatar Frame" 
+                                 class="w-full h-full object-contain pointer-events-none select-none drop-shadow-[0_20px_45px_rgba(5,2,20,0.9)]">
+                        </picture>
 
-                        <!-- Inner Obsidian Glass Core -->
-                        <div class="squircle-aurora-inner relative w-full h-full flex items-center justify-center">
-                            
-                            <!-- Cinematic High-Res Night Portrait on Ba Son Bridge (1:1 Golden Framing) -->
-                            <picture class="w-full h-full block">
-                                <source srcset="assets/huy/huy_bridge_square_1x1.webp" type="image/webp">
-                                <img src="assets/huy/huy_bridge_square_1x1.png"
-                                     alt="Luu Khang Huy on Ba Son Bridge"
-                                     class="w-full h-full object-cover select-none pointer-events-none"
-                                     onerror="this.onerror=null;this.src='assets/huy/huy_night_profile_avatar.jpg';">
-                            </picture>
-
-                            <!-- Subtle Ambient Bottom Vignette Fade to unify with dark theme -->
-                            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#070319]/85 via-[#070319]/30 to-transparent pointer-events-none"></div>
-
-                            <!-- Elegant Minimal Live Status Badge at Top Left -->
-                            <div class="absolute top-3.5 left-3.5 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)] pointer-events-none">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pulse-soft"></span>
-                                <span class="text-[8.5px] font-mono font-bold text-emerald-300 uppercase tracking-widest">AVAILABLE</span>
-                            </div>
-
-                            <!-- Ultra-Minimal Audio Trigger Spark at Top Right -->
-                            <button onclick="playEngineStartSound()"
-                                    class="absolute top-3.5 right-3.5 z-20 w-7 h-7 rounded-full bg-black/60 hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-all text-purple-200 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.6)] cursor-pointer"
-                                    title="Play V12 Engine Ignition">
-                                <svg class="w-3.5 h-3.5 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                                </svg>
-                            </button>
-
-                            <!-- Bottom Architectural Location Tag -->
-                            <div class="absolute bottom-3.5 inset-x-4 z-10 flex items-center justify-between pointer-events-none">
-                                <span class="text-[9px] font-mono text-slate-300/80 font-medium tracking-wider">SAIGON, VN</span>
-                                <span class="text-[9px] font-mono text-purple-300/90 font-bold tracking-widest">BA SON BRIDGE</span>
-                            </div>
-
-                        </div>
+                        <!-- Ultra-Minimal Audio Trigger Spark at Top Right -->
+                        <button onclick="playEngineStartSound()"
+                                class="absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-black/70 hover:bg-white/20 border border-white/20 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-all text-purple-200 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.7)] cursor-pointer"
+                                title="Play V12 Engine Ignition">
+                            <svg class="w-3.5 h-3.5 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 

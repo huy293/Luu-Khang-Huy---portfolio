@@ -580,75 +580,45 @@
             pointer-events: none;
         }
 
-        /* 3D Spatial Observation Porthole & Multi-Layer Optical Lens Bezel */
+        /* Luxury Double-Bezel Architectural Portrait Frame (Hero Center) */
         .portrait-viewport-wrap {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        /* Outer Astrolabe Precision Track */
-        .portrait-astrolabe-track {
-            position: absolute;
-            inset: -22px;
-            border-radius: 9999px;
-            border: 1px dashed rgba(192, 132, 252, 0.35);
-            pointer-events: none;
-            animation: spinSlow 36s linear infinite;
-        }
-        .portrait-astrolabe-track-inner {
-            position: absolute;
-            inset: -10px;
-            border-radius: 9999px;
-            border: 1px solid rgba(56, 189, 248, 0.25);
-            pointer-events: none;
-            animation: spinReverseSlow 24s linear infinite;
-        }
-
-        /* Sculpted Multi-Layer Optical Glass Sphere Bezel */
-        .portrait-glass-sphere {
+        .portrait-luxury-chassis {
             position: relative;
-            border-radius: 9999px;
-            background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.15) 0%, rgba(192, 132, 252, 0.08) 40%, rgba(15, 10, 42, 0.85) 100%);
-            border: 2px solid rgba(255, 255, 255, 0.55);
-            box-shadow: 0 0 60px rgba(168, 85, 247, 0.4),
-                        0 20px 50px rgba(0, 0, 0, 0.8),
-                        inset 0 0 40px rgba(168, 85, 247, 0.25),
-                        inset 0 2px 6px rgba(255, 255, 255, 0.9),
-                        inset 0 -4px 12px rgba(0, 0, 0, 0.7);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            border-radius: 2rem;
+            padding: 7px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(168, 85, 247, 0.1) 45%, rgba(15, 10, 35, 0.75) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 24px 48px -12px rgba(5, 2, 18, 0.85),
+                        0 0 35px rgba(168, 85, 247, 0.2),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.35);
+            transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.5s var(--ease-tactile), border-color 0.5s var(--ease-tactile);
+            will-change: transform;
         }
-        .portrait-viewport-wrap:hover .portrait-glass-sphere {
-            transform: scale(1.03);
-            border-color: rgba(221, 214, 254, 0.85);
-            box-shadow: 0 0 85px rgba(168, 85, 247, 0.6),
-                        0 25px 60px rgba(0, 0, 0, 0.9),
-                        inset 0 0 50px rgba(56, 189, 248, 0.35),
-                        inset 0 2px 8px rgba(255, 255, 255, 1);
+        .portrait-viewport-wrap:hover .portrait-luxury-chassis {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(221, 214, 254, 0.45);
+            box-shadow: 0 32px 64px -12px rgba(5, 2, 18, 0.95),
+                        0 0 50px rgba(168, 85, 247, 0.35),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.5);
         }
-
-        /* Realistic Convex Optical Glass Crescent Highlight */
-        .portrait-lens-glint {
-            position: absolute;
-            inset: 0;
-            border-radius: 9999px;
-            background: radial-gradient(ellipse at 32% 20%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 68%);
-            pointer-events: none;
-            z-index: 15;
-            mix-blend-mode: screen;
-            transition: opacity 0.4s ease;
+        .portrait-luxury-inner {
+            position: relative;
+            border-radius: calc(2rem - 7px);
+            overflow: hidden;
+            background: #070319;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
         }
-
-        /* Dual-Tone Chromatic Rim Fringe */
-        .portrait-chromatic-rim {
-            position: absolute;
-            inset: 0;
-            border-radius: 9999px;
-            box-shadow: inset 2px 0 10px rgba(56, 189, 248, 0.6),
-                        inset -2px 0 10px rgba(192, 132, 252, 0.6);
-            pointer-events: none;
-            z-index: 16;
+        .portrait-luxury-inner img {
+            transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1), filter 0.6s var(--ease-tactile);
+        }
+        .portrait-viewport-wrap:hover .portrait-luxury-inner img {
+            transform: scale(1.04);
         }
 
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE: LIVELY ZERO-G BOUNCE ===== */
@@ -1669,64 +1639,47 @@
                     </div>
                 </div>
 
-                <!-- Center Column (4 cols): 3D Spatial Observation Porthole Lens (Non-Basic Circular Lens) -->
+                <!-- Center Column (4 cols): Luxury Double-Bezel Architectural Portrait Frame -->
                 <div class="lg:col-span-4 flex justify-center relative reveal-scale delay-250 portrait-viewport-wrap group">
-                    <!-- Ambient Soft Spatial Glow behind Porthole -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-indigo-600/20 to-cyan-400/15 rounded-full blur-3xl pointer-events-none scale-125"></div>
+                    <!-- Ambient Soft Spatial Glow behind Frame -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-indigo-600/15 to-cyan-400/10 rounded-3xl blur-3xl pointer-events-none scale-110"></div>
 
-                    <!-- Outer Astrolabe Precision Track (Concentric Rings with Telemetry Ticks) -->
-                    <div class="portrait-astrolabe-track">
-                        <!-- Cardinal Telemetry Indicators -->
-                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded bg-black/60 border border-purple-400/30 text-[8px] font-mono text-purple-200 tracking-widest">00°·N</span>
-                        <span class="absolute top-1/2 -right-3 -translate-y-1/2 px-1.5 py-0.5 rounded bg-black/60 border border-purple-400/30 text-[8px] font-mono text-purple-200 tracking-widest">90°·E</span>
-                        <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded bg-black/60 border border-purple-400/30 text-[8px] font-mono text-purple-200 tracking-widest">180°·S</span>
-                        <span class="absolute top-1/2 -left-3 -translate-y-1/2 px-1.5 py-0.5 rounded bg-black/60 border border-purple-400/30 text-[8px] font-mono text-purple-200 tracking-widest">270°·W</span>
-                        <!-- Orbiting Cyan Satellite Node -->
-                        <span class="absolute top-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#38bdf8,0_0_16px_rgba(56,189,248,0.6)] -mt-1.5"></span>
-                    </div>
-                    <div class="portrait-astrolabe-track-inner"></div>
+                    <!-- Luxury Double-Bezel Portrait Chassis -->
+                    <div class="portrait-luxury-chassis w-72 sm:w-80 lg:w-[320px] xl:w-[340px] max-w-full">
+                        <div class="portrait-luxury-inner aspect-[9/13] sm:aspect-[9/13.5] w-full flex items-center justify-center relative">
+                            
+                            <!-- Cinematic Full-Resolution Night Portrait on Ba Son Bridge -->
+                            <img src="assets/huy/huy_night_bridge_full.png"
+                                 alt="Luu Khang Huy on Ba Son Bridge"
+                                 class="w-full h-full object-cover object-[center_32%] select-none pointer-events-none"
+                                 onerror="this.onerror=null;this.src='assets/huy/huy_night_profile_avatar.jpg';">
 
-                    <!-- Diverse 3D Floating Ray-Traced Spherical Glass Orbs around the Portrait -->
-                    <div class="glass-orb glass-form-chrome w-12 h-12 -top-4 -left-4 opacity-90 animate-orb-1 z-20" title="Liquid Chrome Mercury Sphere"></div>
-                    <div class="glass-orb glass-form-plasma w-10 h-10 top-[52%] -right-6 opacity-85 animate-orb-2 z-20" title="Quantum Cyan Plasma Sphere"></div>
-                    <div class="glass-orb glass-form-nebula w-14 h-14 -bottom-6 left-6 opacity-90 animate-orb-3 z-20" title="Galactic Nebula Galaxy Sphere"></div>
+                            <!-- Subtle Ambient Bottom Fade to unify with dark theme -->
+                            <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#070319]/90 via-[#070319]/35 to-transparent pointer-events-none"></div>
 
-                    <!-- 3D Luminous Portrait Glass Sphere Container -->
-                    <div class="portrait-glass-sphere w-72 h-72 sm:w-84 sm:h-84 lg:w-[380px] lg:h-[380px] flex items-center justify-center relative overflow-hidden">
-                        
-                        <!-- Optical Glass Crescent Highlight & Chromatic Rim Fringe -->
-                        <div class="portrait-lens-glint"></div>
-                        <div class="portrait-chromatic-rim"></div>
+                            <!-- Elegant Minimal Live Status Badge at Top Left -->
+                            <div class="absolute top-3.5 left-3.5 z-10 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pulse-soft"></span>
+                                <span class="text-[9px] font-mono font-bold text-emerald-300 uppercase tracking-widest">AVAILABLE</span>
+                            </div>
 
-                        <!-- Top Floating Availability HUD Capsule & Audio Trigger -->
-                        <div class="absolute top-4 z-20 inline-flex items-center gap-2 p-1 pl-3 pr-1.5 rounded-full bg-black/70 border border-emerald-400/40 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pulse-soft"></span>
-                            <span class="text-[9px] font-mono font-bold text-emerald-300 uppercase tracking-wider">AVAILABLE FOR HIRE</span>
-                            <div class="h-3 w-[1px] bg-white/20 ml-0.5"></div>
+                            <!-- Ultra-Minimal Audio Spark at Top Right -->
                             <button onclick="playEngineStartSound()"
-                                    class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center hover:scale-105 transition-all text-white group/snd"
+                                    class="absolute top-3.5 right-3.5 z-10 w-7 h-7 rounded-full bg-black/60 hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center hover:scale-105 transition-all text-purple-200 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.5)] cursor-pointer"
                                     title="Play V12 Engine Ignition">
-                                <svg class="w-3 h-3 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg class="w-3.5 h-3.5 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                                 </svg>
                             </button>
-                        </div>
 
-                        <!-- Photo with bridge background -->
-                        <img src="assets/huy/huy_night_bridge_full.png"
-                             alt="Luu Khang Huy"
-                             class="w-full h-full object-cover object-[center_50%] scale-105 group-hover:scale-110 transition-transform duration-700"
-                             onerror="this.onerror=null;this.src='assets/huy/huy_night_profile_avatar.jpg';">
-
-                        <!-- Bottom Floating Telemetry Capsule (Subtle Vignette + Floating Glass HUD) -->
-                        <div class="absolute bottom-0 inset-x-0 pt-10 pb-4 bg-gradient-to-t from-black/80 via-black/35 to-transparent z-20 flex flex-col items-center justify-end pointer-events-none">
-                            <div class="px-3.5 py-1 rounded-full bg-black/70 border border-purple-300/30 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
-                                <span class="text-[9.5px] font-mono font-bold text-white tracking-widest uppercase">LUU KHANG HUY</span>
-                                <span class="text-[8.5px] font-mono text-purple-300/80">· 19 BUILDS</span>
+                            <!-- Bottom Architectural Location Tag -->
+                            <div class="absolute bottom-3 inset-x-3.5 z-10 flex items-center justify-between pointer-events-none">
+                                <span class="text-[9px] font-mono text-slate-300/80 font-medium tracking-wider">SAIGON, VN</span>
+                                <span class="text-[9px] font-mono text-purple-300/90 font-bold tracking-widest">BA SON BRIDGE</span>
                             </div>
+
                         </div>
                     </div>
                 </div>

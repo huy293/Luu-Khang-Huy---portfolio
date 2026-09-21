@@ -580,45 +580,32 @@
             pointer-events: none;
         }
 
-        /* Luxury Double-Bezel Architectural Portrait Frame (Hero Center) */
+        /* 3D Mythic Cyber Chassis Animated Avatar Frame (Hero Center 1:1) */
         .portrait-viewport-wrap {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .portrait-luxury-chassis {
-            position: relative;
-            border-radius: 2rem;
-            padding: 7px;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(168, 85, 247, 0.1) 45%, rgba(15, 10, 35, 0.75) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 24px 48px -12px rgba(5, 2, 18, 0.85),
-                        0 0 35px rgba(168, 85, 247, 0.2),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.35);
-            transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.5s var(--ease-tactile), border-color 0.5s var(--ease-tactile);
+        @keyframes avatar-gentle-float {
+            0%, 100% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            }
+            50% {
+                transform: translateY(-8px);
+                animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            }
+        }
+        .cyber-avatar-lens {
+            animation: avatar-gentle-float 4.8s infinite;
             will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s var(--ease-tactile);
         }
-        .portrait-viewport-wrap:hover .portrait-luxury-chassis {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(221, 214, 254, 0.45);
-            box-shadow: 0 32px 64px -12px rgba(5, 2, 18, 0.95),
-                        0 0 50px rgba(168, 85, 247, 0.35),
-                        inset 0 1px 2px rgba(255, 255, 255, 0.5);
-        }
-        .portrait-luxury-inner {
-            position: relative;
-            border-radius: calc(2rem - 7px);
-            overflow: hidden;
-            background: #070319;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
-        }
-        .portrait-luxury-inner img {
-            transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1), filter 0.6s var(--ease-tactile);
-        }
-        .portrait-viewport-wrap:hover .portrait-luxury-inner img {
-            transform: scale(1.04);
+        .portrait-viewport-wrap:hover .cyber-avatar-lens,
+        .cyber-avatar-lens:hover {
+            transform: translateY(-12px) scale(1.04);
+            filter: drop-shadow(0 25px 50px rgba(5, 2, 20, 0.95)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.45)) drop-shadow(0 0 25px rgba(168, 85, 247, 0.4));
         }
 
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE: LIVELY ZERO-G BOUNCE ===== */
@@ -1639,48 +1626,30 @@
                     </div>
                 </div>
 
-                <!-- Center Column (4 cols): Luxury Double-Bezel Architectural Portrait Frame -->
+                <!-- Center Column (4 cols): Game-Tier 3D Mythic Cyber Chassis Animated Avatar Frame (1:1 Ratio) -->
                 <div class="lg:col-span-4 flex justify-center relative reveal-scale delay-250 portrait-viewport-wrap group">
-                    <!-- Ambient Soft Spatial Glow behind Frame -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-indigo-600/15 to-cyan-400/10 rounded-3xl blur-3xl pointer-events-none scale-110"></div>
+                    <!-- Ambient Soft Spatial Glow behind Chassis -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/20 rounded-3xl blur-3xl pointer-events-none scale-110"></div>
 
-                    <!-- Luxury Double-Bezel Portrait Chassis -->
-                    <div class="portrait-luxury-chassis w-72 sm:w-80 lg:w-[320px] xl:w-[340px] max-w-full">
-                        <div class="portrait-luxury-inner aspect-[9/13] sm:aspect-[9/13.5] w-full flex items-center justify-center relative">
-                            
-                            <!-- Cinematic Full-Resolution Night Portrait on Ba Son Bridge -->
-                            <img src="assets/huy/huy_night_bridge_full.png"
-                                 alt="Luu Khang Huy on Ba Son Bridge"
-                                 class="w-full h-full object-cover object-[center_32%] select-none pointer-events-none"
-                                 onerror="this.onerror=null;this.src='assets/huy/huy_night_profile_avatar.jpg';">
+                    <!-- 1:1 Cyber Chassis Animated Frame Lens -->
+                    <div class="cyber-avatar-lens relative w-72 h-72 sm:w-84 sm:h-84 lg:w-[350px] lg:h-[350px] xl:w-[370px] xl:h-[370px] aspect-square flex items-center justify-center cursor-pointer">
+                        <picture class="w-full h-full block">
+                            <source srcset="assets/huy/huy_cyber_avatar_animated_1x1.webp" type="image/webp">
+                            <img src="assets/huy/huy_cyber_avatar_animated_1x1.gif" 
+                                 alt="Luu Khang Huy - 3D Cybernetic Animated Avatar Chassis 1:1" 
+                                 class="w-full h-full object-contain pointer-events-none select-none drop-shadow-[0_20px_40px_rgba(5,2,20,0.85)]">
+                        </picture>
 
-                            <!-- Subtle Ambient Bottom Fade to unify with dark theme -->
-                            <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#070319]/90 via-[#070319]/35 to-transparent pointer-events-none"></div>
-
-                            <!-- Elegant Minimal Live Status Badge at Top Left -->
-                            <div class="absolute top-3.5 left-3.5 z-10 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] pulse-soft"></span>
-                                <span class="text-[9px] font-mono font-bold text-emerald-300 uppercase tracking-widest">AVAILABLE</span>
-                            </div>
-
-                            <!-- Ultra-Minimal Audio Spark at Top Right -->
-                            <button onclick="playEngineStartSound()"
-                                    class="absolute top-3.5 right-3.5 z-10 w-7 h-7 rounded-full bg-black/60 hover:bg-white/20 border border-white/15 backdrop-blur-md flex items-center justify-center hover:scale-105 transition-all text-purple-200 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.5)] cursor-pointer"
-                                    title="Play V12 Engine Ignition">
-                                <svg class="w-3.5 h-3.5 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                                </svg>
-                            </button>
-
-                            <!-- Bottom Architectural Location Tag -->
-                            <div class="absolute bottom-3 inset-x-3.5 z-10 flex items-center justify-between pointer-events-none">
-                                <span class="text-[9px] font-mono text-slate-300/80 font-medium tracking-wider">SAIGON, VN</span>
-                                <span class="text-[9px] font-mono text-purple-300/90 font-bold tracking-widest">BA SON BRIDGE</span>
-                            </div>
-
-                        </div>
+                        <!-- Ultra-Minimal Audio Trigger Spark at Top Right -->
+                        <button onclick="playEngineStartSound()"
+                                class="absolute top-4 right-4 z-20 w-7 h-7 rounded-full bg-black/70 hover:bg-white/20 border border-white/20 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-all text-purple-200 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.7)] cursor-pointer"
+                                title="Play V12 Engine Ignition">
+                            <svg class="w-3.5 h-3.5 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 

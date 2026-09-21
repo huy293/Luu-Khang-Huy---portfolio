@@ -580,7 +580,7 @@
             pointer-events: none;
         }
 
-        /* Holographic HUD Target-Lock Reticle (Hero Center 1:1 Animated Avatar Frame) */
+        /* Cyber Aperture Vector HUD Reticle (Hero Center 1:1 Animated Avatar Frame) */
         .portrait-viewport-wrap {
             position: relative;
             display: flex;
@@ -593,9 +593,39 @@
                 animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
             }
             50% {
-                transform: translateY(-8px);
+                transform: translateY(-6px);
                 animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
             }
+        }
+        @keyframes orbit-cw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes orbit-ccw {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        @keyframes pulse-emerald {
+            0%, 100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 6px #10b981) drop-shadow(0 0 2px #34d399);
+            }
+            50% {
+                opacity: 0.35;
+                filter: drop-shadow(0 0 1px #10b981);
+            }
+        }
+        .anim-orbit-primary {
+            animation: orbit-cw 3.8s linear infinite;
+            transform-origin: 200px 200px;
+        }
+        .anim-orbit-secondary {
+            animation: orbit-ccw 7.6s linear infinite;
+            transform-origin: 200px 200px;
+        }
+        .anim-pulse-led {
+            animation: pulse-emerald 2s ease-in-out infinite;
+            transform-origin: center;
         }
         .hud-avatar-lens {
             animation: avatar-gentle-float 4.8s infinite;
@@ -604,8 +634,16 @@
         }
         .portrait-viewport-wrap:hover .hud-avatar-lens,
         .hud-avatar-lens:hover {
-            transform: translateY(-12px) scale(1.04);
-            filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.5)) drop-shadow(0 0 25px rgba(192, 132, 252, 0.4));
+            transform: translateY(-8px) scale(1.03);
+            filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.4)) drop-shadow(0 0 25px rgba(192, 132, 252, 0.35));
+        }
+        .portrait-viewport-wrap:hover .anim-orbit-primary,
+        .hud-avatar-lens:hover .anim-orbit-primary {
+            animation-duration: 2.0s;
+        }
+        .portrait-viewport-wrap:hover .anim-orbit-secondary,
+        .hud-avatar-lens:hover .anim-orbit-secondary {
+            animation-duration: 4.0s;
         }
 
         /* ===== 3D LUMINOUS MONOGRAM GLASS SPHERE: LIVELY ZERO-G BOUNCE ===== */
@@ -1626,25 +1664,220 @@
                     </div>
                 </div>
 
-                <!-- Center Column (4 cols): Holographic HUD Target-Lock Reticle Animated Avatar (1:1 Ratio) -->
+                <!-- Center Column (4 cols): Cyber Aperture Vector HUD Reticle Animated Avatar (1:1 Ratio) -->
                 <div class="lg:col-span-4 flex justify-center relative reveal-scale delay-250 portrait-viewport-wrap group">
                     <!-- Ambient Soft Spatial Glow behind HUD -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/25 rounded-full blur-3xl pointer-events-none scale-110"></div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/25 via-indigo-600/20 to-cyan-400/25 rounded-full blur-3xl pointer-events-none scale-110 group-hover:scale-125 transition-transform duration-700"></div>
 
-                    <!-- 1:1 Holographic HUD Target-Lock Avatar Lens -->
-                    <div class="hud-avatar-lens relative w-72 h-72 sm:w-84 sm:h-84 lg:w-[350px] lg:h-[350px] xl:w-[375px] xl:h-[375px] aspect-square flex items-center justify-center cursor-pointer">
-                        <picture class="w-full h-full block">
-                            <source srcset="assets/huy/huy_hud_avatar_animated.webp" type="image/webp">
-                            <img src="assets/huy/huy_hud_avatar_animated.gif" 
-                                 alt="Luu Khang Huy - Holographic HUD Target-Lock Avatar Frame" 
-                                 class="w-full h-full object-contain pointer-events-none select-none drop-shadow-[0_20px_45px_rgba(5,2,20,0.9)]">
-                        </picture>
+                    <!-- 1:1 Cyber Aperture Vector HUD Avatar Lens -->
+                    <div class="hud-avatar-lens relative w-72 h-72 sm:w-84 sm:h-84 lg:w-[350px] lg:h-[350px] xl:w-[375px] xl:h-[375px] aspect-square flex items-center justify-center cursor-pointer select-none">
+                        
+                        <!-- Master Pure Vector SVG Cyber Reticle (Upright, Symmetrical, Ultra-Thin Hairlines, Silky Starlight Motion) -->
+                        <svg viewBox="0 0 400 400" class="w-full h-full relative z-10 pointer-events-auto">
+                            <defs>
+                                <!-- Central Avatar Circular Aperture Clip -->
+                                <clipPath id="lkh-avatar-clip">
+                                    <circle cx="200" cy="200" r="142" />
+                                </clipPath>
+
+                                <!-- Primary Comet Gradient: Starlight White -> Electric Cyan -> Amethyst Fade -->
+                                <linearGradient id="lkh-primary-comet" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+                                    <stop offset="25%" stop-color="#38bdf8" stop-opacity="0.9" />
+                                    <stop offset="65%" stop-color="#818cf8" stop-opacity="0.4" />
+                                    <stop offset="100%" stop-color="#c084fc" stop-opacity="0" />
+                                </linearGradient>
+
+                                <!-- Secondary Counter-Orbital Gradient: Royal Amethyst -> Ice Violet Fade -->
+                                <linearGradient id="lkh-secondary-comet" x1="100%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                                    <stop offset="30%" stop-color="#c084fc" stop-opacity="0.8" />
+                                    <stop offset="70%" stop-color="#a855f7" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+                                </linearGradient>
+
+                                <!-- Glass Bezel Linear Shading -->
+                                <radialGradient id="lkh-bezel-metallic" cx="50%" cy="50%" r="50%">
+                                    <stop offset="85%" stop-color="#090d16" stop-opacity="0.95" />
+                                    <stop offset="93%" stop-color="#1e293b" stop-opacity="0.9" />
+                                    <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+                                </radialGradient>
+
+                                <!-- High-Performance Vector Glow Filters -->
+                                <filter id="lkh-laser-bloom" x="-40%" y="-40%" width="180%" height="180%">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur1" />
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="6.5" result="blur2" />
+                                    <feMerge>
+                                        <feMergeNode in="blur2" />
+                                        <feMergeNode in="blur1" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+
+                            <!-- 1. TACTICAL CORNER RETICLES (┌ ┐ └ ┘) - 100% Upright, Balanced, Thin -->
+                            <g stroke="#38bdf8" stroke-width="1.25" fill="none" opacity="0.85">
+                                <!-- Top-Left Corner -->
+                                <path d="M 38,62 L 38,38 L 62,38" />
+                                <circle cx="38" cy="38" r="1.5" fill="#38bdf8" />
+                                <line x1="38" y1="46" x2="44" y2="46" stroke-width="0.75" />
+
+                                <!-- Top-Right Corner -->
+                                <path d="M 338,38 L 362,38 L 362,62" />
+                                <circle cx="362" cy="38" r="1.5" fill="#38bdf8" />
+                                <line x1="356" y1="46" x2="362" y2="46" stroke-width="0.75" />
+
+                                <!-- Bottom-Left Corner -->
+                                <path d="M 38,338 L 38,362 L 62,362" />
+                                <circle cx="38" cy="362" r="1.5" fill="#38bdf8" />
+                                <line x1="38" y1="354" x2="44" y2="354" stroke-width="0.75" />
+
+                                <!-- Bottom-Right Corner -->
+                                <path d="M 338,362 L 362,362 L 362,338" />
+                                <circle cx="362" cy="362" r="1.5" fill="#38bdf8" />
+                                <line x1="356" y1="354" x2="362" y2="354" stroke-width="0.75" />
+                            </g>
+
+                            <!-- Cardinal Axis Crosshairs -->
+                            <g stroke="rgba(255,255,255,0.3)" stroke-width="0.75">
+                                <line x1="16" y1="200" x2="28" y2="200" stroke="#38bdf8" stroke-width="1.25" />
+                                <line x1="372" y1="200" x2="384" y2="200" stroke="#38bdf8" stroke-width="1.25" />
+                                <line x1="200" y1="16" x2="200" y2="28" stroke="#38bdf8" stroke-width="1.25" />
+                                <line x1="200" y1="372" x2="200" y2="384" stroke="#38bdf8" stroke-width="1.25" />
+                            </g>
+
+                            <!-- Tactical HUD Meta Typography -->
+                            <text x="68" y="42" fill="rgba(56,189,248,0.75)" font-family="monospace" font-size="7.5" font-weight="bold" letter-spacing="1.5">SYS.LKH // APEX</text>
+                            <text x="332" y="42" text-anchor="end" fill="rgba(255,255,255,0.45)" font-family="monospace" font-size="7.5" letter-spacing="1">10.77°N 106.70°E</text>
+
+                            <!-- 2. ULTRA-THIN CONCENTRIC PRECISION ORBITAL RINGS & TICKS -->
+                            <circle cx="200" cy="200" r="172" fill="none" stroke="rgba(56, 189, 248, 0.22)" stroke-width="0.75" />
+
+                            <!-- Micro-Tick Ring (Every 30 degrees) -->
+                            <g stroke="rgba(255,255,255,0.35)" stroke-width="0.75">
+                                <line x1="200" y1="23" x2="200" y2="29" stroke="#38bdf8" stroke-width="1.25" />
+                                <line x1="200" y1="371" x2="200" y2="377" stroke="#38bdf8" stroke-width="1.25" />
+                                <line x1="23" y1="200" x2="29" y2="200" stroke="#38bdf8" stroke-width="1.25" />
+                                <line x1="371" y1="200" x2="377" y2="200" stroke="#38bdf8" stroke-width="1.25" />
+
+                                <line x1="286" y1="51" x2="283" y2="56" />
+                                <line x1="349" y1="114" x2="344" y2="117" />
+                                <line x1="349" y1="286" x2="344" y2="283" />
+                                <line x1="286" y1="349" x2="283" y2="344" />
+                                <line x1="114" y1="349" x2="117" y2="344" />
+                                <line x1="51" y1="286" x2="56" y2="283" />
+                                <line x1="51" y1="114" x2="56" y2="117" />
+                                <line x1="114" y1="51" x2="117" y2="56" />
+                            </g>
+
+                            <!-- Slow Secondary Counter-Rotating Dotted Ring -->
+                            <g class="anim-orbit-secondary">
+                                <circle cx="200" cy="200" r="166" fill="none" stroke="rgba(192, 132, 252, 0.4)" stroke-width="0.75" stroke-dasharray="3 8" />
+                                <circle cx="200" cy="34" r="2" fill="#c084fc" filter="url(#lkh-laser-bloom)" />
+                                <circle cx="200" cy="366" r="2" fill="#38bdf8" filter="url(#lkh-laser-bloom)" />
+                            </g>
+
+                            <!-- 3. MACHINED TITANIUM DOUBLE-BEZEL (Thin & Refined 14px Groove) -->
+                            <circle cx="200" cy="200" r="154" fill="none" stroke="url(#lkh-bezel-metallic)" stroke-width="14" />
+                            <circle cx="200" cy="200" r="161" fill="none" stroke="rgba(56, 189, 248, 0.3)" stroke-width="0.75" />
+                            <circle cx="200" cy="200" r="147" fill="none" stroke="rgba(255, 255, 255, 0.4)" stroke-width="0.75" />
+
+                            <!-- 4. CENTRAL PHOTO APERTURE (High-Res Portait of Huy) -->
+                            <g clip-path="url(#lkh-avatar-clip)">
+                                <image href="assets/huy/huy_bridge_square_1x1.png" x="58" y="58" width="284" height="284" preserveAspectRatio="xMidYMid slice" />
+                                <circle cx="200" cy="200" r="142" fill="none" stroke="rgba(0,0,0,0.55)" stroke-width="8" />
+                                <circle cx="200" cy="200" r="142" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1" />
+                            </g>
+
+                            <!-- 5. SILKY-SMOOTH ORBITAL PHOTON COMET (Primary Electric Cyan Beam) -->
+                            <g class="anim-orbit-primary">
+                                <!-- Smooth Tapered Plasma Tail Arc (65-degree sweep along r=154) -->
+                                <path d="M 60,135 A 154 154 0 0 1 200,46" 
+                                      fill="none" 
+                                      stroke="url(#lkh-primary-comet)" 
+                                      stroke-width="2.25" 
+                                      stroke-linecap="round" />
+
+                                <!-- Wide Soft Starlight Halo Tail -->
+                                <path d="M 85,118 A 154 154 0 0 1 200,46" 
+                                      fill="none" 
+                                      stroke="#38bdf8" 
+                                      stroke-width="5" 
+                                      stroke-opacity="0.3" 
+                                      stroke-linecap="round" 
+                                      filter="url(#lkh-laser-bloom)" />
+
+                                <!-- Brilliant White Photon Star Head (At 200, 46) -->
+                                <g transform="translate(200, 46)">
+                                    <circle cx="0" cy="0" r="10" fill="#38bdf8" opacity="0.4" filter="url(#lkh-laser-bloom)" />
+                                    <circle cx="0" cy="0" r="5" fill="#a855f7" opacity="0.6" />
+                                    <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+                                    <line x1="-9" y1="0" x2="9" y2="0" stroke="#ffffff" stroke-width="1.25" opacity="0.9" />
+                                    <line x1="0" y1="-9" x2="0" y2="9" stroke="#ffffff" stroke-width="1.25" opacity="0.9" />
+                                    <line x1="-4" y1="-4" x2="4" y2="4" stroke="rgba(56,189,248,0.8)" stroke-width="0.75" />
+                                    <line x1="-4" y1="4" x2="4" y2="-4" stroke="rgba(56,189,248,0.8)" stroke-width="0.75" />
+                                </g>
+                            </g>
+
+                            <!-- 6. SECONDARY COUNTER-ORBITAL AMETHYST COMET -->
+                            <g class="anim-orbit-secondary">
+                                <path d="M 309,91 A 154 154 0 0 0 200,46" 
+                                      fill="none" 
+                                      stroke="url(#lkh-secondary-comet)" 
+                                      stroke-width="1.75" 
+                                      stroke-linecap="round" />
+                                <g transform="translate(200, 46)">
+                                    <circle cx="0" cy="0" r="7" fill="#c084fc" opacity="0.35" filter="url(#lkh-laser-bloom)" />
+                                    <circle cx="0" cy="0" r="2" fill="#ffffff" />
+                                </g>
+                            </g>
+
+                            <!-- 7. STATUS BADGE: UPRIGHT, BALANCED, MINIMALIST (Top Center) -->
+                            <g transform="translate(200, 46)">
+                                <!-- Dark Glass Pill Container -->
+                                <rect x="-60" y="-12" width="120" height="24" rx="12" 
+                                      fill="rgba(8, 12, 22, 0.94)" 
+                                      stroke="rgba(255, 255, 255, 0.2)" 
+                                      stroke-width="1" 
+                                      filter="drop-shadow(0 4px 14px rgba(0,0,0,0.85))" />
+                                
+                                <!-- Inner Delicate Cyan Accent Rim -->
+                                <rect x="-59" y="-11" width="118" height="22" rx="11" 
+                                      fill="none" 
+                                      stroke="rgba(56, 189, 248, 0.3)" 
+                                      stroke-width="0.75" />
+
+                                <!-- Left Pulsing Emerald Beacon -->
+                                <g class="anim-pulse-led">
+                                    <circle cx="-42" cy="0" r="3.5" fill="#10b981" />
+                                    <circle cx="-42" cy="0" r="1.5" fill="#ffffff" />
+                                </g>
+
+                                <!-- Status Typography (Centered, Crisp Monospace) -->
+                                <text x="-24" y="3.5" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="bold" letter-spacing="2">ONLINE</text>
+                                
+                                <!-- Right Micro Status Dot -->
+                                <circle cx="42" cy="0" r="2" fill="rgba(56,189,248,0.85)" />
+                            </g>
+
+                            <!-- 8. BOTTOM TELEMETRY & CHEVRONS (6 o'clock - Upright & Centered) -->
+                            <g transform="translate(200, 360)">
+                                <g stroke="rgba(56, 189, 248, 0.85)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M -16,-4 L -20,0 L -16,4" />
+                                    <path d="M -8,-4 L -12,0 L -8,4" />
+                                    <path d="M 0,-4 L -4,0 L 0,4" />
+                                    <path d="M 8,-4 L 4,0 L 8,4" />
+                                    <path d="M 16,-4 L 12,0 L 16,4" />
+                                </g>
+                                <text x="0" y="17" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="7" font-weight="bold" letter-spacing="1.2">SYS.READY // FOR HIRE</text>
+                            </g>
+                        </svg>
 
                         <!-- Ultra-Minimal Audio Trigger Spark at Top Right -->
                         <button onclick="playEngineStartSound()"
-                                class="absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-black/70 hover:bg-white/20 border border-white/20 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-all text-purple-200 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.7)] cursor-pointer"
+                                class="absolute -top-2 -right-2 z-20 w-7 h-7 rounded-full bg-black/80 hover:bg-cyan-500/20 border border-white/20 hover:border-cyan-400/50 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-all text-cyan-300 hover:text-white group/snd shadow-[0_4px_16px_rgba(0,0,0,0.8)] cursor-pointer"
                                 title="Play V12 Engine Ignition">
-                            <svg class="w-3.5 h-3.5 text-purple-200 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="w-3.5 h-3.5 text-cyan-300 group-hover/snd:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                 <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                                 <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
